@@ -1,0 +1,92 @@
+// Named as they are in RHRE.
+// For the endless bouncing, call btsShootFromLeft/Right at the same time as
+// the "Prepare and Shoot" cue in RHRE.
+
+bts8bounces:
+    async_sub 0x5C
+    rest 0x30 * 4
+    async_sub 0x7F
+stop
+
+bts5bounces:
+    async_sub 0x5F
+stop
+
+bts3bounces:
+    async_sub 0x75
+stop
+
+bts6bounces:
+    async_sub 0x5C
+    rest 0x30 * 3
+    kill_sub 0x5C
+    async_sub 0x75
+stop
+
+bts15bounces:
+    async_sub 0x59
+    rest 0x30 * 4
+    async_sub 0x5A
+    rest 0x30 * 4
+    async_sub 0x5B
+    rest 0x30 * 4
+    async_sub 0x75
+stop
+
+btsShootFromLeft:
+    kill_loc btsEndlessBounceFromRight
+    kill_loc btsEndlessBounceFromLeft
+    kill_sub 0x59
+    async_sub 0x75
+stop
+
+btsShootFromRight:
+    kill_loc btsEndlessBounceFromRight
+    kill_loc btsEndlessBounceFromLeft
+    kill_sub 0x59
+    async_sub 0x77
+stop
+
+btsEndlessBounceFromRight:
+    label 0xB025
+    async_sub 0x5C
+    rest 0x30 * 4
+    0x101 1, 2
+    0x102 1, 2, 0, 0, 0
+    rest 0x30
+    0x101 2, 3
+    0x102 2, 3, 0, 0, 0
+    rest 0x30
+goto 0xB025
+
+btsEndlessBounceFromLeft:
+    label 0xB025
+    async_sub 0x59
+    rest 0x30 * 4
+    0x101 2, 1
+    0x102 2, 1, 0, 0, 0
+    rest 0x30
+    0x101 1, 0
+    0x102 1, 0, 0, 0, 0
+    rest 0x30
+goto 0xB025
+
+btsRodDispenceRight:
+0x101 -1, 3
+0x102 -1, 3, 0, 0, 0
+0x101<1>
+stop
+
+btsRodDispenceLeft:
+0x101 -1, 0
+0x102 -1, 0, 0, 0, 0
+0x101<1>
+stop
+
+btsRodAppearLeft:
+0x102 -1, 0, 0, 0, 0
+stop
+
+btsRodAppearRight:
+0x102 -1, 3, 0, 0, 0
+stop

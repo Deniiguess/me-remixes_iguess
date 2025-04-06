@@ -1,0 +1,170 @@
+karatebeat: // karate man
+0x102
+0x102<2> 1
+0x104 0
+rest 0x30
+async_call karatebeat
+stop
+
+doublebeat: // double date
+0x102
+0x103
+0x104
+rest 0x30
+async_call doublebeat
+stop
+
+catchybeat: // catchy tune
+0x102 0
+0x102 1
+rest 0x30
+async_call catchybeat
+stop
+
+samuraibeat: // super samurai slice
+0x101
+rest 0x30
+async_call samuraibeat
+stop
+
+tapbeat: // tap trial
+0x101
+rest 0x30
+async_call tapbeat
+stop
+
+fruitbeat: // fruit basket
+0x102
+rest 0x30
+async_call fruitbeat
+stop
+
+MONKEYbeat: // hole in one
+0x101<1> 2
+label 0x139
+0x104<2>
+0x103<4>
+0x102<1>
+rest 0x30
+goto 0x139
+stop
+
+freezebeat: // freeze frame
+0x101 1
+rest 0x30
+0x101 0
+rest 0x30
+async_call freezebeat
+stop
+
+sickbeat: // sick beats
+0x107
+rest 0x30
+async_call sickbeat
+stop
+
+rallybeat: // rhythm rally
+0x104 0
+0x104 1
+rest 0x30
+async_call rallybeat
+stop
+
+drumbeat: // mii drumming game
+0x103<1> 0
+0x103<1> 1
+0x103<1> 2
+rest 0x30
+async_call drumbeat
+stop
+
+monkbeat: // munchy monk
+0x101
+rest 0x30
+async_call monkbeat
+stop
+
+dogbeat: // dog ninja
+0x101
+rest 0x30
+async_call dogbeat
+stop
+
+samuraiwiibeat: // samurai slice
+0x101
+rest 0x30
+async_call samuraiwiibeat
+stop
+
+lumbearbeat: // lumBEARjack
+0x101
+0x102
+0x103
+rest 0x30
+async_call lumbearbeat
+stop
+
+spacebeat: // space dance
+0x101<0>
+0x101<1>
+0x101<2>
+0x101<3>
+0x108
+rest 0x30
+async_call spacebeat
+stop
+
+boardbeat: // board meeting
+0x105
+0x102<0>
+rest 0x30
+async_call boardbeat
+stop
+
+figurebeat: // figure fighter
+0x10B 1
+rest 0x18
+async_call figurebeat2
+stop
+
+figurebeat2:
+0x10B<1> 0
+rest 0x30
+async_call figurebeat2
+stop
+
+figurebeatno: // figure fighter no rest
+0x10B 1
+async_call figurebeat2
+stop
+
+quizCheck:
+    0x102<3>
+    if 1
+        play_sfx 0x1000B8E
+        play_sfx 0x1000B90
+        0x100<3>
+        0x101<5>
+    else
+        play_sfx 0x1000B8F
+        play_sfx 0x10002B6
+        0x100<4>
+        0x101<6>
+    endif
+stop
+
+skillstar:
+0x98 1, 1
+async_sub 0x52, 0xB4, 0
+async_sub 0x4B, 0xCC, 0
+star 0xC0
+stop
+
+countin3go:
+set_cat 0
+rest 0x30
+rest 0x18
+play_sfx 0x10002E1
+rest 0x30
+play_sfx 0x10002E7
+stop

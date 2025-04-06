@@ -1,0 +1,2 @@
+java -jar tickompiler.jar c aaa bbb
+java -jar tickompiler.jar p bbb base.bin
