@@ -26,6 +26,7 @@ engine 0x19
 sub 4
 0x29<2> 
 call tempoAndMusicGrp
+// speed 0xC00 // remove this later, update: its removed
 rest 3
 async_call shootemup
 rest 0x30 * 4	
@@ -115,11 +116,14 @@ sub 4
 async_call replacetokarateman
 async_call fillbots
 rest 0x10	
+// speed 0x100 // remove this later, update: its removed
 rest 0x30 * 4	
 rest 0x30 * 4	
 rest 0x30 * 4	
 rest 0x30 * 2
 rest 0x20	
+
+// rest 3 // remove this later, update: its removed
 
 call changeEngine
 engine 0x28
@@ -127,7 +131,7 @@ sub 4
 0x29<2> 
 async_call replacetocatchytune2
 async_call karateman
-rest 0x10	
+rest 0x10
 rest 0x30 * 4	
 rest 0x30 * 4	
 rest 0x30 * 4	
@@ -702,10 +706,9 @@ rest 0x30
 0x10D 0
 0x109 0
 async_call combo
-rest 0x18
-async_sub 0x52, 0xB0, 0
-async_sub 0x4B, 0xC8, 0
-star 0xC0
+star 0xD8
+async_sub 0x52, 0x60, 0
+async_sub 0x4B, 0x120, 0
 stop 
 
 karateman2:
