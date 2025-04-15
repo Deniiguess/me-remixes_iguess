@@ -1,0 +1,1890 @@
+// Rhythm Heaven Megamix Remix Tickflow Template
+// Created by EpicHaxGuy
+// Edited by TheAlternateDoctor (TheAlternateDoctor#5182), feel free to ping or DM me if you're stuck!
+// v2.0, updated March 27th, 2023
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+#include beat/beatanims.tickflow
+#include docs-tickflow/marchingOrders.tickflow
+
+#index 0x4E
+
+prologueId=0x66
+epilogueId=0x4E
+
+tempoId=0x1000195
+
+gameplay:
+
+call changeEngine
+engine 5
+sub 4
+0x29<2> 
+call tempoAndMusicGrp
+async_call marcher
+rest 0x30 * 4	
+rest 0x30 * 4	
+rest 0x30 * 4	
+rest 0x30 * 4
+rest 0x30 * 4
+rest 0x30 * 6
+rest 0x20	
+
+call changeEngine
+engine 0x28
+sub 4
+0x29<2> 
+async_call karateman
+rest 0x10	
+rest 0x30 * 4	
+rest 0x30	
+rest 0x20	
+
+call changeEngine
+engine 0xB
+sub 4
+0x29<2> 
+async_call spacedance
+rest 0x10	
+rest 0x30 * 4		
+rest 0x20	
+
+call changeEngine
+engine 0x3B
+sub 4
+0x29<2> 
+async_call catchytune
+rest 0x10	
+rest 0x30 * 4	
+rest 0x30 * 4	
+rest 0x30 * 4	
+rest 0x30 * 4
+rest 0x20	
+
+call changeEngine
+engine 0x28
+sub 4
+0x29<2> 
+async_call replacetorhythmtweezers
+async_call karateman2
+rest 0x10	
+rest 0x30 * 4	
+rest 0x30	
+rest 0x20	
+
+call changeEngine
+engine 3
+sub 4
+0x29<2> 
+async_call replacetosamuraislice
+async_call rhythmtweezers
+rest 0x10	
+rest 0x30 * 4	
+rest 0x30 * 4	
+rest 0x30 * 3
+rest 0x20	
+
+call changeEngine
+engine 0x37
+sub 4
+0x29<2> 
+async_call replacetopowercalligraphy
+async_call samuraislice
+rest 0x10	
+rest 0x30 * 4		
+rest 0x30 * 5
+rest 0x20	
+
+call changeEngine
+engine 0xA
+sub 4
+0x29<2> 
+async_call powercalligraphy
+rest 0x10	
+rest 0x30 * 4		
+rest 0x30 * 3
+rest 3
+rest 0x20	
+
+call changeEngine
+engine 0x37
+sub 4
+0x29<2> 
+async_call replacetoclappytrio
+async_call samuraislice2
+rest 0x10	
+rest 0x30 * 4		
+rest 0x30 * 4
+rest 0x30 * 4
+rest 0x30 * 3
+rest 0x20	
+
+call changeEngine
+engine 1
+sub 4
+0x29<2> 
+async_call replacetomarcher
+async_call clappytrio
+rest 0x10	
+rest 0x30 * 4		
+rest 0x30 * 4
+rest 0x30 * 4
+rest 0x30 * 4		
+rest 0x30 * 4
+rest 0x30 * 4
+rest 0x30 * 4
+rest 0x30 * 3
+async_call marchStart
+rest 0x20
+
+call changeEngine
+engine 5
+sub 4
+0x29<2> 
+async_call replacetotaptrial
+async_call marcher2
+rest 0x10	
+rest 0x30 * 4	
+rest 0x30 * 4	
+rest 0x30 * 3
+rest 0x20
+
+call changeEngine
+engine 0xC
+sub 4
+0x29<2> 
+async_call replacetosneakyspirits
+async_call taptrial
+rest 0x10		
+rest 0x30 * 3
+rest 0x20
+
+call changeEngine
+engine 2
+sub 4
+0x29<2> 
+async_call replacetonightwalk
+async_call sneakyspirits
+rest 0x10	
+rest 0x30 * 4		
+rest 0x30 * 4
+rest 0x30 * 4
+rest 0x30 * 3
+rest 0x20	
+
+call changeEngine
+engine 6
+sub 4
+0x29<2> 
+async_call replacetokarateman
+async_call nightwalk
+rest 0x10	
+rest 0x30 * 4	
+rest 0x30 * 4	
+rest 0x30 * 3
+rest 0x20
+
+call changeEngine
+engine 0x28
+sub 4
+0x29<2> 
+async_call replacetocosmicdance
+async_call karateman3
+rest 0x10	
+rest 0x30 * 4	
+rest 0x30 * 4	
+rest 0x30 * 3
+rest 0x20
+
+call changeEngine
+engine 0xB
+sub 4
+0x29<2> 
+async_call replacetofruitbasket
+async_call cosmicdance
+rest 0x10	
+rest 0x30 * 4	
+rest 0x30 * 3
+rest 0x20
+
+call changeEngine
+engine 0x38
+sub 4
+0x29<2> 
+async_call replacetoboardmeeting
+async_call fruitbasket
+rest 0x10	
+rest 0x30 * 13
+rest 0x20
+
+call changeEngine
+engine 0x2F
+sub 4
+0x29<2> 
+async_call replacetospaceball
+async_call boardmeeting
+rest 0x10	
+rest 0x30 * 4	
+rest 0x20
+rest 6
+
+call changeEngine
+engine 0
+sub 4
+0x29<2>
+async_call replacetoclappytrio 
+async_call spaceball
+rest 0x10		
+rest 0x30 * 2
+rest 0x18
+rest 0xC
+rest 6
+rest 0x20
+
+call changeEngine
+engine 1
+sub 4
+0x29<2> 
+async_call clappytrio2
+rest 0x10		
+rest 0x30 * 3
+rest 6
+rest 0x20
+
+call changeEngine
+engine 0
+sub 4
+0x29<2> 
+async_call replacetotaptrial2
+async_call spaceball2
+rest 0x10		
+rest 0x30 * 4
+rest 0x20
+
+call changeEngine
+engine 0xC
+sub 4
+0x29<2> 
+async_call replacetosickbeats
+async_call taptrial2
+rest 0x10	
+rest 0x30 * 4	
+rest 0x30 * 4	
+rest 0x30 * 4
+rest 0x30 * 3
+rest 0x20
+
+call changeEngine
+engine 0x40
+sub 4
+0x29<2> 
+async_call replacetotaptrial
+async_call sickbeats
+rest 0x10	
+rest 0x30 * 4	
+rest 0x30 * 3
+rest 0x20
+
+call changeEngine
+engine 0xC
+sub 4
+0x29<2> 
+async_call replacetospacedance
+async_call taptrial3
+rest 0x10	
+rest 0x30 * 3
+rest 0x30 * 3
+rest 0x20
+
+call changeEngine
+engine 0xB
+sub 4
+0x29<2> 
+async_call replacetobunnyhop
+async_call spacedance2
+rest 0x10	
+rest 0x30
+rest 3
+rest 0x20
+
+call changeEngine
+engine 8
+sub 4
+0x29<2> 
+async_call bunnyhop
+rest 0x10	
+rest 0x30 * 4	
+rest 0x30 * 4	
+rest 0x30 * 3
+rest 0x20
+
+0x7C 7, 1, 0x28
+rest 0x30 * 4
+play_sfx 0x100029F
+0x8C 1
+call unload
+0x2D 0
+sub 0xB
+stop 
+
+marcher:
+	0x8F 3
+	fade<1> 7, 1, 0x30
+	rest 0x30 * 2	
+	input 1
+	async_sub 0x53
+rest 3
+async_call marchStart
+rest 0xC0 + 0x30
+async_sub 0x54
+async_sub 0x55
+0x104<1>
+0x104<2>
+0x104<3>
+async_call march
+rest 0x30
+async_call march
+rest 0x30
+async_call march
+rest 0x30
+async_call march
+rest 0x30
+async_call march
+rest 0x30
+async_call march
+rest 0x30
+async_call march
+rest 0x30
+async_call march
+rest 0x30
+async_call rightFace
+async_call march
+rest 0x30
+async_call march
+rest 0x30
+async_call march
+rest 0x30
+async_call march
+rest 0x30
+async_call rightFaceQuick
+async_call march
+rest 0x30
+async_call march
+rest 0x30
+async_call march
+rest 0x30
+async_call halt
+async_call march
+rest 0x30
+async_call march
+rest 0x30
+async_call march
+rest 0x30
+stop
+
+karateman:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 1
+rest 3
+async_call karatebeat
+rest 0x90
+0x100 0
+rest 0x30
+kill_loc karatebeat
+stop 
+
+spacedance:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 1
+rest 3
+setrest 0, 0x18
+setrest 1, 0x18
+rest 0x30
+async_sub 0x59
+0x10C
+rest 0x30
+0x109
+stop 
+
+catchytune:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 1
+rest 3
+async_call catchybeat
+0x100 0, 0, 0x30, 0
+rest 0xC0
+0x100 0, 1, 0x30, 0
+rest 0xC0
+0x100 0, 0, 0x30, 0
+0x100 0, 1, 0x30, 0
+rest 0x60
+0x100 0, 0, 0x30, 0
+0x100 0, 1, 0x30, 0
+rest 0x60
+0x100 0, 0, 0x30, 0
+0x100 0, 1, 0x30, 0
+rest 0x60
+stop 
+
+karateman2:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 1
+rest 3
+async_call karatebeat
+rest 0x60
+0x100 0
+stop 
+
+rhythmtweezers:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 0
+rest 3
+rest 0x60
+0x101 
+0x100 0
+rest 0x30
+0x100 0
+rest 0x30
+0x102
+0x100 0
+rest 0x30
+input 1
+0x100 3
+rest 0x30
+rest 0xC0 + 0x30
+input 0
+stop
+
+samuraislice:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 0, 0x60
+	input 1
+rest 3
+async_call samuraibeat
+rest 0xC0
+rest 0x60
+async_sub 0x56
+stop 
+
+powercalligraphy:
+	0x8F 3
+	rest 0x10	
+	input 1
+rest 3
+fade<1> 1, 1, 1
+sub 0x57
+stop 
+
+samuraislice2:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 1
+async_call samuraibeat
+rest 0xC0
+fade 1, 0, 0xC0 + 0x30
+rest 0xC0
+rest 0x60
+async_sub 0x5A
+async_sub 0x5B
+rest 0x60
+fade<1> 1, 1, 1
+stop 
+
+clappytrio:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 1
+0x78 1, 0xFF, 0xFF, 0xFF // sets color
+0x77 1, 0xFF // sets transparency
+0x105<2> 0x503122
+0x101 0
+rest 0x30
+0x101 0
+rest 0x30
+0x101 1
+rest 0x30
+0x102<0>
+rest 0x30
+async_sub 0x57
+rest 0xC0
+0x101 0
+rest 0x30
+0x101 0
+rest 0x30
+0x101 1
+rest 0x30
+0x102<0>
+rest 0x30
+async_sub 0x57
+rest 0xC0
+0x101 0
+rest 0x30
+0x101 0
+rest 0x30
+0x101 1
+rest 0x30
+0x102<1>
+rest 0x30
+async_sub 0x5B
+rest 0x30
+rest 0x18
+0x76 1, 1 // toggles
+rest 6
+// 0x76 1, 1 // toggles
+0x77 1, 0x60 // sets transparency
+0x78 1, 0x80, 0x80, 0x80 // sets color
+rest 0xC
+rest 6
+rest 0x60
+0x7B<1> 1, 0, 0xC
+0x104 1
+0x101 0
+rest 0x30
+0x76 1, 0 // removes
+0x101 0
+rest 0x30
+0x104 0
+0x101 1
+rest 0x30
+0x102<1>
+rest 0x30
+async_sub 0x5B
+rest 0xC0
+stop 
+
+marcher2:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 1
+rest 0xC0
+0x104<1>
+0x104<2>
+0x104<3>
+async_call march
+rest 0x30
+async_call march
+rest 0x30
+async_call march
+rest 0x30
+async_call halt
+async_call march
+rest 0x30
+async_call march
+rest 0x30
+async_call march
+rest 0x30
+stop 
+
+taptrial:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 1
+async_call tapbeat
+rest 0x60
+kill_loc tapbeat
+sub 0x56
+stop 
+
+sneakyspirits:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 1
+0x101<1> 0xFA, 0x60
+0x107<1> 0
+rest 0xC0
+rest 0x60
+async_call count
+sub 0x61
+stop 
+
+count:
+rest 0x18
+rest 0xC0
+play_sfx 0x10002E3	
+stop
+
+nightwalk:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 0
+0x102<0>
+0x101 1
+0x100 0xC0, 0
+0x100 0x30 * 5, 1
+0x100 0x30 * 6, 0
+0x100 0x30 * 7, 1
+0x101 0
+0x100 0x30 * 8, 0
+0x101 1
+0x100 0x30 * 9, 1
+0x100 0x30 * 10, 0
+0x101 0
+0x100 0x30 * 11, 1
+0x100 0x30 * 12, 0
+0x100 0x30 * 13, 1
+0x100 0x30 * 14, 0
+0x100 0x30 * 15, 1
+0x100 0x30 * 16, 0
+0x100 0x30 * 17, 1
+0x100 0x30 * 18, 0
+0x100 0x30 * 19, 1
+0x100 0x30 * 20, 0
+0x100 0x30 * 21, 1
+0x100 0x30 * 22, 0
+0x103
+play_sfx 0x1000291
+0x103<1> 0
+0x103<1> 1
+rest 0x30
+play_sfx 0x1000291
+0x103<1> 3
+0x103<1> 2
+rest 0x30
+play_sfx 0x1000291
+0x103<1> 4
+rest 0x30
+play_sfx 0x1000291
+0x103<1> 5
+rest 0x20
+input 1
+rest 0x10
+0x103<1> 6
+rest 0x90
+rest 0x18
+input 0
+rest 0x30
+input 1
+rest 0x60
+input 0
+stop 
+
+karateman3:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 1
+async_call karatebeat
+rest 3
+rest 0xC0
+0x100 0
+rest 0x60
+0x100 0
+rest 0x60
+0x100 0
+rest 0x60
+0x100 5
+rest 0x60
+stop 
+
+cosmicdance:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 1
+setrest 0, 0x20
+setrest 1, 0x10
+async_call spacebeat
+rest 0xC0
+kill_loc spacebeat
+async_sub 0x56
+async_sub 0x5F
+stop 
+
+fruitbasket:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 1
+async_call fruitbeat
+unrest 0x60
+rest 3
+rest 0xC0
+async_sub 0x57
+rest 0xC0
+rest 0x60
+async_sub 0x5B
+stop 
+
+boardmeeting:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 1
+async_call boardbeat
+0x103 0
+0x102<1>
+rest 0x30
+0x102<2>
+rest 0x30
+0x100 0x60, 0
+0x101<3> 0
+rest 0x21
+0x101<3> 1
+rest 0x20
+0x101<3> 2
+stop
+
+spaceball:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 1
+0x102<0> 2, 0
+0x102<1> 4, 0xC
+rest 0x30
+0x100 0x30, 0
+stop 
+
+clappytrio2:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 1
+0x105<2> 0x503122
+rest 9
+rest 0x30
+0x102<1>
+rest 0x18
+async_call clap24
+stop 
+
+spaceball2:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 1
+0x102<0> 2, 0
+0x102<1> 4, 0xC
+rest 0x30
+0x100 0x30, 0
+rest 0x90
+0x102<2> 11, 0x30
+stop 
+
+taptrial2:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 1
+async_call tapbeat
+rest 0xC0
+rest 0x30
+kill_loc tapbeat
+sub 0x57
+rest 0x30
+async_call tapbeat
+rest 0x60
+kill_loc tapbeat
+sub 0x56
+async_call tapbeat
+rest 0x30
+kill_loc tapbeat
+sub 0x57
+stop 
+
+sickbeats:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 1
+0xAF<6> 0
+async_call sickbeat
+unrest 0x60
+async_sub 0x5E
+stop 
+
+taptrial3:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 1
+sub 0x5B
+sub 0x58
+sub 0x5A
+stop 
+
+spacedance2:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 1
+setrest 0, 0x18
+setrest 1, 0x18
+async_sub 0x59
+0x10C
+rest 0x30
+0x109
+stop 
+
+bunnyhop:
+	0x8F 3
+	rest 0x10	
+	fade<1> 1, 1, 1
+	input 1
+0x101
+0x101<1> 0
+0x102<0>
+0x104 3
+0x103 0
+0x100 1, 0x90
+0x100 3, 0xC0
+0x100 0, 0x30 * 5
+0x100 6, 0x30 * 6
+rest 0x30
+0x101<1> 0
+rest 0x30
+0x101<1> 0
+rest 0xC0
+0x102<1>
+rest 0x30
+0x105
+stop
+
+clap24:
+0x103 0
+0x100 0x24
+rest 0x24
+0x103 1
+rest 0x24
+0x103 2
+rest 0x24
+stop 
+//-----------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+loadInitialGames:
+set_cellanim 2, u"rom:/cellanim/agbMarcher_v0.zlib", -1
+label 0x4D2
+cellanim_busy 2
+if 0
+	goto 0x10E1
+endif 
+rest 1
+goto 0x4D2
+label 0x10E1
+
+set_cellanim 3, u"rom:/cellanim/rvlKarate_1.zlib", -1
+label 0x929
+cellanim_busy 3
+if 0
+	goto 0x1538
+endif 
+rest 1
+goto 0x929
+label 0x1538
+
+set_cellanim 4, u"rom:/cellanim/agbSpaceDance_long.zlib", -1
+label 0xD80
+cellanim_busy 4
+if 0
+	goto 0x198F
+endif 
+rest 1
+goto 0xD80
+label 0x198F
+
+set_cellanim 5, u"rom:/cellanim/ctrStep_long.zlib", -1
+label 0x11D7
+cellanim_busy 5
+if 0
+	goto 0x1DE6
+endif 
+rest 1
+goto 0x11D7
+label 0x1DE6
+
+set_layout 5, u"rom:/layout/agbClap_long.zlib", -1
+label 0x22C5
+layout_busy 5
+if 0
+	goto 0x44A
+endif 
+rest 1
+goto 0x22C5
+label 0x44A
+
+set_layout 0x1E, u"rom:/layout/gate.zlib", -1
+label 0x9120
+layout_busy 0x1E
+if 0
+	goto 0x430
+endif 
+rest 1
+goto 0x9120
+label 0x430
+
+set_effect 5, u"rom:/effect/rvlKarate.zlib", -1
+label 0xFFF
+effect_busy 5
+if 0
+	goto 0x4444
+endif 
+rest 1
+goto 0xFFF
+label 0x4444
+
+0x83<1> 
+0xBB 
+if 0
+	0xBC 
+endif 
+sub 7
+0xBD 
+0x8C<2> 5
+
+set_sfx 1, u"GROUP_AGB_MARCH"
+rest 0xC	
+set_sfx 2, u"GROUP_KARATE"
+rest 0xC	
+set_sfx 3, u"GROUP_AGB_SPACE"
+rest 0xC	
+set_sfx 4, u"GROUP_STEP"
+rest 0xC
+set_sfx 5, u"MUSIC_GBA_REMIX_7"
+rest 0xC	
+sub 3
+0x83 0
+
+game_cellanim 5, 2
+game_cellanim 0x28, 3
+game_cellanim 0xB, 4
+game_cellanim 0x3B, 5
+game_effect 0x28, 5
+game_layout 1, 5
+
+0x2B 0x38, 0x10
+return 
+
+replacetorhythmtweezers:
+remove_cellanim 2
+rest 0xC
+set_cellanim 2, u"rom:/cellanim/agbHair_long.zlib", -1
+rest 0xC	
+
+remove_sfx 1
+rest 0xC	
+sub 3
+set_sfx 1, u"GROUP_AGB_HAIR"
+rest 0xC	
+
+game_cellanim 3, 2
+stop 
+
+replacetosamuraislice:
+remove_cellanim 3
+rest 0xC
+set_cellanim 3, u"rom:/cellanim/ctrDotSamurai_long.zlib", -1
+rest 0xC	
+
+remove_effect 5
+rest 0xC
+set_effect 5, u"rom:/effect/ctrDotSamurai.zlib", -1
+rest 0xC	
+
+remove_sfx 2
+rest 0xC	
+sub 3
+set_sfx 2, u"GROUP_IAI_NEW"
+rest 0xC	
+
+game_cellanim 0x37, 3
+game_effect 0x37, 5
+stop 
+
+replacetopowercalligraphy:
+remove_cellanim 4
+rest 0xC
+set_cellanim 4, u"rom:/cellanim/agbShuji_v0.zlib", -1
+rest 0xC	
+
+remove_sfx 3
+rest 0xC	
+sub 3
+set_sfx 3, u"GROUP_AGB_SHUJI"
+rest 0xC	
+
+game_cellanim 0xA, 4
+stop 
+
+replacetoclappytrio:
+remove_cellanim 5
+rest 0xC
+set_cellanim 5, u"rom:/cellanim/agbClap_long.zlib", -1
+rest 0xC	
+
+remove_layout 5
+rest 0xC
+set_layout 5, u"rom:/layout/agbClap_long.zlib", -1
+rest 0xC	
+
+remove_sfx 4
+rest 0xC	
+sub 3
+set_sfx 4, u"GROUP_AGB_PATI"
+rest 0xC	
+
+game_cellanim 1, 5
+game_layout 1, 5
+stop 
+
+replacetomarcher:
+remove_cellanim 2
+rest 0xC
+set_cellanim 2, u"rom:/cellanim/agbMarcher_remix7.zlib", -1
+rest 0xC	
+
+remove_sfx 1
+rest 0xC	
+sub 3
+set_sfx 1, u"GROUP_AGB_MARCH_RABBIT_EN"
+set_sfx 6, u"GROUP_AGB_MARCH_RABBIT_JP"
+rest 0xC	
+
+game_cellanim 5, 2
+stop 
+
+replacetotaptrial:
+remove_cellanim 3
+rest 0xC
+set_cellanim 3, u"rom:/cellanim/agbTap_remix8.zlib", -1
+rest 0xC	
+
+remove_effect 5
+rest 0xC
+set_effect 5, u"rom:/effect/agbTap.zlib", -1
+rest 0xC	
+
+remove_layout 5
+rest 0xC
+set_layout 5, u"rom:/layout/agbTap.zlib", -1
+rest 0xC	
+
+remove_sfx 2
+rest 0xC	
+sub 3
+set_sfx 2, u"GROUP_AGB_TAP"
+rest 0xC	
+
+game_cellanim 0xC, 3
+game_effect 0xC, 5
+game_layout 0xC, 5
+stop 
+
+replacetosneakyspirits:
+remove_cellanim 4
+rest 0xC
+set_cellanim 4, u"rom:/cellanim/agbGhost_long.zlib", -1
+rest 0xC	
+
+remove_sfx 3
+rest 0xC	
+sub 3
+set_sfx 3, u"GROUP_AGB_AIM"
+rest 0xC	
+
+game_cellanim 2, 4
+stop 
+
+replacetonightwalk:
+remove_cellanim 5
+rest 0xC
+set_cellanim 5, u"rom:/cellanim/agbNightWalk_v0.zlib", -1
+rest 0xC	
+
+remove_sfx 4
+rest 0xC	
+sub 3
+set_sfx 4, u"GROUP_AGB_NIGHT_WALK"
+rest 0xC	
+
+game_cellanim 6, 5
+stop 
+
+replacetokarateman:
+remove_cellanim 2
+rest 0xC
+set_cellanim 2, u"rom:/cellanim/rvlKarate_1.zlib", -1
+rest 0xC	
+
+remove_effect 5
+rest 0xC
+set_effect 5, u"rom:/effect/rvlKarate.zlib", -1
+rest 0xC	
+
+remove_sfx 1
+rest 0xC	
+sub 3
+set_sfx 1, u"GROUP_KARATE"
+rest 0xC	
+
+game_cellanim 0x28, 2
+game_effect 0x28, 5
+stop 
+
+replacetocosmicdance:
+remove_cellanim 3
+rest 0xC
+set_cellanim 3, u"rom:/cellanim/agbSpaceDance_arrange.zlib", -1
+rest 0xC	
+
+remove_sfx 2
+rest 0xC	
+sub 3
+set_sfx 2, u"GROUP_AGB_SPACE"
+rest 0xC	
+
+game_cellanim 0xB, 3
+stop 
+
+replacetofruitbasket:
+remove_cellanim 4
+rest 0xC
+set_cellanim 4, u"rom:/cellanim/ctrFruitbasket_long.zlib", -1
+rest 0xC	
+
+remove_effect 5
+rest 0xC
+set_effect 5, u"rom:/effect/ctrFruitbasket.zlib", -1
+rest 0xC	
+
+remove_sfx 3
+rest 0xC	
+sub 3
+set_sfx 3, u"GROUP_FRUITSBASKET"
+rest 0xC	
+
+game_cellanim 0x38, 4
+game_effect 0x38, 5
+stop 
+
+replacetoboardmeeting:
+remove_cellanim 2
+rest 0xC
+set_cellanim 2, u"rom:/cellanim/rvlRotation_long.zlib", -1
+rest 0xC	
+
+remove_sfx 1
+rest 0xC	
+sub 3
+set_sfx 1, u"GROUP_KURU_SHOW"
+rest 0xC	
+
+game_cellanim 0x2F, 2
+stop 
+
+replacetospaceball:
+remove_cellanim 3
+rest 0xC
+set_cellanim 3, u"rom:/cellanim/agbBatter_long.zlib", -1
+rest 0xC	
+
+remove_sfx 2
+rest 0xC	
+sub 3
+set_sfx 2, u"GROUP_AGB_BATTER"
+rest 0xC	
+
+game_cellanim 0, 3
+stop 
+
+replacetotaptrial2:
+remove_cellanim 4
+rest 0xC
+set_cellanim 4, u"rom:/cellanim/agbTap_remix7.zlib", -1
+rest 0xC	
+
+remove_effect 5
+rest 0xC
+set_effect 5, u"rom:/effect/agbTap.zlib", -1
+rest 0xC	
+
+remove_layout 5
+rest 0xC
+set_layout 5, u"rom:/layout/agbTap.zlib", -1
+rest 0xC	
+
+remove_sfx 3
+rest 0xC	
+sub 3
+set_sfx 3, u"GROUP_AGB_TAP_REMIX_7"
+rest 0xC	
+
+game_cellanim 0xC, 4
+game_effect 0xC, 5
+game_layout 0xC, 5
+stop 
+
+replacetosickbeats:
+remove_cellanim 5
+rest 0xC
+set_cellanim 5, u"rom:/cellanim/agbVirus_v0.zlib", -1
+rest 0xC	
+
+remove_sfx 4
+rest 0xC	
+sub 3
+set_sfx 4, u"GROUP_AGB_VIRUS"
+rest 0xC	
+
+game_cellanim 0x40, 5
+stop 
+
+replacetospacedance:
+remove_cellanim 4
+rest 0xC
+set_cellanim 4, u"rom:/cellanim/agbSpaceDance_long.zlib", -1
+rest 0xC	
+
+remove_sfx 3
+rest 0xC	
+sub 3
+set_sfx 3, u"GROUP_AGB_SPACE"
+rest 0xC	
+
+game_cellanim 0xB, 4
+stop 
+
+replacetobunnyhop:
+remove_cellanim 2
+rest 0xC
+set_cellanim 2, u"rom:/cellanim/agbRabbit_v0.zlib", -1
+rest 0xC	
+
+remove_effect 5
+rest 0xC
+set_effect 5, u"rom:/effect/agbRabbit.zlib", -1
+rest 0xC	
+
+remove_sfx 1
+rest 0xC	
+sub 3
+set_sfx 1, u"GROUP_AGB_RABBIT"
+rest 0xC	
+
+game_cellanim 8, 2
+game_effect 8, 5
+stop 
+//-----------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+tempoAndMusic:
+	rest 0x30	
+	0x4F tempoId
+	0x23 tempoId
+	speed 0x100
+	rest 0x30	
+	0xBA 
+	sub 1
+	0x88 
+	if 1
+		0x88<5> 
+	endif 
+	0x51 1
+	0x63 tempoId
+return 
+
+tempoAndMusicGrp:
+	rest 0x30   
+	0x53 tempoId
+	0x23 tempoId
+	speed 0x100
+	rest 0x30   
+	0xBA
+	sub 2
+	0x88
+	if 1
+		0x88<5>
+	endif
+	0x55 1
+return
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+start:	
+
+play_sfx 0x1000294
+rest 0xC	
+play_sfx 0x100029B
+0x2D 0
+0x8C 1
+
+0xA6 0
+
+0xA4 prologueId
+0xA8<1> epilogueId
+0xA8<4> epilogueId
+
+0x75<1> 
+if 0
+	0xA5 1
+	0xA4<2> 1
+	async_call prologue
+else
+	0xA6<1> 0
+	0x75 0
+endif 
+
+set_cat 0
+0x21 0x78
+speed 0x100
+input 0
+0x7C<3> 1
+if 0
+	0x7C 1, 0, 0x18
+endif 
+0x7C<3> 2
+if 0
+	0x7C 2, 0, 0x18
+endif 
+rest 0x18	
+sub 5
+
+
+
+call loadInitialGames
+rest 0xC	
+
+sub 9
+sub 6
+0x81 
+if 1
+	0x81 
+	if 1
+		0x84<1> 
+		label 0x321F
+		rest 0xC	
+		0x81 
+		if 1
+			0x84<2> 2
+			if 0
+				goto 0x321F
+			endif 
+		endif 
+	endif 
+	0x82 0x3E8
+	rest 0xC	
+	label 0x3DB
+	0x81 
+	if 1
+		0x82<1> 
+		if 0
+			rest 1
+			goto 0x3DB
+		endif 
+	endif 
+	rest_reset 
+endif 
+rest 0xC	
+0x88 
+if 1
+	0x8A<3> 1
+endif 
+0x2D 1
+
+0xB1 
+
+engine<4> 1
+
+async_call assets
+
+0x7C<1> 7, 1, 1
+fade 2, 1, 0
+
+0x8C 0
+0x8E 0
+0x8F 3
+input 0
+
+
+call gameplay
+
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+
+assets:
+set_cat 0
+0x92 3, 0x14
+0x93 3, 0x10, "remix_cp_RM_NRM_Hi", "remix_cp_RM_NRM_Ng"
+0x94 0, "result_common_Hi", "result_common_Ok", "result_common_Ng"
+
+0x92 4, 0x14
+0x93 4, 0x10, "remix_cp_RM_KEP_Hi", "remix_cp_RM_KEP_Ng"
+
+0x92 5, 0x14
+0x93 5, 0x10, "remix_cp_RM_AIM_Hi", "remix_cp_RM_AIM_Ng"
+
+0x92 6, 0x14
+0x93 6, 0x10, "remix_cp_RM_RPT_Hi", "remix_cp_RM_RPT_Ng"
+
+0x92 7, 0x14
+0x93 7, 0x10, "remix_cp_STAR_Hi", "remix_cp_STAR_Ng"
+
+0x95 0x10, "remix_caption"
+0x95 0x10, "remix_LED_caption"
+0x98 1, 1
+
+rest 0x30 * 2	
+0x88 
+if 1
+	0x88<1> 
+	if 1
+		0x88<2> 
+		switch 
+			case 1
+				0x8A<4> 1, 1
+				break 
+			case 2
+				0x8A<4> 1, 2
+				break 
+			case 3
+				0x8A<4> 1, 3
+				break 
+		endswitch 
+	endif 
+else
+	0xAB<3> 1
+	if 1
+		0xAC 0
+	else 
+		0xAD 0
+	endif 
+endif 
+stop 
+
+//-----------------------------------------------------------------------------------------------------------------------------------
+//-----------------------------------------------------------------------------------------------------------------------------------
+
+changeEngine:
+	0xAB<3> 1
+	if 1
+		0xAC<3> 
+		if 1
+			0xAC<4> 
+			if 1
+				stop 
+			endif 
+		endif 
+	endif 
+	0x89<6> 
+	if 1
+		0x8A<7> 
+		if 1
+			stop 
+		endif 
+	endif 
+	async_sub 0x12
+	async_sub 0x17
+	async_sub 0x1C
+	input 0
+	fade 1, 1, 1
+return 
+
+prologue:
+set_cat 0
+0x21 0x78
+speed 0x100
+0x7C<3> 1
+if 0
+	0x7C 1, 0, 0x18
+endif 
+0x7C<3> 2
+if 0
+	0x7C 2, 0, 0x18
+endif 
+rest 0xC	
+engine 0x49
+rest 0x18	
+sub 4
+0x81 
+if 1
+	0x84<1> 
+	label 0x300
+	rest 0xC	
+	0x81 
+	if 1
+		0x84<2> 0
+		if 0
+			goto 0x300
+		endif 
+	endif 
+endif 
+0xA4<2> 0
+rest 0x18	
+0x81 
+if 1
+	0x82 0x3E8
+	rest 0xC	
+	label 0x3DB
+	0x81 
+	if 1
+		0x82<1> 
+		if 0
+			rest 1
+			goto 0x3DB
+		endif 
+	endif 
+	rest_reset 
+endif 
+label 0xC8
+0x103 
+if 0
+	rest 6	
+	goto 0xC8
+endif 
+0x7C<1> 7, 1, 0
+fade<1> 7, 1, 0
+0x76 7, 0
+0x100 
+rest 0x18	
+0x88 
+if 0
+	0xAB<4> 
+	if 1
+		0xAB<1> 
+	endif 
+endif 
+0x102 
+label 0xC7
+0xA7 
+if 1
+	goto 0xC5
+endif 
+rest 0x18	
+0x102<1> 0x18
+0x101 
+switch 
+	case 0x3E
+	case 0x48
+	case 0x2B
+	case 0xFF
+		0x102<2> 
+		if_geq 0x2B8
+			goto 0xC6
+		endif 
+		break 
+	case 0x3D
+	case 0x3F
+	case 0x3C
+	case 0x47
+	case 0x4F
+	case 0x4E
+	case 0x4D
+	case 0x46
+	case 0x45
+	case 0x41
+	case 0x40
+	case 0x49
+	case 0x30
+		0x102<2> 
+		if_geq 0x228
+			goto 0xC6
+		endif 
+		break 
+	case 0x42
+	case 0x3A
+	case 0x3B
+	case 0x4A
+	case 0x50
+	case 0x4B
+	case 0x29
+	case 0x33
+		0x102<2> 
+		if_geq 0x258
+			goto 0xC6
+		endif 
+		break 
+	case 0x43
+		0x102<2> 
+		if_geq 0x1F8
+			goto 0xC6
+		endif 
+		break 
+	case 0x39
+		0x102<2> 
+		if_geq 0x1C8
+			goto 0xC6
+		endif 
+		break 
+	case 0x44
+	case 0x4C
+	case 0x2E
+		0x102<2> 
+		if_geq 0x288
+			goto 0xC6
+		endif 
+		break 
+	case 0x2C
+	case 0x37
+	case 0x38
+	case 0x31
+	case 0x32
+	case 0x36
+		0x102<2> 
+		if_geq 0x2E8
+			goto 0xC6
+		endif 
+		break 
+	case 0x35
+		0x102<2> 
+		if_geq 0x378
+			goto 0xC6
+		endif 
+		break 
+	case 0x2A
+		0x102<2> 
+		if_geq 0x318
+			goto 0xC6
+		endif 
+		break 
+	case 0x2D
+	case 0x2F
+		0x102<2> 
+		if_geq 0x348
+			goto 0xC6
+		endif 
+		break 
+	case 0x34
+		0x102<2> 
+		if_geq 0x3A8
+			goto 0xC6
+		endif 
+		break 
+	default 
+		0x102<2> 
+		if_geq 0x240
+			goto 0xC6
+		endif 
+		break 
+endswitch 
+goto 0xC7
+label 0xC6
+0xA7<3> 
+if 0
+	0xA6<1> 0
+endif 
+label 0xC5
+debug "TICKFLOW >>> 0000\n"
+0x7C 7, 1, 0
+debug "TICKFLOW >>> 0001\n"
+0x100<1> 
+rest 0x18	
+debug "TICKFLOW >>> 0002\n"
+0xA5 0
+0x81 
+if 1
+	0x8C<1> 1
+endif 
+debug "TICKFLOW >>> 0003\n"
+stop 
+
+unload:
+0x5F<1>
+0x62<1>
+0x35<2> 2
+if 1
+    remove_cellanim 2
+endif 
+0x35<2> 3
+if 1
+    remove_cellanim 3
+endif 
+0x35<2> 4
+if 1
+    remove_cellanim 4
+endif 
+0x35<2> 5
+if 1
+    remove_cellanim 5
+endif 
+0x35<2> 6
+if 1
+    remove_cellanim 6
+endif 
+0x35<2> 7
+if 1
+    remove_cellanim 7
+endif 
+0x35<2> 8
+if 1
+    remove_cellanim 8
+endif 
+0x35<2> 9
+if 1
+    remove_cellanim 9
+endif 
+0x35<2> 0xA
+if 1
+    remove_cellanim 0xA
+endif 
+0x35<2> 0xB
+if 1
+    remove_cellanim 0xB
+endif 
+0x35<2> 0xC
+if 1
+    remove_cellanim 0xC
+endif 
+0x35<2> 0xD
+if 1
+    remove_cellanim 0xD
+endif 
+0x35<2> 0xE
+if 1
+    remove_cellanim 0xE
+endif 
+rest 3
+0x3E<2> 4
+if 1
+    remove_layout 4
+endif 
+0x3E<2> 5
+if 1
+    remove_layout 5
+endif 
+0x3E<2> 6
+if 1
+    remove_layout 6
+endif 
+0x3E<2> 7
+if 1
+    remove_layout 7
+endif 
+0x3E<2> 8
+if 1
+    remove_layout 8
+endif 
+0x3E<2> 9
+if 1
+    remove_layout 9
+endif 
+0x3E<2> 0xA
+if 1
+    remove_layout 0xA
+endif 
+0x3E<2> 0xB
+if 1
+    remove_layout 0xB
+endif 
+0x3E<2> 0xC
+if 1
+    remove_layout 0xC
+endif 
+0x3E<2> 0xD
+if 1
+    remove_layout 0xD
+endif 
+0x3E<2> 0xE
+if 1
+    remove_layout 0xE
+endif 
+0x3E<2> 0xF
+if 1
+    remove_layout 0xF
+endif 
+0x3E<2> 0x10
+if 1
+    remove_layout 0x10
+endif 
+rest 3
+0x39<2> 2
+if 1
+    remove_effect 2
+endif 
+0x39<2> 3
+if 1
+    remove_effect 3
+endif 
+0x39<2> 4
+if 1
+    remove_effect 4
+endif 
+0x39<2> 5
+if 1
+    remove_effect 5
+endif 
+0x39<2> 6
+if 1
+    remove_effect 6
+endif 
+0x39<2> 7
+if 1
+    remove_effect 7
+endif 
+0x39<2> 8
+if 1
+    remove_effect 8
+endif 
+0x39<2> 9
+if 1
+    remove_effect 9
+endif 
+0x39<2> 0xA
+if 1
+    remove_effect 0xA
+endif 
+0x39<2> 0xB
+if 1
+    remove_effect 0xB
+endif 
+0x39<2> 0xC
+if 1
+    remove_effect 0xC
+endif 
+0x39<2> 0xD
+if 1
+    remove_effect 0xD
+endif 
+0x39<2> 0xE
+if 1
+    remove_effect 0xE
+endif 
+has_model 0
+if 1
+	remove_model 0
+endif
+has_model 1
+if 1
+	remove_model 1
+endif
+has_model 2
+if 1
+	remove_model 2
+endif
+has_model 3
+if 1
+	remove_model 3
+endif
+has_model 4
+if 1
+	remove_model 4
+endif
+has_model 5
+if 1
+	remove_model 5
+endif
+return 
+
+
+// Tuturu! Ohayo Okarin!

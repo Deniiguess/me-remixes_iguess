@@ -1,0 +1,57 @@
+//Warning! Most subs are synchronous, meaning you'll need to use call and not async_call!
+//For purple monkeys, call watchYellowToPurple immediately before watchPurple.
+
+templateMonkeyWatchStart: //This is post-switch setup, to run before the screen fades-in.
+0x101<1> 0x162  // Changes the position of the hand. Refer to Tox's docs to know the values for each minute.
+0x103 0, 1      // |
+0x103 1, 1      // |Makes the 4 first monkeys pop out of the doors.
+0x103 2, 1      // |Change the first value with whichever minute you want them to appear on.
+0x103 3, 1      // |
+
+rest 0xC
+fade<1> 1,0,1   // Finally, you unfade
+input 1
+
+// These depends on how you transition; they should happen one beat before the input.
+0x104 0         // The first monkey play the wait animation. Should be the same as for 0x103, for consistency.
+0x104<2>        // The next monkey in line plays the "ready" animation.
+0x100 0x30      // Input in a beat.
+stop
+
+watchCamera:
+    label 0xC70C
+    0x101<3> 0x18, 0x180
+    rest 0x180
+    0x101<3> 0x1E, 0x180
+    rest 0x180
+goto 0xC70C
+
+watchYellow:
+    0x104<1>
+    rest 0x30
+    0x104<2> 
+    0x100 0x30
+    rest 0x30
+return
+
+watchYellowToPurple:
+    0x104<1>
+    rest 0x30
+    0x104<2> 
+    0x100 0x30
+    async_sub 0x59
+    rest 0x30
+return
+
+watchPurple:
+    0x104<1>
+    rest 0x18
+    0x104<2> 
+    0x100 0x30
+    rest 0x18
+    0x104<1>
+    rest 0x18
+    0x104<2> 
+    0x100 0x30
+    rest 0x18
+return
