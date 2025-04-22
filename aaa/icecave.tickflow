@@ -770,7 +770,7 @@ rest 1
 goto 0x929
 label 0x1538
 
-set_cellanim 4, u"rom:/cellanim/ctrBear_long.zlib", -1
+set_cellanim 4, u"rom:/cellanim/ctrBear_hebe.zlib", -1
 label 0xD80
 cellanim_busy 4
 if 0
@@ -899,7 +899,7 @@ return
 replacetobluebear:
 remove_cellanim 4
 rest 0xC
-set_cellanim 4, u"rom:/cellanim/ctrBear_long.zlib", -1
+set_cellanim 4, u"rom:/cellanim/ctrBear_hebe.zlib", -1
 rest 0xC	
 
 remove_sfx 3
@@ -914,7 +914,7 @@ stop
 replacetobluebear2:
 remove_cellanim 5
 rest 0xC
-set_cellanim 5, u"rom:/cellanim/ctrBear_long.zlib", -1
+set_cellanim 5, u"rom:/cellanim/ctrBear_hebe.zlib", -1
 rest 0xC	
 
 remove_sfx 4
