@@ -9,7 +9,6 @@
 #include beat/beatanims.tickflow
 #include docs-tickflow/blueBear.tickflow
 #include docs-tickflow/flipperFlop.tickflow
-#include docs-tickflow/fillbots.tickflow
 #include docs-tickflow/karateMan.tickflow
 
 #index 0x2B
@@ -100,28 +99,30 @@ call changeEngine
 engine 0x34
 sub 4
 0x29<2> 
-async_call replacetofillbots2
+async_call replacetokitties2
 async_call bluebear2
 rest 0x10	
 rest 0x30 * 4	
 rest 0x30 * 4	
 rest 0x30 * 4	
 rest 0x30 * 3	
-rest 0x20	
+rest 0x20 - 0xC
+play_sfx 0x10010CC
+rest 0xC
 
 call changeEngine
-engine 0x18
+engine 0x3E
 sub 4
 0x29<2> 
 async_call replacetokarateman
-async_call fillbots
+async_call kitties
 rest 0x10	
 // speed 0x100 // remove this later, update: its removed
 rest 0x30 * 4	
 rest 0x30 * 4	
 rest 0x30 * 4	
 rest 0x30 * 2
-rest 0x20	
+rest 0x20
 
 // rest 3 // remove this later, update: its removed
 
@@ -668,16 +669,41 @@ rest 0x30
 async_call countInFF
 stop 
 
-fillbots:
+kitties:
 	0x8F 3
 	rest 0x10	
 	fade<1> 1, 1, 1
 	input 1
-async_call mediumRobotRemix
-rest 0xC0
-rest 0xC0
+0x101 4
+0x102<1> 2, 0
+rest 0x10
+play_sfx 0x10010CD
 rest 0x18
-async_call smallRobot
+0x102<1> 1, 0
+rest 8
+play_sfx 0x10010CE
+rest 0x18
+0x102<1> 0, 0
+rest 0x18
+0x100 0, 0x18
+0x100 1, 0x30
+rest 0x18
+0x102<2> 1
+play_sfx 0x10010CF
+rest 0x18
+0x102<2> 0
+rest 0x18
+async_sub 0x58
+rest 0x90
+rest 0x18
+rest 0xC
+0x102
+0x101 2
+rest 0xC
+async_sub 0x56
+rest 0x90
+rest 0x18
+async_sub 0x58
 stop 
 
 karateman:
@@ -685,7 +711,7 @@ karateman:
 	0x10B<3>
 	0x10B 0x10
 	0x10B<1> -0x40, 0
-	rest 0x10	
+	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
 async_call karatebeat
@@ -796,16 +822,6 @@ rest 1
 goto 0x11D7
 label 0x1DE6
 
-set_layout 5, u"rom:/layout/ntrRobot_long.zlib", -1
-label 0x22C5
-layout_busy 5
-if 0
-	goto 0x44A
-endif 
-rest 1
-goto 0x22C5
-label 0x44A
-
 set_layout 4, u"rom:/layout/ntrBlueBirds.zlib", -1
 label 0x4571
 layout_busy 4
@@ -836,16 +852,6 @@ rest 1
 goto 0x5D2
 label 0x68EF
 
-set_effect 7, u"rom:/effect/ntrRobot.zlib", -1
-label 0x8AB
-effect_busy 7
-if 0
-	goto 0x7921
-endif 
-rest 1
-goto 0x8AB
-label 0x7921
-
 set_effect 8, u"rom:/effect/rvlKarate.zlib", -1
 label 0xAD9
 effect_busy 8
@@ -875,7 +881,7 @@ set_sfx 4, u"GROUP_STEP"
 rest 0xC
 set_sfx 5, u"MUSIC_ICE_CAVE"
 rest 0xC	
-set_sfx 6, u"GROUP_NTR_ROBOT"
+set_sfx 6, u"GROUP_PANPAN"
 rest 0xC	
 set_sfx 7, u"GROUP_KARATE"
 rest 0xC	
@@ -888,9 +894,7 @@ game_cellanim 0x34, 4
 game_cellanim 0x3B, 5
 game_effect 0x19, 5
 game_effect 0x34, 6
-game_effect 0x18, 7
 game_effect 0x28, 8
-game_layout 0x18, 5
 game_layout 0x10, 4
 
 0x2B 0x19, 3
@@ -992,22 +996,13 @@ rest 0xC
 game_cellanim 0x10, 5
 stop 
 
-replacetofillbots:
-remove_cellanim 4
-rest 0xC
-set_cellanim 4, u"rom:/cellanim/ntrRobot_long.zlib", -1
-rest 0xC	
-
-game_cellanim 0x18, 4
-stop 
-
-replacetofillbots2:
+replacetokitties2:
 remove_cellanim 5
 rest 0xC
-set_cellanim 5, u"rom:/cellanim/ntrRobot_long.zlib", -1
+set_cellanim 5, u"rom:/cellanim/ctrTeppan_long.zlib", -1
 rest 0xC		
 
-game_cellanim 0x18, 5
+game_cellanim 0x3E, 5
 stop 
 
 replacetokarateman:
