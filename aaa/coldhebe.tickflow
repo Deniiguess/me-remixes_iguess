@@ -193,6 +193,7 @@ engine 0x28
 sub 4
 0x29<2> 
 async_call karateman2
+async_call changeshootemupgfx
 rest 0x10	
 rest 0x30 * 4	
 rest 0x30 * 4	
@@ -782,7 +783,7 @@ stop
 
 loadInitialGames:
 
-set_cellanim 2, u"rom:/cellanim/ntrShooting_long.zlib", -1
+set_cellanim 2, u"rom:/cellanim/ntrShooting_hebe.zlib", -1
 label 0x4D2
 cellanim_busy 2
 if 0
@@ -1022,6 +1023,15 @@ rest 0xC
 
 game_cellanim 0x28, 5
 stop 
+
+changeshootemupgfx:
+remove_cellanim 2
+rest 0xC
+set_cellanim 2, u"rom:/cellanim/ntrShooting_hebe2.zlib", -1
+rest 0xC
+
+game_cellanim 0x19, 2
+stop
 
 //-----------------------------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------------------------
