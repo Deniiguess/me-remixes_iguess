@@ -6,6 +6,15 @@ rest 0x30
 async_call karatebeat
 stop
 
+karatebeatbg: // karate man (bg)
+0x102
+0x102<2> 1
+0x104 0
+0x111
+rest 0x30
+async_call karatebeatbg
+stop
+
 doublebeat: // double date
 0x102
 0x103
@@ -136,6 +145,19 @@ stop
 figurebeatno: // figure fighter no rest
 0x10B 1
 async_call figurebeat2
+stop
+
+chameleonbeat: // tongue lashing
+0x104
+rest 0x30
+async_call chameleonbeat
+stop
+
+birdbeat: // blue birds
+0x101<0>
+0x101<1>
+0x101<2>
+0x101<3>
 stop
 
 quizCheck:
