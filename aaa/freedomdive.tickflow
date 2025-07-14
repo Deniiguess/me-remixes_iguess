@@ -12,6 +12,8 @@
 #include docs-tickflow/flipperFlop.tickflow
 #include docs-tickflow/frogHop.tickflow
 #include docs-tickflow/fillbots.tickflow
+#include docs-tickflow/blueBear.tickflow
+#include docs-tickflow/lumbearjack.tickflow
 
 #index 0x41
 
@@ -163,7 +165,6 @@ engine 0x1F
 sub 4
 0x29<2>
 async_call flockstep2
-async_call replacetorhythmrally
 rest 6
 rest 0x30 * 3
 rest 0x20 + 18
@@ -356,6 +357,7 @@ async_call karateman4
 async_call replacetolumbearjack2
 rest 0x10
 rest 0x30
+remove_sfx 3
 rest 0x20
 
 call changeEngine
@@ -365,6 +367,7 @@ sub 4
 async_call lumbearjack
 async_call replacetobluebear
 rest 0x10
+set_sfx 3, u"GROUP_SUMOU"
 rest 0x30 * 3
 rest 0x20
 
@@ -373,10 +376,10 @@ engine 0x34
 sub 4
 0x29<2>
 async_call bluebear
-async_call replacetosumobros2
+async_call replacetosumobros2alt
 rest 0x10
 rest 0x30 * 3
-rest 0x20
+rest 0x20 - 9
 
 call changeEngine
 engine 0x3C
@@ -386,7 +389,7 @@ async_call sumobros2
 async_call replacetocatchytune
 rest 0x10
 rest 0x30 * 3
-rest 0x20
+rest 0x20 + 9
 
 call changeEngine
 engine 0x3B
@@ -407,7 +410,6 @@ async_call lockstep2
 async_call replacetolumbearjack
 rest 0x10
 rest 0x30 * 15
-rest 0x18
 rest 0x20
 
 call changeEngine
@@ -418,6 +420,7 @@ async_call lumbearjack2
 async_call replacetopajamaparty2
 rest 0x10
 rest 0x30 * 3
+rest 0x18
 rest 0x20
 
 call changeEngine
@@ -747,7 +750,6 @@ engine 0x2D
 sub 4
 0x29<2>
 async_call screwbotfactory
-async_call replacetorhythmrally
 rest 0x10
 rest 0x30 * 7
 rest 0x20
@@ -1285,7 +1287,7 @@ ninjabodyguard:
 	async_sub 0x54
 	async_sub 0x55
 0x6C 1
-0x6C<1> 0x120
+0x6C<1> 0x128
 rest 0x30
 play_sfx 0x1000291
 rest 0x30
@@ -1399,6 +1401,8 @@ karateman4:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call karatebeat
+0x100 0
 stop
 
 karateman5:
@@ -1609,6 +1613,13 @@ dogninja3:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call dogbeat
+rest 0x18
+0x100 0x30, 0xA, 3
+rest 0x30
+0x100 0x30, 2, 0xA
+rest 0x30
+0x100 0x30, 0xA, 7
 stop
 
 dogninja4:
@@ -1616,6 +1627,7 @@ dogninja4:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call dogbeat
 stop
 
 dogninja5:
@@ -1623,6 +1635,7 @@ dogninja5:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call dogbeat
 stop
 
 sumobros:
@@ -1648,7 +1661,7 @@ async_sub 0x58
 async_sub 0x5A
 rest 0xC0
 async_sub 0x57
-async_sub 0x61
+async_call stomp
 rest 0xC0
 async_sub 0x5A
 rest 0xC0
@@ -1660,11 +1673,29 @@ async_sub 0x5A
 rest 0xC0
 stop
 
+stomp:
+rest 0x24
+0x100 1, 0xC
+0x101<1> 0
+rest 0xC
+0x104<1> 1
+rest 0x30	// 1.0 beats
+0x100 1, 0x30
+0x101<1> 1
+0x104 0
+0x104 1
+rest 0x30	// 1.0 beats
+0x104<1> 1
+rest 0x30	// 1.0 beats
+stop
+
 sumobros2:
 	0x8F 3
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+unrest 0x30 - 9
+async_sub 0x61
 stop
 
 sumobros3:
@@ -1697,6 +1728,7 @@ stop
 
 lockstep:
 	0x8F 3
+	0x8B 0, 0
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
@@ -1713,20 +1745,36 @@ rest 0xC0
 stop
 
 zooming:
-rest 0xC0
 rest 0x30 - 9
+zoom 3, 0x110, 0x110
+zoom_gradual 3, 1, 3, 0xC0, 0x100, 0x100
+rest 0xC0
+zoom 3, 0x110, 0x110
+zoom_gradual 3, 1, 3, 0xC0, 0x100, 0x100
 0x104 1
 rest 0xC0
+zoom 3, 0x110, 0x110
+zoom_gradual 3, 1, 3, 0x60, 0x100, 0x100
 0x104 2
 rest 0x60
+zoom 3, 0x110, 0x110
+zoom_gradual 3, 1, 3, 0x60, 0x100, 0x100
 0x104 3
 rest 0x60
+zoom 3, 0x100, 0x100
+zoom_gradual 3, 1, 3, 0x30, 0x110, 0x110
 0x104 2
 rest 0x30
+zoom 3, 0xF0, 0xF0
+zoom_gradual 3, 1, 3, 0x30, 0x100, 0x100
 0x104 1
 rest 0x30
+zoom 3, 0x100, 0x100
+zoom_gradual 3, 1, 3, 0x30, 0x110, 0x110
 0x104 0
 rest 0x30
+zoom 3, 0x160, 0x160
+zoom_gradual 3, 1, 3, 0x30, 0x170, 0x170
 stop
 
 lockstep2:
@@ -1734,6 +1782,67 @@ lockstep2:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call zooming2
+0x101
+0x100 0, 0x30
+rest 0x18	// 0.5 beats
+rest 0xC	// 0.25 beats
+0x103 0
+rest 0xC	// 0.25 beats
+0x100 0, 0x30
+0x102
+rest 0x30	// 1.0 beats
+0x100 0, 0x30
+0x102
+rest 0x30	// 1.0 beats
+0x100 0, 0x30
+0x102
+rest 0x18
+async_sub 0x58
+rest 0x18
+0x102
+rest 0x90
+rest 0x18
+async_sub 0x58
+rest 0x60
+async_sub 0x65
+rest 0x60
+async_sub 0x56
+async_sub 0x62
+stop
+
+zooming2:
+zoom_gradual 3, 1, 3, 0x18 + 9, 0x110, 0x110
+rest 0x18 + 9
+zoom 3, 0x110, 0x110
+zoom_gradual 3, 1, 3, 0xC0, 0x100, 0x100
+rest 0xC0
+zoom 3, 0x110, 0x110
+zoom_gradual 3, 1, 3, 0xC0, 0x100, 0x100
+0x104 1
+rest 0xC0
+zoom 3, 0x110, 0x110
+zoom_gradual 3, 1, 3, 0x60, 0x100, 0x100
+0x104 2
+rest 0x60
+zoom 3, 0x110, 0x110
+zoom_gradual 3, 1, 3, 0x60, 0x100, 0x100
+0x104 3
+rest 0x60
+zoom 3, 0x100, 0x100
+zoom_gradual 3, 1, 3, 0x30, 0x110, 0x110
+0x104 2
+rest 0x30
+zoom 3, 0xF0, 0xF0
+zoom_gradual 3, 1, 3, 0x30, 0x100, 0x100
+0x104 1
+rest 0x30
+zoom 3, 0x100, 0x100
+zoom_gradual 3, 1, 3, 0x30, 0x110, 0x110
+0x104 0
+rest 0x30
+zoom 3, 0x160, 0x160
+zoom_gradual 3, 1, 3, 0x30, 0x170, 0x170
 stop
 
 lockstep3:
@@ -1850,9 +1959,11 @@ stop
 
 spaceball3:
 	0x8F 3
+	0x102<0> 8, 1
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x100 0x30, 0
 stop
 
 marchingorders:
@@ -1947,6 +2058,9 @@ taptrial2:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+sub 0x56
+async_call twotwo
+sub 0x57
 stop
 
 munchymonk:
@@ -2104,16 +2218,47 @@ stop
 
 spacedance:
 	0x8F 3
+	setrest 0, 0x18
+	setrest 1, 0x18
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_sub 0x56
+async_sub 0x5F
+rest 0x30
+async_sub 0x5C
+rest 0x30
+0x10D
+rest 0x30
+0x10A
 stop
 
 microrow:
-	0x8F 3
+	0x103 3
+	0x101 0x52F9EC, 6, 1
+	0x102 0x52FA7C, 3
+	0x102<2>
+	0x8B 0, 1
+	zoom 3, 0x200, 0x200
+	0x10B 1
+	0x10A 1
+	0x108
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x102<7>
+play_sfx 0x10003EC
+zoom_gradual 3, 4, 2, 0x180, 0x100, 0x100
+0x100 0x30, 1
+rest 0x30	// 1.0 beats
+0x100 0x30, 2
+0x102<1>
+rest 0x30	// 1.0 beats
+0x100 0x30, 3
+0x102<1>
+rest 0x30	// 1.0 beats
+0x102<1>
+rest 0x18	// 0.5 beats
 stop
 
 doubledate:
@@ -2121,6 +2266,9 @@ doubledate:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x100<0> 0, 0, 0x30
+rest 0x30
+async_sub 0x5A
 stop
 
 doubledate2:
@@ -2132,16 +2280,34 @@ stop
 
 lumbearjack:
 	0x8F 3
+	0x103<3>
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call stompcue
+async_call lumbearbeat
+async_call mediumLogRightRemix
+stop
+
+stompcue:
+set_cat 0
+rest 0x30
+rest 0x18
+play_sfx 0x10011A6
 stop
 
 lumbearjack2:
 	0x8F 3
+	0x103<3>
 	rest 0x10
-	fade<1> 1, 1, 1
 	input 1
+0x100 0xD
+0x100<1> 1
+0x100<2> 0x18, 1, 1
+rest 0x18
+fade<1> 1, 1, 1
+async_call lumbearbeat
+fade 7, 0, 0x50
 stop
 
 catchytune:
@@ -2149,12 +2315,34 @@ catchytune:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call catchybeat
+0x101 1, 0, 0xC0, 1, 1
+0x101 1, 1, 0xC0, 1, 1
+0x101 0, 1, 0x30, 1, 0
+rest 0x30
+0x100 0, 0, 0x30, 0
+rest 0x60
+0x100 0, 0, 0x30, 1
+0x100 0, 1, 0x30, 1
+rest 0x30
+0x100 0, 0, 0x30, 1
+0x100 0, 1, 0x30, 1
+rest 0x30
+0x100 0, 0, 0x30, 1
+0x100 0, 1, 0x30, 1
+rest 0x60
+0x100 0, 1, 0x30, 0
+rest 0xC0
+0x100 0, 0, 0x30, 0
+rest 0x30
+rest 0x18
+async_call countin3go
 stop
 
 catchytune2:
 	0x8F 3
 	rest 0x10
-	fade<1> 1, 1, 1
+	fade<1> 7, 0, 0x50 + 0xC0
 	input 1
 stop
 
@@ -2289,6 +2477,10 @@ bluebear:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call donut
+rest 0x30
+async_call donut
+rest 0x30
 stop
 
 bluebear2:
@@ -2573,6 +2765,10 @@ set_sfx 1, u"GROUP_AGB_TONO"
 rest 0xC	
 set_sfx 2, u"GROUP_KARATE"
 rest 0xC
+set_sfx 3, u"GROUP_PINPON"
+rest 0xC
+set_sfx 4, u"GROUP_AGB_MARCH"
+rest 0xC
 set_sfx 5, u"MUSIC_FREEDOM_DIVE"
 rest 0xC
 sub 3
@@ -2840,6 +3036,21 @@ game_cellanim 0x3C, 3
 game_effect 0x3C, 5
 stop
 
+replacetosumobros2alt:
+remove_cellanim 3
+rest 0xC
+set_cellanim 3, u"rom:/cellanim/ctrSumou_long.zlib", -1
+rest 0xC
+
+remove_effect 5
+rest 0xC
+set_effect 5, u"rom:/effect/ctrSumou.zlib", -1
+rest 0xC
+
+game_cellanim 0x3C, 3
+game_effect 0x3C, 5
+stop
+
 replacetolockstep:
 remove_cellanim 2
 rest 0xC
@@ -2931,12 +3142,6 @@ game_cellanim 0, 3
 stop
 
 replacetomarchingorders:
-remove_sfx 1
-rest 0xC
-sub 3
-set_sfx 1, u"GROUP_AGB_MARCH"
-rest 0xC
-
 remove_cellanim 2
 rest 0xC
 set_cellanim 2, u"rom:/cellanim/agbMarcher_v0.zlib", -1
@@ -2946,34 +3151,12 @@ game_cellanim 5, 2
 stop
 
 replacetomarchingorders2:
-remove_sfx 2
-rest 0xC
-sub 3
-set_sfx 2, u"GROUP_AGB_MARCH"
-rest 0xC
-
 remove_cellanim 3
 rest 0xC
 set_cellanim 3, u"rom:/cellanim/agbMarcher_v0.zlib", -1
 rest 0xC
 
 game_cellanim 5, 3
-stop
-
-replacetorhythmrally:
-remove_sfx 1
-rest 0xC
-sub 3
-set_sfx 1, u"GROUP_PINPON"
-rest 0xC
-stop
-
-replacetorhythmrally2:
-remove_sfx 2
-rest 0xC
-sub 3
-set_sfx 2, u"GROUP_PINPON"
-rest 0xC
 stop
 
 replacetoairrally:
