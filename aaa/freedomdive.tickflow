@@ -2291,7 +2291,7 @@ stop
 
 stompcue:
 set_cat 0
-rest 0x30
+rest 0x60
 rest 0x18
 play_sfx 0x10011A6
 stop
@@ -2307,7 +2307,7 @@ lumbearjack2:
 rest 0x18
 fade<1> 1, 1, 1
 async_call lumbearbeat
-fade 7, 0, 0x50
+fade 7, 0, 0x80
 stop
 
 catchytune:
@@ -2342,15 +2342,38 @@ stop
 catchytune2:
 	0x8F 3
 	rest 0x10
-	fade<1> 7, 0, 0x50 + 0xC0
+	fade<1> 1, 1, 1
 	input 1
 stop
 
 pajamaparty:
 	0x8F 3
 	rest 0x10
-	fade<1> 1, 1, 1
+	fade<1> 7, 0, 0x80 + 0xC0
 	input 1
+rest 0xC0
+0x102 0
+0x100 0, 0xC0
+play_sfx 0x1001076
+0x101<1> 0
+0x101<1> 4
+rest 0x60
+play_sfx 0x1001077
+0x101<1> 1
+0x101<1> 3
+rest 0x60
+play_sfx 0x1001078
+0x101<1> 2
+rest 0xC0
+async_sub 0x57
+rest 0xC0
+async_sub 0x57
+rest 0xC0
+async_sub 0x56
+rest 0x60
+async_sub 0x57
+rest 0x90
+async_sub 0x56
 stop
 
 pajamaparty2:
