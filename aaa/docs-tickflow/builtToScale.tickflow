@@ -71,6 +71,8 @@ btsEndlessBounceFromLeft:
     rest 0x30
 goto 0xB025
 
+// Instantly Spawns On Direction
+
 btsRodDispenceRight:
 0x101 -1, 3
 0x102 -1, 3, 0, 0, 0
@@ -82,6 +84,8 @@ btsRodDispenceLeft:
 0x102 -1, 0, 0, 0, 0
 0x101<1>
 stop
+
+// Launch From Directon
 
 btsRodAppearLeft:
 0x102 -1, 0, 0, 0, 0

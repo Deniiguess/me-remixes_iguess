@@ -7,6 +7,7 @@
 //-----------------------------------------------------------------------------------------------------------------------------------
 
 #include beat/beatanims.tickflow
+#include docs-tickflow/builtToScale.tickflow
 #include docs-tickflow/karateMan.tickflow
 #include docs-tickflow/marchingOrders.tickflow
 #include docs-tickflow/flipperFlop.tickflow
@@ -14,6 +15,7 @@
 #include docs-tickflow/fillbots.tickflow
 #include docs-tickflow/blueBear.tickflow
 #include docs-tickflow/lumbearjack.tickflow
+#include docs-tickflow/monkeyWatch.tickflow
 
 #index 0x41
 
@@ -206,7 +208,9 @@ sub 4
 async_call clappytrio
 async_call replacetotaptrial
 rest 0x10
+remove_sfx 3
 rest 0x30
+set_sfx 3, u"GROUP_NTR_SHUGYO"
 rest 0x20
 
 call changeEngine
@@ -346,7 +350,9 @@ sub 4
 async_call spaceball3
 async_call replacetokarateman
 rest 0x10
+remove_sfx 4
 rest 0x30
+set_sfx 4, u"GROUP_WOOD_CAT"
 rest 0x20
 
 call changeEngine
@@ -440,14 +446,16 @@ sub 4
 async_call bunnyhop
 async_call replacetofroghop2
 rest 0x10
+remove_sfx 4
 rest 0x30 * 35
+set_sfx 4, u"GROUP_AGB_MARCH"
 rest 0x20
 
 call changeEngine
 engine 0x14
 sub 4
 0x29<2>
-async_call froghop
+async_call froghop2
 async_call replacetomarchingorders
 rest 0x10
 rest 0x30 * 3
@@ -513,6 +521,7 @@ rest 0x10
 rest 0x30 * 2
 rest 0x20 + 9
 
+0x65<2>
 call changeEngine
 engine 0x35
 sub 4
@@ -541,7 +550,7 @@ async_call seesaw
 async_call replacetolockstep2
 rest 0x10
 rest 0x30 * 15
-rest 0x20
+rest 0x20 - 9
 
 call changeEngine
 engine 0xF
@@ -571,7 +580,7 @@ async_call monkeywatch
 async_call replacetopackingpests
 rest 0x10
 rest 0x30 * 2
-rest 0x20
+rest 0x20 + 9
 
 call changeEngine
 engine 0x32
@@ -653,7 +662,7 @@ async_call fruitbasket2
 async_call replacetolockstep
 rest 0x10
 rest 0x30 * 11
-rest 0x20
+rest 0x20 - 9
 
 call changeEngine
 engine 0xF
@@ -663,7 +672,7 @@ async_call lockstep5
 async_call replacetokarateman2
 rest 0x10
 rest 0x30 * 3
-rest 0x20
+rest 0x20 + 9
 
 call changeEngine
 engine 0x28
@@ -699,7 +708,7 @@ call changeEngine
 engine 0x14
 sub 4
 0x29<2>
-async_call froghop2
+async_call froghop3
 async_call replacetobuilttoscale2
 rest 0x10
 rest 0x30 * 15
@@ -1078,7 +1087,9 @@ sub 4
 async_call replacetotaptrial2
 async_call figurefighter
 rest 0x10
+remove_sfx 3
 rest 0x30 * 5
+set_sfx 3, u"GROUP_NTR_SHUGYO"
 rest 0x20
 
 call changeEngine
@@ -1416,6 +1427,8 @@ karateman5:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call karatebeat
+0x100 5
 stop
 
 karateman6:
@@ -1423,6 +1436,26 @@ karateman6:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+zoom_gradual 3, 1, 3, 0xC0*4, 0x110, 0x110
+pan_gradual 3, 1, 3, 0xC0*4, 10, 7
+async_call karatebeat
+0x100 0
+rest 0x30
+0x100 0
+rest 0x30
+async_call hit4
+0x100 0
+rest 0x30
+0x100 0
+rest 0x30
+rest 0x60
+async_call hit4
+rest 0xC0
+async_call hit4Rock
+rest 0x60
+rest 0xC0
+pan_gradual 3, 4, 3, 0x18, 0, 0
+zoom_gradual 3, 4, 3, 0x18, 0x100, 0x100
 stop
 
 karateman7:
@@ -1556,8 +1589,16 @@ stop
 flockstep3:
 	0x8F 3
 	rest 0x10
-	fade<1> 1, 1, 1
 	input 1
+unrest 0x60 - 9
+async_sub 0x5E
+rest 0x30
+async_sub 0x5E
+rest 0x30
+async_sub 0x5E
+rest 0x30
+async_sub 0x5E
+rest 0x30
 stop
 
 dogninja:
@@ -1784,8 +1825,10 @@ stop
 sumobros3:
 	0x8F 3
 	rest 0x10
-	fade<1> 1, 1, 1
 	input 1
+unrest 0x30 - 9
+async_sub 0x5A
+rest 0xC0
 stop
 
 sumobros4:
@@ -1793,6 +1836,14 @@ sumobros4:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+unrest 0x30 - 9
+async_sub 0x58
+async_sub 0x5A
+rest 0xC0
+0x106<2>
+async_call stomp
+rest 0x60
+0x106<2>
 stop
 
 sumobros5:
@@ -1932,26 +1983,64 @@ stop
 lockstep3:
 	0x8F 3
 	rest 0x10
-	fade<1> 1, 1, 1
 	input 1
+unrest 0x30 - 9
+async_sub 0x56
 stop
 
 lockstep4:
 	0x8F 3
+	0x8B 0, 0
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+unrest 0x30-9
+async_call zooming
+async_sub 0x56
+rest 0xC0
+async_sub 0x63
+async_sub 0x57
+rest 0xC0
+async_sub 0x66
+async_sub 0x58
+rest 0xC0
+async_sub 0x56
+async_sub 0x62
+rest 0xC0
 stop
 
 lockstep5:
 	0x8F 3
+	0x8B 0, 0
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+unrest 0x30-9
+async_call zooming3
+async_sub 0x56
+rest 0xC0
+stop
+
+zooming3:
+rest 0x30 - 9
+0x104 2
+rest 0x30
+zoom 3, 0xF0, 0xF0
+zoom_gradual 3, 1, 3, 0x30, 0x100, 0x100
+0x104 1
+rest 0x30
+zoom 3, 0x100, 0x100
+zoom_gradual 3, 1, 3, 0x30, 0x110, 0x110
+0x104 0
+play_sfx 0x1000408
+rest 0x30
+zoom 3, 0x160, 0x160
+zoom_gradual 3, 1, 3, 0x30, 0x170, 0x170
 stop
 
 lockstep6:
 	0x8F 3
+	0x8B 0, 0
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
@@ -1959,6 +2048,7 @@ stop
 
 lockstep7:
 	0x8F 3
+	0x8B 0, 0
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
@@ -2080,8 +2170,15 @@ stop
 marchingorders2:
 	0x8F 3
 	rest 0x10
-	fade<1> 1, 1, 1
 	input 1
+async_call marchRemixAlt2
+rest 9
+async_call march
+rest 0x30
+async_call march
+rest 0x30
+async_call march
+rest 0x30
 stop
 
 marchingorders3:
@@ -2210,6 +2307,21 @@ forklifter2:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x100 0
+rest 0x30
+0x100 0
+rest 0x60
+0x100 0
+rest 0x30
+0x100 0
+rest 0x18
+0x100 0
+rest 0x30
+0x100 0
+rest 0x18
+0x100 0
+rest 0x18
+0x100 0
 stop
 
 froghop:
@@ -2232,6 +2344,14 @@ async_sub 0x76
 stop
 
 froghop2:
+	0x8F 3
+	rest 0x10
+	input 1
+unrest 0x30 - 9
+async_sub 0x74
+stop
+
+froghop3:
 	0x8F 3
 	rest 0x10
 	fade<1> 1, 1, 1
@@ -2258,10 +2378,21 @@ return
 
 animalacrobat2:
 	0x8F 3
-	rest 0x10
-	fade<1> 1, 1, 1
-	input 1
+    rest 0x10 - 1
+    0x102<1> animalpattern2, 5
+    rest 1
+	0xB3 9, 0x35
+    fade<1> 1,1,1
+    input 1
+0x102 0x30
+0x103 1
+0xB3 13, 3
+0x101<1> 0x30
 stop
+
+animalpattern2:
+bytes 1, 1, 2, 0, 6
+return
 
 supersamuraislice:
 	0x8F 3
@@ -2297,6 +2428,25 @@ fruitbasket2:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call fruitbeat
+unrest 0x60
+async_sub 0x57
+rest 0x18
+async_sub 0x58
+rest 0x18
+async_sub 0x5D
+rest 0x90
+rest 0x18
+async_sub 0x5B, 0x60
+rest 0x60
+rest 0x18
+async_sub 0x59
+rest 0x18
+async_sub 0x58
+rest 0x18
+async_sub 0x57
+rest 0x60
+async_call countin3go
 stop
 
 spacedance:
@@ -2349,6 +2499,7 @@ doubledate:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call doublebeat
 0x100<0> 0, 0, 0x30
 rest 0x30
 async_sub 0x5A
@@ -2553,16 +2704,36 @@ stop
 
 bunnyhop2:
 	0x8F 3
+	0x103<1>
 	rest 0x10
-	fade<1> 1, 1, 1
 	input 1
+0x104 0x30
+0x102<0>
+0x100 5, 9
+rest 9
+async_call countin3go
+0x65<1> 0xB, "freedomdiveA_4"
+fade<1> 1, 1, 1
 stop
 
 flipperflop:
 	0x8F 3
 	rest 0x10
-	fade<1> 1, 1, 1
 	input 1
+async_call flipRemixAlt
+rest 9
+async_call flip
+rest 0x30
+async_call flip
+rest 0x30
+async_call flip
+rest 0x30
+stop
+
+flipRemixAlt:
+0x100 9, 0
+rest 9
+0x103
 stop
 
 flipperflop2:
@@ -2577,6 +2748,37 @@ builttoscale:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call btsRodDispenceRight
+async_call bts8bounces
+async_call widgets
+rest 0xC0
+rest 0x90
+async_call btsRodAppearLeft
+rest 0x30
+async_call bts5bounces
+rest 0x90
+async_call btsRodAppearLeft
+rest 0x30
+async_call bts3bounces
+rest 0x30
+stop
+
+countin34:
+set_cat 0
+rest 0x30
+rest 0x18
+play_sfx 0x10002E1
+rest 0x30
+play_sfx 0x10002E2
+stop
+
+widgets:
+async_sub 0x81
+rest 0xC0
+rest 0x30
+async_sub 0x82
+rest 0x60
+async_sub 0x83
 stop
 
 builttoscale2:
@@ -2603,15 +2805,53 @@ stop
 seesaw:
 	0x8F 3
 	rest 0x10
-	fade<1> 1, 1, 1
-	input 1
+0x104 1, see1
+0x104 0, saw1
+0x102 0
+0x101 1
+0x100<3> 1, 0
+0x100<3> 0, 0
+0x100<4> 1, 0
+fade<1> 1, 1, 1
+input 1
+0x100<1> 1
+0x100 0
+rest 0xC0
+rest 0xC0
+rest 0xC0
+async_call countin3go
 stop
+
+see1:
+bytes 1, 0, 1, 1, 1
+return
+
+saw1:
+bytes 0, 1, 1, 0, 1, 2
+return
 
 monkeywatch:
 	0x8F 3
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x104<3> 3
+0x104<3> 4
+0x104 0
+0x103 0, 1
+0x103 1, 1
+0x103 2, 1
+0x103 3, 1
+0x103 4, 1
+async_call watchCamera
+0x104<2>
+0x100 9
+0x100 0x60 + 9
+rest 0x60
+rest 9
+0x104<2>
+rest 0x60
+0x104<2>
 stop
 
 monkeywatch2:
@@ -2626,6 +2866,28 @@ packingpests:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call doubleup
+0x101<1> 1
+rest 0x30
+rest 0x18
+0x101<1> 1
+rest 0x30
+0x101<1> 1
+stop
+
+doubleup:
+async_sub 0x56
+play_sfx 0x100049A
+0x105
+0x105<1>
+0x100 1
+rest 0x30	// 1.0 beats
+rest 0x18	// 0.5 beats
+0x100 1
+rest 0x30	// 1.0 beats
+0x100 1
+rest 0x30	// 1.0 beats
+rest 0x18	// 0.5 beats
 stop
 
 fillbots:
@@ -2633,6 +2895,10 @@ fillbots:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call smallRobotRemix
+rest 0xC0
+rest 0x30
+play_sfx 0x1000F7A
 stop
 
 bluebirds:
@@ -2640,6 +2906,119 @@ bluebirds:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call peckyourbeek
+rest 0x30
+async_call peckyourbeeknopre
+rest 0x30
+rest 0x18
+async_call peckyourbeeknopre
+rest 0x30
+async_call strechoutyourneck
+rest 0x18
+rest 0xC0
+play_sfx 0x10010CC
+stop
+
+strechoutyourneck:
+play_sfx 0x1000F7B
+rest 0x18	// 0.5 beats
+async_call soyn1
+async_call soyn2
+rest 0x60	// 2.0 beats
+rest 0x18	// 0.5 beats
+0x100<1>
+rest 0x18	// 0.5 beats
+rest 0x18	// 0.5 beats
+0x100<2>
+rest 0x18	// 0.5 beats
+stop
+
+soyn1:
+0x102
+rest 0x24	// 0.75 beats
+0x102
+rest 0x24	// 0.75 beats
+0x102
+rest 0x18	// 0.5 beats
+0x102
+rest 0x18	// 0.5 beats
+stop
+
+soyn2:
+rest 0x90
+0x106<1>
+0x106<2>
+rest 0x30	// 1.0 beats
+0x107<1>
+0x107<2>
+rest 0x30	// 1.0 beats
+stop
+
+peckyourbeeknopre:
+play_sfx 0x1000F7A
+async_call pybnopreanim1
+async_call pybnopreanim2
+rest 0x30
+rest 0x18	// 0.5 beats
+0x100
+rest 0x18	// 0.5 beats
+0x100
+rest 0x18	// 0.5 beats
+0x100
+rest 0x18	// 0.5 beats
+stop
+
+pybnopreanim1:
+0x102
+rest 0x18	// 0.5 beats
+0x102
+rest 0xC	// 0.25 beats
+0x102
+rest 0xC	// 0.25 beats
+0x102
+rest 0x30	// 1.0 beats
+stop
+
+pybnopreanim2:
+rest 0x30	// 1.0 beats
+rest 0x30	// 1.0 beats
+0x104<1>
+0x104<2>
+rest 0x18	// 0.5 beats
+0x104<1>
+0x104<2>
+rest 0x18	// 0.5 beats
+0x104<1>
+0x104<2>
+rest 0x30	// 1.0 beats
+stop
+
+peckyourbeek:
+0x102
+async_call peckyourbeekanim
+rest 0x18	// 0.5 beats
+0x100
+rest 0x18	// 0.5 beats
+0x100
+rest 0x18	// 0.5 beats
+0x100
+rest 0x18	// 0.5 beats
+stop
+
+peckyourbeekanim:
+0x103 1, 0
+0x103 1, 1
+0x103 1, 2
+rest 0x30	// 1.0 beats
+0x104<1>
+0x104<2>
+rest 0x18	// 0.5 beats
+0x104<1>
+0x104<2>
+rest 0x18	// 0.5 beats
+0x104<1>
+0x104<2>
+rest 0x30	// 1.0 beats
 stop
 
 kitties:
@@ -2647,6 +3026,28 @@ kitties:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x101 6
+0x102<1> 2, 0
+rest 0x10	// 0.33333334 beats
+play_sfx 0x10010CD
+rest 8	// 0.16666667 beats
+rest 0x10	// 0.33333334 beats
+0x102<1> 1, 0
+rest 8	// 0.16666667 beats
+play_sfx 0x10010CE
+rest 0x10	// 0.33333334 beats
+rest 8	// 0.16666667 beats
+0x102<1> 0, 0
+rest 0x10	// 0.33333334 beats
+rest 8	// 0.16666667 beats
+0x100 0, 0x18
+0x100 1, 0x30
+rest 0x18	// 0.5 beats
+0x102<2> 1
+play_sfx 0x10010CF
+rest 0x18	// 0.5 beats
+0x102<2> 0
+rest 0x30	// 1.0 beats
 stop
 
 bluebear:
@@ -2665,6 +3066,9 @@ bluebear2:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call cake
+rest 0x18
+async_call donut
 stop
 
 screwbotfactory:
@@ -2939,7 +3343,7 @@ sub 7
 0x8C<2> 5
 
 set_sfx 1, u"GROUP_AGB_TONO"
-rest 0xC	
+rest 0xC
 set_sfx 2, u"GROUP_KARATE"
 rest 0xC
 set_sfx 3, u"GROUP_PINPON"
@@ -3031,13 +3435,13 @@ replacetoninjabodyguard:
 remove_cellanim 2
 rest 0xC
 set_cellanim 2, u"rom:/cellanim/agbTono_long.zlib", -1
-rest 0xC	
+rest 0xC
 
 remove_sfx 1
-rest 0xC	
+rest 0xC
 sub 3
 set_sfx 1, u"GROUP_AGB_TONO"
-rest 0xC	
+rest 0xC
 
 game_cellanim 0xD, 2
 stop 
@@ -3468,12 +3872,6 @@ rest 0xC
 set_cellanim 2, u"rom:/cellanim/ntrShugyo_long.zlib", -1
 rest 0xC
 
-remove_sfx 1
-rest 0xC
-sub 3
-set_sfx 1, u"GROUP_NTR_SHUGYO"
-rest 0xC
-
 game_cellanim 0x1B, 2
 stop
 
@@ -3858,6 +4256,21 @@ rest 0xC
 
 game_cellanim 0x3F, 2
 game_effect 0x3F, 4
+stop
+
+replacetolumbearjack2alt:
+remove_cellanim 3
+rest 0xC
+set_cellanim 3, u"rom:/cellanim/ctrWoodCat_long.zlib", -1
+rest 0xC
+
+remove_effect 5
+rest 0xC
+set_effect 5, u"rom:/effect/ctrWoodCat.zlib", -1
+rest 0xC
+
+game_cellanim 0x3F, 3
+game_effect 0x3F, 5
 stop
 
 replacetolumbearjack2:
@@ -4811,11 +5224,11 @@ stop
 //-----------------------------------------------------------------------------------------------------------------------------------
 
 tempoAndMusic:
-	rest 0x30	
+	rest 0x30
 	0x4F tempoId
 	0x23 tempoId
 	speed 0x100
-	rest 0x30	
+	rest 0x30
 	0xBA 
 	sub 1
 	0x88 
@@ -4827,11 +5240,11 @@ tempoAndMusic:
 return 
 
 tempoAndMusicGrp:
-	rest 0x30   
+	rest 0x30
 	0x53 tempoId
 	0x23 tempoId
 	speed 0x100
-	rest 0x30   
+	rest 0x30
 	0xBA
 	sub 2
 	0x88
@@ -4847,7 +5260,7 @@ return
 start:	
 
 play_sfx 0x1000294
-rest 0xC	
+rest 0xC
 play_sfx 0x100029B
 0x2D 0
 0x8C 1
@@ -4880,13 +5293,13 @@ endif
 if 0
 	0x7C 2, 0, 0x18
 endif 
-rest 0x18	
+rest 0x18
 sub 5
 
 
 
 call loadInitialGames
-rest 0xC	
+rest 0xC
 
 sub 9
 sub 6
@@ -4896,7 +5309,7 @@ if 1
 	if 1
 		0x84<1> 
 		label 0x321F
-		rest 0xC	
+		rest 0xC
 		0x81 
 		if 1
 			0x84<2> 2
@@ -4906,7 +5319,7 @@ if 1
 		endif 
 	endif 
 	0x82 0x3E8
-	rest 0xC	
+	rest 0xC
 	label 0x3DB
 	0x81 
 	if 1
@@ -4916,9 +5329,9 @@ if 1
 			goto 0x3DB
 		endif 
 	endif 
-	rest_reset 
+	rest_reset
 endif 
-rest 0xC	
+rest 0xC
 0x88 
 if 1
 	0x8A<3> 1
@@ -4969,7 +5382,7 @@ set_cat 0
 0x95 0x10, "remix_LED_caption"
 0x98 1, 1
 
-rest 0x30 * 2	
+rest 0x30 * 2
 0x88 
 if 1
 	0x88<1> 
@@ -5061,15 +5474,15 @@ endif
 if 0
 	0x7C 2, 0, 0x18
 endif 
-rest 0xC	
+rest 0xC
 engine 0x49
-rest 0x18	
+rest 0x18
 sub 4
 0x81 
 if 1
 	0x84<1> 
 	label 0x300
-	rest 0xC	
+	rest 0xC
 	0x81 
 	if 1
 		0x84<2> 0
@@ -5079,11 +5492,11 @@ if 1
 	endif 
 endif 
 0xA4<2> 0
-rest 0x18	
+rest 0x18
 0x81 
 if 1
 	0x82 0x3E8
-	rest 0xC	
+	rest 0xC
 	label 0x3DB
 	0x81 
 	if 1
@@ -5093,19 +5506,19 @@ if 1
 			goto 0x3DB
 		endif 
 	endif 
-	rest_reset 
+	rest_reset
 endif 
 label 0xC8
 0x103 
 if 0
-	rest 6	
+	rest 6
 	goto 0xC8
 endif 
 0x7C<1> 7, 1, 0
 fade<1> 7, 1, 0
 0x76 7, 0
 0x100 
-rest 0x18	
+rest 0x18
 0x88 
 if 0
 	0xAB<4> 
@@ -5119,7 +5532,7 @@ label 0xC7
 if 1
 	goto 0xC5
 endif 
-rest 0x18	
+rest 0x18
 0x102<1> 0x18
 0x101 
 switch 
@@ -5237,7 +5650,7 @@ debug "TICKFLOW >>> 0000\n"
 0x7C 7, 1, 0
 debug "TICKFLOW >>> 0001\n"
 0x100<1> 
-rest 0x18	
+rest 0x18
 debug "TICKFLOW >>> 0002\n"
 0xA5 0
 0x81 
