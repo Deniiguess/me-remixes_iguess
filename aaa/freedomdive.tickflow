@@ -12,9 +12,11 @@
 #include docs-tickflow/marchingOrders.tickflow
 #include docs-tickflow/flipperFlop.tickflow
 #include docs-tickflow/frogHop.tickflow
+#include docs-tickflow/fanClub.tickflow
 #include docs-tickflow/fillbots.tickflow
 #include docs-tickflow/blueBear.tickflow
 #include docs-tickflow/lumbearjack.tickflow
+#include docs-tickflow/cheerReaders.tickflow
 #include docs-tickflow/monkeyWatch.tickflow
 
 #index 0x41
@@ -208,9 +210,7 @@ sub 4
 async_call clappytrio
 async_call replacetotaptrial
 rest 0x10
-remove_sfx 3
 rest 0x30
-set_sfx 3, u"GROUP_NTR_SHUGYO"
 rest 0x20
 
 call changeEngine
@@ -361,9 +361,10 @@ sub 4
 0x29<2>
 async_call karateman4
 async_call replacetolumbearjack2
+remove_sfx 3
 rest 0x10
 rest 0x30
-remove_sfx 3
+set_sfx 3, u"GROUP_SUMOU"
 rest 0x20
 
 call changeEngine
@@ -373,7 +374,6 @@ sub 4
 async_call lumbearjack
 async_call replacetobluebear
 rest 0x10
-set_sfx 3, u"GROUP_SUMOU"
 rest 0x30 * 3
 rest 0x20
 
@@ -691,7 +691,10 @@ sub 4
 async_call pajamaparty2
 async_call replacetodogninja2
 rest 0x10
-rest 0x30 * 11
+remove_sfx 3
+rest 0x30 * 5
+set_sfx 3, u"GROUP_NTR_FROG"
+rest 0x30 * 6
 rest 0x20
 
 call changeEngine
@@ -699,10 +702,10 @@ engine 0x16
 sub 4
 0x29<2>
 async_call dogninja4
-async_call replacetofroghop
+async_call replacetofroghopalt
 rest 0x10
 rest 0x30 * 2
-rest 0x20
+rest 0x28 - 9
 
 call changeEngine
 engine 0x14
@@ -710,9 +713,9 @@ sub 4
 0x29<2>
 async_call froghop3
 async_call replacetobuilttoscale2
-rest 0x10
+rest 0x8
 rest 0x30 * 15
-rest 0x20
+rest 0x20 + 9
 
 call changeEngine
 engine 0x1C
@@ -730,7 +733,7 @@ sub 4
 0x29<2>
 async_call karateman7
 rest 0x10
-rest 0x30
+rest 0x60
 rest 0x18
 rest 0x20
 
@@ -740,7 +743,7 @@ sub 4
 0x29<2>
 async_call builttoscale2
 rest 0x10
-rest 0x30 * 4
+rest 0x30 * 3
 rest 0x18
 rest 0x20
 
@@ -751,7 +754,9 @@ sub 4
 async_call karateman8
 async_call replacetoscrewbotfactory2
 rest 0x10
+remove_sfx 3
 rest 0x30 * 2
+set_sfx 3, u"GROUP_PINPON"
 rest 0x20
 
 call changeEngine
@@ -814,7 +819,7 @@ async_call replacetobouncyroad2
 async_call dogninja5
 rest 0x10
 rest 0x18
-rest 0x20
+rest 0x2A
 
 call changeEngine
 engine 4
@@ -822,7 +827,7 @@ sub 4
 0x29<2>
 async_call replacetobossanova
 async_call bouncyroad2
-rest 0x10
+rest 0x6
 rest 0x30 * 12
 rest 0x20
 
@@ -834,7 +839,7 @@ async_call replacetoflipperflop2
 async_call bossanova
 rest 0x10
 rest 0x30 * 8
-rest 0x20
+rest 0x20 - 9
 
 call changeEngine
 engine 0x26
@@ -844,12 +849,14 @@ async_call replacetocheerreaders
 async_call flipperflop2
 rest 0x10
 rest 0x30 * 23
-rest 0x20
+async_call cheerreadersfx1, 9
+rest 0x20 + 9
 
 call changeEngine
 engine 0x20
 sub 4
 0x29<2>
+0xB0<0xA> 2
 async_call replacetobouncyroad2
 async_call cheerreaders
 rest 0x10
@@ -863,12 +870,14 @@ sub 4
 async_call bouncyroad3
 rest 0x10
 rest 0x30 * 3
+async_call cheerreadersfx2
 rest 0x20
 
 call changeEngine
 engine 0x20
 sub 4
 0x29<2>
+0xB0<0xA> 2
 async_call cheerreaders2
 rest 0x10
 rest 0x30 * 3
@@ -881,6 +890,7 @@ sub 4
 async_call bouncyroad3
 async_call replacetomonkeywatch
 rest 0x10
+async_call countin3go
 rest 0x30 * 3
 rest 0x20
 
@@ -891,7 +901,11 @@ sub 4
 async_call monkeywatch2
 async_call replacetopackingpests2
 rest 0x10
-rest 0x30 * 11
+remove_sfx 3
+rest 0x30 * 5
+set_sfx 3, u"GROUP_SUMOU"
+rest 0x30 * 6
+async_call stompcue2
 rest 0x20
 
 call changeEngine
@@ -899,10 +913,10 @@ engine 0x32
 sub 4
 0x29<2>
 async_call packingpests
-async_call replacetosumobros
+async_call replacetosumobrosalt
 rest 0x10
 rest 0x30 * 3
-rest 0x20
+rest 0x20 - 9
 
 call changeEngine
 engine 0x3C
@@ -912,7 +926,7 @@ async_call sumobros5
 async_call replacetokarateman2
 rest 0x10
 rest 0x30 * 11
-rest 0x20
+rest 0x20 + 9
 
 call changeEngine
 engine 0x28
@@ -1058,6 +1072,7 @@ async_call rhythmtweezers
 async_call replacetofanclub
 rest 0x10
 rest 0x30 * 7
+async_call yeahyeahyeah
 rest 0x20
 
 call changeEngine
@@ -1068,6 +1083,7 @@ async_call replacetocheerreaders2
 async_call fanclub
 rest 0x10
 rest 0x30 * 23
+async_call cheerreadersfx3
 rest 0x20
 
 call changeEngine
@@ -1078,18 +1094,18 @@ async_call replacetofigurefighter
 async_call cheerreaders3
 rest 0x10
 rest 0x30 * 15
+async_call figurefighterjab
 rest 0x20
 
 call changeEngine
 engine 0x2A
 sub 4
+0xB0<0xA> 2
 0x29<2>
 async_call replacetotaptrial2
 async_call figurefighter
 rest 0x10
-remove_sfx 3
 rest 0x30 * 5
-set_sfx 3, u"GROUP_NTR_SHUGYO"
 rest 0x20
 
 call changeEngine
@@ -1099,7 +1115,10 @@ sub 4
 async_call replacetomunchymonk
 async_call taptrial2
 rest 0x10
-rest 0x30 * 3
+remove_sfx 4
+rest 0x30 * 2
+set_sfx 4, u"GROUP_AGB_MARCH"
+rest 0x30
 rest 0x20
 
 call changeEngine
@@ -1110,6 +1129,7 @@ async_call replacetolockstep2
 async_call munchymonk
 rest 0x10
 rest 0x30
+play_sfx 0x1000B95
 rest 0x20
 
 call changeEngine
@@ -1121,6 +1141,7 @@ async_call replacetosupersamuraislice3
 async_call lockstep6
 rest 0x10
 rest 0x30 * 2
+play_sfx 0x1000B98
 rest 0x20
 
 call changeEngine
@@ -1281,7 +1302,7 @@ play_sfx 0x100029F
 call unload
 0x2D 0
 sub 0xB
-stop 
+stop
 
 sync:
 set_cat 0
@@ -1298,7 +1319,7 @@ ninjabodyguard:
 	async_sub 0x54
 	async_sub 0x55
 0x6C 1
-0x6C<1> 0x128
+0x6C<1> 0x130
 rest 0x30
 play_sfx 0x1000291
 rest 0x30
@@ -1311,9 +1332,72 @@ stop
 
 ninjabodyguard2:
 	0x8F 3
-	rest 0x10
+	0x78 1, 0x00, 0x00, 0x00
+	0x77 1, 0xFF
+	0x76 1, 1
+	0x104<3>
+	0x101<2>
 	fade<1> 1, 1, 1
+	rest 0x10
+	0x7B<1> 1, 0xB8, 0x48
 	input 1
+0x100 0x60
+rest 0x60 - 4
+async_call checkhit
+stop
+
+checkhit:
+async_call killcheck
+label 0xC4EC
+0x200 0
+if 1
+	0x78 1, 0xFF, 0xFF, 0xFF
+	rest 0xC
+	0x7B<1> 1, 0, 0x30 * 15
+	kill_loc killcheck
+	goto 0x027
+endif
+0x200 4
+if 1
+	0x78 1, 0xFF, 0xFF, 0xFF
+	rest 0xC
+	0x7B<1> 1, 0, 0x30 * 15
+	kill_loc killcheck
+	goto 0x027
+endif
+0x200 5
+if 1
+	0x78 1, 0xFF, 0xFF, 0xFF
+	rest 0xC
+	0x7B<1> 1, 0, 0x30 * 15
+	kill_loc killcheck
+	goto 0x027
+endif
+0x200 6
+if 1
+	0x78 1, 0xFF, 0xFF, 0xFF
+	rest 0xC
+	0x7B<1> 1, 0, 0x30 * 15
+	kill_loc killcheck
+	goto 0x027
+endif
+0x200 7
+if 1
+	0x78 1, 0xFF, 0xFF, 0xFF
+	rest 0xC
+	0x7B<1> 1, 0, 0x30 * 15
+	kill_loc killcheck
+	goto 0x027
+endif
+rest 1
+goto 0xC4EC
+label 0x027
+stop
+
+killcheck:
+rest 8
+0x7B<1> 1, 0, 0x30
+kill_loc checkhit
 stop
 
 karateman:
@@ -1463,6 +1547,11 @@ karateman7:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call karatebeat
+0x100 0
+rest 0x30
+0x100 0
+rest 0x30
 stop
 
 karateman8:
@@ -1470,6 +1559,11 @@ karateman8:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call karatebeat
+async_call doublePot
+rest 0x30
+async_call doublePot
+rest 0x30
 stop
 
 karateman9:
@@ -1477,6 +1571,13 @@ karateman9:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call karatebeat
+0x100 0
+rest 0x30
+0x100 0
+rest 0x30
+0x100 5
+rest 0x30
 stop
 
 karateman10:
@@ -1484,6 +1585,8 @@ karateman10:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call karatebeat
+0x100 5
 stop
 
 karateman11:
@@ -1491,6 +1594,12 @@ karateman11:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call karatebeat
+0x100 5
+rest 0x60
+0x100 7
+async_call hit4Rock
+rest 0x60
 stop
 
 karateman12:
@@ -1675,6 +1784,14 @@ dogninja4:
 	fade<1> 1, 1, 1
 	input 1
 async_call dogbeat
+play_sfx 0x1000E3D
+0x100 0x30, 6, 0xA
+rest 0x24
+0x100 0x30, 0xA, 3
+rest 0xC
+play_sfx 0x1000E3E
+rest 0x18
+0x100 0x30, 5, 0xA
 stop
 
 dogninja5:
@@ -1682,7 +1799,11 @@ dogninja5:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
-async_call dogbeat
+0x100 0x30, 7, 7
+rest 0x18
+0x101
+rest 0x30
+0x101
 stop
 
 sumobros:
@@ -1837,13 +1958,30 @@ sumobros4:
 	fade<1> 1, 1, 1
 	input 1
 unrest 0x30 - 9
-async_sub 0x58
 async_sub 0x5A
+async_call stompcuenosfx
+async_call sumobros4anims
 rest 0xC0
-0x106<2>
 async_call stomp
 rest 0x60
+stop
+
+sumobros4anims:
+rest 9
+rest 0x30
+rest 0xC0
 0x106<2>
+rest 0x60
+0x106<2>
+stop
+
+stompcuenosfx:
+rest 9
+rest 0x30
+0x106<1>
+rest 0x60	// 2.0 beats
+0x106<1>
+rest 0x60	// 2.0 beats
 stop
 
 sumobros5:
@@ -1851,6 +1989,44 @@ sumobros5:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+unrest 0x30 - 9
+async_call sumobros5anims
+async_sub 0x61
+rest 0xC0
+async_sub 0x5A
+rest 0xC0
+async_sub 0x5A
+rest 0xC0
+stop
+
+sumobros5anims:
+rest 0x30
+rest 9
+0x106<1>
+rest 0x30
+0x106<1>
+rest 0x30
+0x106<1>
+rest 0x30
+0x106<1>
+rest 0x30
+0x106
+rest 0x30
+0x106
+rest 0x30
+0x106
+rest 0x30
+0x106
+rest 0x30
+0x106
+rest 0x30
+0x106
+rest 0x30
+play_sfx 0x1000407
+0x106
+rest 0x30
+0x106
+rest 0x30
 stop
 
 sumobros6:
@@ -1995,6 +2171,7 @@ lockstep4:
 	fade<1> 1, 1, 1
 	input 1
 unrest 0x30-9
+async_call sumobroscues
 async_call zooming
 async_sub 0x56
 rest 0xC0
@@ -2007,6 +2184,18 @@ rest 0xC0
 async_sub 0x56
 async_sub 0x62
 rest 0xC0
+stop
+
+sumobroscues:
+set_cat 0
+rest 0x18
+rest 9
+rest 0xC0
+rest 0xC0
+rest 0xC0
+play_sfx 0x10011A5
+rest 0xC0
+play_sfx 0x10011A6
 stop
 
 lockstep5:
@@ -2039,11 +2228,15 @@ zoom_gradual 3, 1, 3, 0x30, 0x170, 0x170
 stop
 
 lockstep6:
-	0x8F 3
+	0x8F 7
 	0x8B 0, 0
-	rest 0x10
+	rest 0x10 - 9
 	fade<1> 1, 1, 1
 	input 1
+unrest 0x30-9
+async_call zooming3
+async_sub 0x56
+star 0x90
 stop
 
 lockstep7:
@@ -2084,9 +2277,70 @@ stop
 
 bouncyroad2:
 	0x8F 3
-	rest 0x10
-	fade<1> 1, 1, 1
+	0x100 0x30
+	0x100<1>
+	rest 0x8
 	input 1
+0x100<1>
+rest 0x20
+fade<1> 1, 1, 1
+rest 0x10
+0x100<1>
+rest 0x30
+async_sub 0x56
+async_call br025
+0x100<1>
+rest 0x30
+0x100<1>
+rest 0x30
+0x100<1>
+rest 0x30
+0x100<1>
+rest 0x30
+0x100<1>
+rest 0x30
+0x100<1>
+rest 0x30
+0x100<1>
+rest 0x30
+0x100<1>
+rest 0x30
+async_call countin3go
+rest 0x30
+rest 0x30
+0x100<1>
+rest 0x30
+stop
+
+br025:
+0x100 0xC
+rest 0xC
+0x100<1>
+rest 0xC
+0x100<1>
+rest 0xC
+0x100<1>
+rest 0xC
+0x100<1>
+rest 0xC
+0x100<1>
+rest 0xC
+0x100<1>
+rest 0xC
+0x100<1>
+rest 0xC
+0x100<1>
+rest 0xC
+0x100<1>
+rest 0xC
+0x100<1>
+rest 0xC
+0x100<1>
+rest 0xC
+rest 0xC
+rest 0xC
+0x100<1>
+rest 0xC
 stop
 
 bouncyroad3:
@@ -2094,14 +2348,15 @@ bouncyroad3:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call br025
 stop
 
 spaceball:
 	0x8F 3
-	0x102<0> 9, 1
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x102<0> 9, 1
 0x100 0x60, 0
 0x102<1> 6, 0x90
 rest 0x30
@@ -2133,10 +2388,10 @@ stop
 
 spaceball3:
 	0x8F 3
-	0x102<0> 8, 1
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x102<0> 8, 1
 0x100 0x30, 0
 stop
 
@@ -2182,10 +2437,17 @@ rest 0x30
 stop
 
 marchingorders3:
-	0x8F 3
-	rest 0x10
+	0x8F 7
+	rest 0x10 - 9
 	fade<1> 1, 1, 1
 	input 1
+0x100 9, 1
+rest 9
+0x105<1>
+0x105<2>
+0x105<3>
+play_sfx 0x1000B9F
+play_sfx 0x1000B94
 stop
 
 airrally:
@@ -2215,6 +2477,13 @@ clappytrio2:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x105<2> 0x503122
+0x102<0>
+async_sub 0x5B
+rest 0x60
+0x102<1>
+rest 0x18
+async_sub 0x58
 stop
 
 taptrial:
@@ -2239,6 +2508,7 @@ taptrial2:
 	fade<1> 1, 1, 1
 	input 1
 sub 0x56
+async_call countin3go
 async_call twotwo
 sub 0x57
 stop
@@ -2353,9 +2623,18 @@ stop
 
 froghop3:
 	0x8F 3
-	rest 0x10
+	rest 0x8
 	fade<1> 1, 1, 1
 	input 1
+unrest 0x30 - 9
+async_sub 0x74
+rest 0xC0
+async_sub 0x7E
+rest 0xC0
+async_sub 0x7E
+rest 0xC0
+async_sub 0xAB
+rest 0xC0
 stop
 
 animalacrobat:
@@ -2510,6 +2789,8 @@ doubledate2:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call doublebeat
+0x100<0> 0, 0, 0x30
 stop
 
 lumbearjack:
@@ -2527,7 +2808,9 @@ stompcue:
 set_cat 0
 rest 0x90
 rest 0x18
-play_sfx 0x10011A6
+play_sfx 0x10002E1
+rest 0x60
+play_sfx 0x10002E2
 stop
 
 lumbearjack2:
@@ -2578,6 +2861,13 @@ catchytune2:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call catchybeat
+0x101 0, 0, 0x30, 1, 1
+0x101 0, 1, 0x30, 1, 1
+rest 0x30
+0x100 0, 0, 0x30, 0
+rest 0x18
+0x100 0, 1, 0x30, 0
 stop
 
 pajamaparty:
@@ -2623,6 +2913,15 @@ pajamaparty2:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_sub 0x56
+rest 0x90
+async_sub 0x57
+rest 0x60
+async_sub 0x57
+rest 0x60
+async_sub 0x57
+rest 0x60
+async_sub 0x56
 stop
 
 pajamaparty3:
@@ -2741,6 +3040,186 @@ flipperflop2:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x65<4> 0x12C, 0x3C
+0x65<3> 0, -0x50
+0x65<5> 2
+async_call flipRemixAlt
+rest 9
+async_call flip
+rest 0x30
+async_call flip
+rest 0x30
+async_call flip
+rest 0x30
+async_call tripleFlip
+async_call flip
+rest 0x30
+async_call flip
+rest 0x30
+async_call flipperroll8
+rest 0xC0
+rest 0x90
+async_sub 0x75
+stop
+
+flipperroll8:
+rest 0x18	// 0.5 beats
+play_sfx 0x100088F
+rest 0x18	// 0.5 beats
+0x65<1> 9, "rvlGoma_roll_08"
+rest 0x30	// 1.0 beats
+0x107
+0x108
+0x100 0x30, 1
+rest 0x18	// 0.5 beats
+0x106
+switch
+	case 0
+		play_sfx 0x1000892
+		async_sub 0x5D
+		break
+	case 1
+		play_sfx 0x1000896
+		async_sub 0x5A
+		break
+	case 2
+		play_sfx 0x100089A
+		async_sub 0x5A
+		break
+endswitch
+rest 0x18	// 0.5 beats
+play_sfx 0x10008B2
+0x65<2>
+0x104 0
+0x100 0x30, 1
+rest 0x18	// 0.5 beats
+0x106
+switch
+	case 0
+		play_sfx 0x1000893
+		async_sub 0x5D
+		break
+	case 1
+		play_sfx 0x1000897
+		async_sub 0x5A
+		break
+	case 2
+		play_sfx 0x100089B
+		async_sub 0x5A
+		break
+endswitch
+rest 0x18	// 0.5 beats
+play_sfx 0x10008B3
+0x104 0
+0x100 0x30, 1
+rest 0x18	// 0.5 beats
+0x106
+switch
+	case 0
+		play_sfx 0x1000894
+		async_sub 0x5D
+		break
+	case 1
+		play_sfx 0x1000898
+		async_sub 0x5A
+		break
+	case 2
+		play_sfx 0x100089C
+		async_sub 0x5A
+		break
+endswitch
+rest 0x18	// 0.5 beats
+play_sfx 0x10008B4
+0x104 0
+0x100 0x30, 1
+rest 0x18	// 0.5 beats
+0x106
+switch
+	case 0
+		play_sfx 0x1000895
+		async_sub 0x5D
+		break
+	case 1
+		play_sfx 0x1000899
+		async_sub 0x5A
+		break
+	case 2
+		play_sfx 0x100089D
+		async_sub 0x5A
+		break
+endswitch
+rest 0x18	// 0.5 beats
+play_sfx 0x10008B5
+0x104 0
+0x100 0x30, 1
+rest 0x18	// 0.5 beats
+0x106
+switch
+	case 0
+		play_sfx 0x1000892
+		async_sub 0x5D
+		break
+	case 1
+		play_sfx 0x1000896
+		async_sub 0x5A
+		break
+	case 2
+		play_sfx 0x100089A
+		async_sub 0x5A
+		break
+endswitch
+rest 0x18	// 0.5 beats
+play_sfx 0x10008B6
+0x104 0
+0x100 0x30, 1
+rest 0x18	// 0.5 beats
+0x106
+switch
+	case 0
+		play_sfx 0x1000893
+		async_sub 0x5D
+		break
+	case 1
+		play_sfx 0x1000897
+		async_sub 0x5A
+		break
+	case 2
+		play_sfx 0x100089B
+		async_sub 0x5A
+		break
+endswitch
+rest 0x18	// 0.5 beats
+play_sfx 0x10008B7
+0x104 0
+0x100 0x30, 1
+rest 0x18	// 0.5 beats
+rest 0x18	// 0.5 beats
+play_sfx 0x10008B8
+0x104 0
+0x100 0x30, 1
+rest 0x18	// 0.5 beats
+rest 0x18	// 0.5 beats
+play_sfx 0x10008B9
+0x104 0
+rest 0x18	// 0.5 beats
+stop
+
+tripleFlipRemixAlt:
+rest 9
+play_sfx 0x10008A9
+rest 0x30	// 1.0 beats
+0x100 0x30, 0
+rest 0x18	// 0.5 beats
+0x100 0x30, 0
+rest 0x18	// 0.5 beats
+0x100 0x30, 0
+0x103
+0x105<1>
+rest 0x18	// 0.5 beats
+0x103
+rest 0x18	// 0.5 beats
+0x103
+0x105<1>
 stop
 
 builttoscale:
@@ -2786,6 +3265,9 @@ builttoscale2:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_sub 0x8D
+async_call btsRodDispenceLeft
+async_call bts5bounces
 stop
 
 builttoscale3:
@@ -2793,6 +3275,52 @@ builttoscale3:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call widget
+async_call btsRodDispenceLeft
+async_call bts3bounces
+stop
+
+widget:
+0x103 0, 1
+0x103<3> 0
+0x103<1> 0, 1, -1
+0x103<1> 0, 0, 1
+rest 0x30	// 1.0 beats
+0x103<2> 0
+0x103<1> 0, 1, 0
+0x103<1> 0, 0, 0
+rest 0x30	// 1.0 beats
+0x103<1> 0, 1, 1
+0x103<1> 0, 0, -1
+rest 0x30	// 1.0 beats
+0x103<1> 0, 1, 2
+0x103<1> 0, 0, -2
+rest 0x30	// 1.0 beats
+0x103<1> 0, 1, 3
+0x103<1> 0, 0, -3
+rest 0x30	// 1.0 beats
+0x103<1> 0, 1, 4
+0x103<1> 0, 0, -4
+rest 0x30	// 1.0 beats
+0x103<1> 0, 1, 5
+0x103<1> 0, 0, -5
+rest 0x30	// 1.0 beats
+0x103<1> 0, 1, 6
+0x103<1> 0, 0, -6
+rest 0x30	// 1.0 beats
+0x103<1> 0, 1, 7
+0x103<1> 0, 0, -7
+rest 0x30	// 1.0 beats
+0x103<1> 0, 1, 8
+0x103<1> 0, 0, -8
+rest 0x30	// 1.0 beats
+0x103<1> 0, 1, 9
+0x103<1> 0, 0, -9
+rest 0x30	// 1.0 beats
+0x103<1> 0, 1, 0xA
+0x103<1> 0, 0, -0xA
+rest 0x30	// 1.0 beats
+0x103 0, 0
 stop
 
 builttoscale4:
@@ -2800,6 +3328,12 @@ builttoscale4:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call btsRodAppearLeft
+rest 0x30
+async_call bts15bounces
+rest 0xC0
+rest 0x90
+async_sub 0x81
 stop
 
 seesaw:
@@ -2859,6 +3393,29 @@ monkeywatch2:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x104 0
+0x104<2>
+0x103 0, 1
+0x104<3> 3
+0x104<3> 4
+0x104<3> 6
+0x104<3> 7
+0x104<3> 9
+0x104<3> 10
+0x103 1, 1
+0x103 2, 1
+0x103 3, 1
+0x104 0
+0x104<2>
+async_call watchCamera
+0x104<2>
+0x100 0x30
+rest 0x30
+call watchYellow
+call watchYellowToPurple
+call watchPurple
+call watchYellowToPurple
+call watchPurple
 stop
 
 packingpests:
@@ -2873,6 +3430,14 @@ rest 0x18
 0x101<1> 1
 rest 0x30
 0x101<1> 1
+stop
+
+stompcue2:
+set_cat 0
+rest 0x18
+play_sfx 0x10011A6
+rest 0xC0
+play_sfx 0x10011A5
 stop
 
 doubleup:
@@ -3076,6 +3641,14 @@ screwbotfactory:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+unrest 0x18
+async_sub 0x57
+rest 0x18
+rest 0x30
+async_sub 0x58
+rest 0x60
+rest 0x18
+play_sfx 0x1001003
 stop
 
 rhythmrally:
@@ -3083,6 +3656,7 @@ rhythmrally:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call rallybeat
 async_sub 0x58
 0x108<3> 2, 0x30
 rest 0x30
@@ -3094,13 +3668,61 @@ rhythmrally2:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x108<1> 1
+0x108<3> 4, 0x180 * 2
+async_call rallybeat
+async_sub 0x58
+rest 0x60
+async_sub 0x58
+rest 0x60
+async_sub 0x58
+rest 0x60
+async_sub 0x58
+rest 0x60
 stop
 
 airboarder:
 	0x8F 3
+	0x103<2> 0, 3, 0, -0xA, 8, 0xA
+	0x103<1> 0, 3, 0, 4, 1
+	0x103<4> 0, 3, 0, 0x5A
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x100 0x30 * 3, 1
+0x100 0x30 * 6 + 0x18, 1
+0x100 0x30 * 9, 0
+play_sfx 0x1000FCF
+0x105<1> 0
+rest 0x30	// 1.0 beats
+0x105<2> 0
+0x105<1> 1
+rest 0x30	// 1.0 beats
+0x105<2> 1
+0x105<1> 2
+rest 0x30	// 1.0 beats
+0x105 0
+0x105 1
+0x105 2
+rest 0x18
+play_sfx 0x1000FCF
+0x105<1> 0
+rest 0x30	// 1.0 beats
+0x105<3> 0
+0x105<1> 1
+rest 0x30	// 1.0 beats
+0x105<3> 1
+0x105<1> 2
+rest 0x18	// 0.5 beats
+0x106 1
+rest 0x30
+0x105<4> 0
+rest 0x30	// 1.0 beats
+0x105<4> 1
+rest 0x18	// 0.5 beats
+0x106 0
+rest 0x30
+play_sfx 0x10010CC
 stop
 
 bossanova:
@@ -3108,6 +3730,14 @@ bossanova:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x102<1>
+0x103<1> 1
+0x103<2> 1
+async_sub 0x65
+rest 0xC0
+async_sub 0x63
+rest 0x30
+async_call countin3go
 stop
 
 cheerreaders:
@@ -3115,6 +3745,16 @@ cheerreaders:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0xB0<1>
+async_sub 0x5D
+async_sub 0x76
+async_sub 0x67
+stop
+
+cheerreadersfx1:
+rest 0x18
+play_sfx 0x1000514
+play_sfx 0x100051A
 stop
 
 cheerreaders2:
@@ -3122,6 +3762,15 @@ cheerreaders2:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_sub 0x6C
+async_sub 0x61
+async_sub 0x7C
+stop
+
+cheerreadersfx2:
+rest 0x18
+play_sfx 0x1000516
+play_sfx 0x100051C
 stop
 
 cheerreaders3:
@@ -3129,20 +3778,265 @@ cheerreaders3:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_sub 0x62
+async_sub 0x59
+async_sub 0x70
+rest 0x60
+rest 0x18
+    async_sub 0x62, 0x18
+    async_sub 0x58, 0x18
+    async_sub 0x70, 0x18
+    play_sfx 0x1000512
+    play_sfx 0x1000518
+rest 0x90
+    async_sub 0x63, 0x18
+    async_sub 0x5B, 0x18
+    async_sub 0x73, 0x18
+    play_sfx 0x1000513
+    play_sfx 0x1000519
+rest 0x90
+    async_sub 0x6C, 0x18
+    async_sub 0x60, 0x18
+    async_sub 0x7C, 0x18
+    play_sfx 0x1000516
+    play_sfx 0x100051C
+rest 0xC0
+    async_sub 0x68, 0x18
+    async_sub 0x5F, 0x18
+    async_sub 0x79, 0x18
+    play_sfx 0x1000515
+    play_sfx 0x100051B
+stop
+
+cheerreadersfx3:
+rest 0x18
+play_sfx 0x1000512
+play_sfx 0x1000518
 stop
 
 holeinone:
 	0x8F 3
+	0x101<1> 2
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call MONKEYbeat
+async_sub 0x56
+rest 0x60
+rest 0x18
+async_sub 0x56
+rest 0x18
+rest 0x30
+async_sub 0x56
+rest 0x60
+async_sub 0x56
+rest 0x30
+async_sub 0x56
+rest 0x30
+async_sub 0x57
+rest 0xC0
+async_sub 0x57
+rest 0x30
+async_sub 0x56
+rest 0xC0
+rest 0x30
+async_sub 0x56
+rest 0x90
+async_sub 0x56
 stop
 
 powercalligraphy:
 	0x8F 3
-	rest 0x10
-	fade<1> 1, 1, 1
+	0x101 6
+	rest 0x10 - 4
 	input 1
+play_sfx 0x1000B13
+rest 4	// 0.083333336 beats
+	fade<1> 1, 1, 1
+0x101<1> 1
+0x105 2, -0x3D, 0
+0x102 1, 0
+rest 2	// 0.041666668 beats
+0x101<1> 2
+0x105 0x12, -0x43, 0
+0x102 1, 0
+rest 2	// 0.041666668 beats
+0x101<1> 3
+0x105 0x20, -0x41, 0
+0x102 1, 0
+rest 2	// 0.041666668 beats
+0x101<1> 4
+0x105 0x25, -0x39, 0
+0x102 2, 0
+rest 0x26	// 0.7916667 beats
+play_sfx 0x1000B14
+rest 4	// 0.083333336 beats
+0x101<1> 5
+0x105 5, -0x31, 0
+0x102 -4, -1
+rest 0x24	// 0.75 beats
+0x101<1> 5
+0x105 0xE, -0x1F, 0
+0x102 0, 0
+rest 0xC	// 0.25 beats
+0x101<1> 6
+0x105 0x20, -0x21, 0
+0x102 1, 0
+play_sfx 0x1000B11
+rest 0x18	// 0.5 beats
+0x101<1> 7
+0x105 0x16, -0x16, 0
+0x102 -1, 1
+play_sfx 0x1000B11
+rest 0x14	// 0.41666666 beats
+play_sfx 0x1000B13
+rest 4	// 0.083333336 beats
+0x101<1> 8
+0x105 0x25, -0x12, 0
+0x102 0, 0
+rest 8	// 0.16666667 beats
+0x101<1> 9
+0x105 0x1A, -0x10, 0
+0x102 0, 0
+rest 8	// 0.16666667 beats
+0x101<1> 0xA
+0x105 0x1F, -0x15, 0
+0x102 0, 0
+rest 8	// 0.16666667 beats
+0x101<1> 0xB
+0x105 0x20, -0xF, 0
+0x102 0, 1
+rest 0xC	// 0.25 beats
+0x101<1> 0xB
+0x105 -0x17, -0x30, 0
+0x102 -2, -2
+rest 8	// 0.16666667 beats
+play_sfx 0x1000B13
+rest 4	// 0.083333336 beats
+0x101<1> 0xC
+0x105 -6, -0x30, 0
+0x102 1, 0
+rest 2	// 0.041666668 beats
+0x101<1> 0xD
+0x105 4, -0x31, 0
+0x102 2, 0
+rest 0xA	// 0.20833333 beats
+0x101<1> 0xD
+0x105 -0x1C, -0x27, 0
+0x102 0, 0
+rest 8	// 0.16666667 beats
+0x101<1> 0xE
+0x105 -0xA, -0x28, 0
+0x102 1, 0
+play_sfx 0x1000B13
+rest 2	// 0.041666668 beats
+0x101<1> 0xF
+0x105 0, -0x28, 0
+0x102 1, 0
+rest 2	// 0.041666668 beats
+0x101<1> 0x10
+0x105 0xB, -0x28, 0
+0x102 2, 0
+rest 8	// 0.16666667 beats
+0x101<1> 0x10
+0x105 -0x11, -0x27, 0
+0x102 0, 0
+rest 0xC	// 0.25 beats
+0x101<1> 0x11
+0x105 -0x20, -0x16, 0
+0x102 -1, 1
+play_sfx 0x1000B14
+rest 0xC	// 0.25 beats
+0x101<1> 0x11
+0x105 -4, -0x29, 0
+0x102 1, -1
+rest 0xC	// 0.25 beats
+0x101<1> 0x12
+0x105 0x15, -0x1B, 0
+0x102 2, 2
+play_sfx 0x1000B14
+rest 0xC	// 0.25 beats
+0x101<1> 0x12
+0x105 -0x10, -0xE, 0
+0x102 0, 0
+rest 0xC	// 0.25 beats
+0x101<1> 0x13
+0x105 -0x14, -0x15, 0
+0x102 -1, -1
+play_sfx 0x1000B13
+rest 2	// 0.041666668 beats
+0x101<1> 0x14
+0x105 -0xF, -0x17, 0
+0x102 0, -1
+rest 2	// 0.041666668 beats
+0x101<1> 0x15
+0x105 -0xA, -0x16, 0
+0x102 1, 0
+rest 2	// 0.041666668 beats
+0x101<1> 0x16
+0x105 -0x18, -0xB, 0
+0x102 -1, 1
+rest 6	// 0.125 beats
+0x101<1> 0x16
+0x105 1, -0xE, 0
+0x102 0, 0
+rest 0xC	// 0.25 beats
+0x101<1> 0x17
+0x105 0, -0x16, 0
+0x102 -1, -1
+play_sfx 0x1000B13
+rest 2	// 0.041666668 beats
+0x101<1> 0x18
+0x105 5, -0x17, 0
+0x102 0, -1
+rest 2	// 0.041666668 beats
+0x101<1> 0x19
+0x105 9, -0x15, 0
+0x102 1, 0
+rest 2	// 0.041666668 beats
+0x101<1> 0x1A
+0x105 -0xA, -0xD, 0
+0x102 -1, 1
+rest 0x12	// 0.375 beats
+0x101<1> 0x1B
+0x105 -0x12, 0, 0
+0x102 -1, 1
+rest 4	// 0.083333336 beats
+play_sfx 0x1000B11
+rest 8	// 0.16666667 beats
+0x101<1> 0x1C
+0x105 -5, -2, 0
+0x102 1, 0
+rest 4	// 0.083333336 beats
+play_sfx 0x1000B11
+rest 2	// 0.041666668 beats
+0x101<1> 0x1C
+0x105 -7, -8, 0
+0x102 0, 0
+rest 6	// 0.125 beats
+0x101<1> 0x1D
+0x105 -1, 1, 0
+0x102 1, 3
+rest 4	// 0.083333336 beats
+play_sfx 0x1000B12
+rest 8	// 0.16666667 beats
+0x101<1> 0x1D
+0x105 -0x11, 2, 0
+0x102 -2, -3
+rest 0x10	// 0.33333334 beats
+0x101<1> 0x1E
+0x105 -0xD, 0x10, 1
+0x102 0, 4
+rest 0	// 0.0 beats
+0x105<4>
+0x105<1> 0
+rest 0x30	// 1.0 beats
+0x105<2> 1
+0x104 0xA
+0x100
+rest 0x30	// 1.0 beats
+0x105<2> 0
+rest 0x30	// 1.0 beats
 stop
 
 boardmeeting:
@@ -3150,13 +4044,28 @@ boardmeeting:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call boardbeat
+async_sub 0x5D
+rest 0x90
+kill_loc boardbeat
+async_sub 0x63
 stop
 
 miidrum:
 	0x8F 3
+	0x103<0> 0
+	0x103<0> 2
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x101<1>
+0x103<2> 0, 1
+0x103<2> 1, 1
+0x103<2> 2, 1
+0x100 0x30, 0
+rest 0x30
+0x103<4> 0
+0x103<4> 2
 stop
 
 rhythmtweezers:
@@ -3164,6 +4073,22 @@ rhythmtweezers:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x101
+0x100 0
+rest 0x24
+0x100 2
+rest 0xC
+0x100 2
+rest 0x18
+0x100 1
+rest 0x18
+0x102
+0x100 3
+rest 0x30
+0x100 1
+rest 0x18
+0x100 1
+rest 0x18
 stop
 
 fanclub:
@@ -3171,6 +4096,84 @@ fanclub:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call fanclubbeat
+async_call ooh
+async_call yeahYeahYeahRemix
+rest 0xC0
+rest 0xC0
+async_call ooh
+rest 0x30
+async_call iSuppose
+rest 0xC0
+rest 0x90
+async_call ooh
+rest 0x30
+async_call ooh
+rest 0x90
+async_call ooh
+stop
+
+yeahyeahyeah:
+set_cat 0
+rest 0x18
+play_sfx 0x1000EE5
+rest 0x18
+stop
+
+fanclubbeat:
+rest 0x30
+rest 0x30
+rest 0x30
+rest 0x30
+rest 0x30
+rest 0x30
+rest 0x30
+rest 0x30
+0x107 0
+0x107 1
+0x107 2
+rest 0x30
+0x107 0
+0x107 1
+0x107 2
+rest 0x30
+rest 0x30
+rest 0x30
+rest 0x30
+rest 0x30
+rest 0x30
+0x107 0
+0x107 1
+0x107 2
+rest 0x30
+0x107 0
+0x107 1
+0x107 2
+rest 0x30
+0x107 0
+0x107 1
+0x107 2
+rest 0x30
+0x107 0
+0x107 1
+0x107 2
+rest 0x30
+0x107 0
+0x107 1
+0x107 2
+rest 0x30
+0x107 0
+0x107 1
+0x107 2
+rest 0x30
+0x107 0
+0x107 1
+0x107 2
+rest 0x30
+0x107 0
+0x107 1
+0x107 2
+rest 0x30
 stop
 
 figurefighter:
@@ -3178,6 +4181,18 @@ figurefighter:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call figurebeatno
+0x100 0, 0x30
+rest 0x30
+async_sub 0x5C
+rest 0x60
+async_sub 0x5E
+stop
+
+figurefighterjab:
+set_cat 0
+rest 0x18
+play_sfx 0x10009BE
 stop
 
 catchoftheday:
@@ -3225,7 +4240,7 @@ label 0x4D2
 cellanim_busy 2
 if 0
 	goto 0x10E1
-endif 
+endif
 rest 1
 goto 0x4D2
 label 0x10E1
@@ -3333,13 +4348,13 @@ rest 1
 goto 0x3571
 label 0xBD9
 
-0x83<1> 
-0xBB 
+0x83<1>
+0xBB
 if 0
-	0xBC 
-endif 
+	0xBC
+endif
 sub 7
-0xBD 
+0xBD
 0x8C<2> 5
 
 set_sfx 1, u"GROUP_AGB_TONO"
@@ -3351,6 +4366,8 @@ rest 0xC
 set_sfx 4, u"GROUP_AGB_MARCH"
 rest 0xC
 set_sfx 5, u"MUSIC_FREEDOM_DIVE"
+rest 0xC
+set_sfx 6, u"GROUP_NTR_SHUGYO"
 rest 0xC
 sub 3
 0x83 0
@@ -3429,7 +4446,7 @@ game_model 0x17, 1
 0x2B 0x40, 0
 0x2B 0x41, 0x10
 0x2B 0x42, 0
-return 
+return
 
 replacetoninjabodyguard:
 remove_cellanim 2
@@ -3444,7 +4461,7 @@ set_sfx 1, u"GROUP_AGB_TONO"
 rest 0xC
 
 game_cellanim 0xD, 2
-stop 
+stop
 
 replacetoninjabodyguard2:
 remove_cellanim 3
@@ -3590,6 +4607,21 @@ remove_sfx 1
 rest 0xC
 sub 3
 set_sfx 1, u"GROUP_SUMOU"
+rest 0xC
+
+game_cellanim 0x3C, 2
+game_effect 0x3C, 4
+stop
+
+replacetosumobrosalt:
+remove_cellanim 2
+rest 0xC
+set_cellanim 2, u"rom:/cellanim/ctrSumou_long.zlib", -1
+rest 0xC
+
+remove_effect 4
+rest 0xC
+set_effect 4, u"rom:/effect/ctrSumou.zlib", -1
 rest 0xC
 
 game_cellanim 0x3C, 2
@@ -3881,12 +4913,6 @@ rest 0xC
 set_cellanim 3, u"rom:/cellanim/ntrShugyo_long.zlib", -1
 rest 0xC
 
-remove_sfx 2
-rest 0xC
-sub 3
-set_sfx 2, u"GROUP_NTR_SHUGYO"
-rest 0xC
-
 game_cellanim 0x1B, 3
 stop
 
@@ -3972,6 +4998,15 @@ remove_sfx 1
 rest 0xC
 sub 3
 set_sfx 1, u"GROUP_NTR_FROG"
+rest 0xC
+
+game_cellanim 0x14, 2
+stop
+
+replacetofroghopalt:
+remove_cellanim 2
+rest 0xC
+set_cellanim 2, u"rom:/cellanim/ntrFrog_long.zlib", -1
 rest 0xC
 
 game_cellanim 0x14, 2
@@ -5229,15 +6264,15 @@ tempoAndMusic:
 	0x23 tempoId
 	speed 0x100
 	rest 0x30
-	0xBA 
+	0xBA
 	sub 1
-	0x88 
+	0x88
 	if 1
-		0x88<5> 
-	endif 
+		0x88<5>
+	endif
 	0x51 1
 	0x63 tempoId
-return 
+return
 
 tempoAndMusicGrp:
 	rest 0x30
@@ -5257,7 +6292,7 @@ return
 //-----------------------------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------------------------
 
-start:	
+start:
 
 play_sfx 0x1000294
 rest 0xC
@@ -5271,7 +6306,7 @@ play_sfx 0x100029B
 0xA8<1> epilogueId
 0xA8<4> epilogueId
 
-0x75<1> 
+0x75<1>
 if 0
 	0xA5 1
 	0xA4<2> 1
@@ -5279,7 +6314,7 @@ if 0
 else
 	0xA6<1> 0
 	0x75 0
-endif 
+endif
 
 set_cat 0
 0x21 0x78
@@ -5288,11 +6323,11 @@ input 0
 0x7C<3> 1
 if 0
 	0x7C 1, 0, 0x18
-endif 
+endif
 0x7C<3> 2
 if 0
 	0x7C 2, 0, 0x18
-endif 
+endif
 rest 0x18
 sub 5
 
@@ -5303,42 +6338,42 @@ rest 0xC
 
 sub 9
 sub 6
-0x81 
+0x81
 if 1
-	0x81 
+	0x81
 	if 1
-		0x84<1> 
+		0x84<1>
 		label 0x321F
 		rest 0xC
-		0x81 
+		0x81
 		if 1
 			0x84<2> 2
 			if 0
 				goto 0x321F
-			endif 
-		endif 
-	endif 
+			endif
+		endif
+	endif
 	0x82 0x3E8
 	rest 0xC
 	label 0x3DB
-	0x81 
+	0x81
 	if 1
-		0x82<1> 
+		0x82<1>
 		if 0
 			rest 1
 			goto 0x3DB
-		endif 
-	endif 
+		endif
+	endif
 	rest_reset
-endif 
+endif
 rest 0xC
-0x88 
+0x88
 if 1
 	0x8A<3> 1
-endif 
+endif
 0x2D 1
 
-0xB1 
+0xB1
 
 engine<4> 1
 
@@ -5380,35 +6415,35 @@ set_cat 0
 
 0x95 0x10, "remix_caption"
 0x95 0x10, "remix_LED_caption"
-0x98 1, 1
+0x98 1, 4
 
 rest 0x30 * 2
-0x88 
+0x88
 if 1
-	0x88<1> 
+	0x88<1>
 	if 1
-		0x88<2> 
-		switch 
+		0x88<2>
+		switch
 			case 1
 				0x8A<4> 1, 1
-				break 
+				break
 			case 2
 				0x8A<4> 1, 2
-				break 
+				break
 			case 3
 				0x8A<4> 1, 3
-				break 
-		endswitch 
-	endif 
+				break
+		endswitch
+	endif
 else
 	0xAB<3> 1
 	if 1
 		0xAC 0
-	else 
+	else
 		0xAD 0
-	endif 
-endif 
-stop 
+	endif
+endif
+stop
 
 //-----------------------------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------------------------
@@ -5416,27 +6451,27 @@ stop
 changeEngine:
 	0xAB<3> 1
 	if 1
-		0xAC<3> 
+		0xAC<3>
 		if 1
-			0xAC<4> 
+			0xAC<4>
 			if 1
-				stop 
-			endif 
-		endif 
-	endif 
-	0x89<6> 
+				stop
+			endif
+		endif
+	endif
+	0x89<6>
 	if 1
-		0x8A<7> 
+		0x8A<7>
 		if 1
-			stop 
-		endif 
-	endif 
+			stop
+		endif
+	endif
 	async_sub 0x12
 	async_sub 0x17
 	async_sub 0x1C
 	input 0
 	fade 1, 1, 1
-return 
+return
 
 changeEngineAlt:
 	0xAB<3> 1
@@ -5469,82 +6504,82 @@ speed 0x100
 0x7C<3> 1
 if 0
 	0x7C 1, 0, 0x18
-endif 
+endif
 0x7C<3> 2
 if 0
 	0x7C 2, 0, 0x18
-endif 
+endif
 rest 0xC
 engine 0x49
 rest 0x18
 sub 4
-0x81 
+0x81
 if 1
-	0x84<1> 
+	0x84<1>
 	label 0x300
 	rest 0xC
-	0x81 
+	0x81
 	if 1
 		0x84<2> 0
 		if 0
 			goto 0x300
-		endif 
-	endif 
-endif 
+		endif
+	endif
+endif
 0xA4<2> 0
 rest 0x18
-0x81 
+0x81
 if 1
 	0x82 0x3E8
 	rest 0xC
 	label 0x3DB
-	0x81 
+	0x81
 	if 1
-		0x82<1> 
+		0x82<1>
 		if 0
 			rest 1
 			goto 0x3DB
-		endif 
-	endif 
+		endif
+	endif
 	rest_reset
-endif 
+endif
 label 0xC8
-0x103 
+0x103
 if 0
 	rest 6
 	goto 0xC8
-endif 
+endif
 0x7C<1> 7, 1, 0
 fade<1> 7, 1, 0
 0x76 7, 0
-0x100 
+0x100
 rest 0x18
-0x88 
+0x88
 if 0
-	0xAB<4> 
+	0xAB<4>
 	if 1
-		0xAB<1> 
-	endif 
-endif 
-0x102 
+		0xAB<1>
+	endif
+endif
+0x102
 label 0xC7
-0xA7 
+0xA7
 if 1
 	goto 0xC5
-endif 
+endif
 rest 0x18
 0x102<1> 0x18
-0x101 
-switch 
+0x101
+switch
 	case 0x3E
 	case 0x48
 	case 0x2B
 	case 0xFF
-		0x102<2> 
+		0x102<2>
 		if_geq 0x2B8
 			goto 0xC6
-		endif 
-		break 
+		endif
+		break
 	case 0x3D
 	case 0x3F
 	case 0x3C
@@ -5558,11 +6593,11 @@ switch
 	case 0x40
 	case 0x49
 	case 0x30
-		0x102<2> 
+		0x102<2>
 		if_geq 0x228
 			goto 0xC6
-		endif 
-		break 
+		endif
+		break
 	case 0x42
 	case 0x3A
 	case 0x3B
@@ -5571,94 +6606,94 @@ switch
 	case 0x4B
 	case 0x29
 	case 0x33
-		0x102<2> 
+		0x102<2>
 		if_geq 0x258
 			goto 0xC6
-		endif 
-		break 
+		endif
+		break
 	case 0x43
-		0x102<2> 
+		0x102<2>
 		if_geq 0x1F8
 			goto 0xC6
-		endif 
-		break 
+		endif
+		break
 	case 0x39
-		0x102<2> 
+		0x102<2>
 		if_geq 0x1C8
 			goto 0xC6
-		endif 
-		break 
+		endif
+		break
 	case 0x44
 	case 0x4C
 	case 0x2E
-		0x102<2> 
+		0x102<2>
 		if_geq 0x288
 			goto 0xC6
-		endif 
-		break 
+		endif
+		break
 	case 0x2C
 	case 0x37
 	case 0x38
 	case 0x31
 	case 0x32
 	case 0x36
-		0x102<2> 
+		0x102<2>
 		if_geq 0x2E8
 			goto 0xC6
-		endif 
-		break 
+		endif
+		break
 	case 0x35
-		0x102<2> 
+		0x102<2>
 		if_geq 0x378
 			goto 0xC6
-		endif 
-		break 
+		endif
+		break
 	case 0x2A
-		0x102<2> 
+		0x102<2>
 		if_geq 0x318
 			goto 0xC6
-		endif 
-		break 
+		endif
+		break
 	case 0x2D
 	case 0x2F
-		0x102<2> 
+		0x102<2>
 		if_geq 0x348
 			goto 0xC6
-		endif 
-		break 
+		endif
+		break
 	case 0x34
-		0x102<2> 
+		0x102<2>
 		if_geq 0x3A8
 			goto 0xC6
-		endif 
-		break 
-	default 
-		0x102<2> 
+		endif
+		break
+	default
+		0x102<2>
 		if_geq 0x240
 			goto 0xC6
-		endif 
-		break 
-endswitch 
+		endif
+		break
+endswitch
 goto 0xC7
 label 0xC6
-0xA7<3> 
+0xA7<3>
 if 0
 	0xA6<1> 0
-endif 
+endif
 label 0xC5
 debug "TICKFLOW >>> 0000\n"
 0x7C 7, 1, 0
 debug "TICKFLOW >>> 0001\n"
-0x100<1> 
+0x100<1>
 rest 0x18
 debug "TICKFLOW >>> 0002\n"
 0xA5 0
-0x81 
+0x81
 if 1
 	0x8C<1> 1
-endif 
+endif
 debug "TICKFLOW >>> 0003\n"
-stop 
+stop
 
 unload:
 0x5F<1>
@@ -5666,161 +6701,161 @@ unload:
 0x35<2> 2
 if 1
     remove_cellanim 2
-endif 
+endif
 0x35<2> 3
 if 1
     remove_cellanim 3
-endif 
+endif
 0x35<2> 4
 if 1
     remove_cellanim 4
-endif 
+endif
 0x35<2> 5
 if 1
     remove_cellanim 5
-endif 
+endif
 0x35<2> 6
 if 1
     remove_cellanim 6
-endif 
+endif
 0x35<2> 7
 if 1
     remove_cellanim 7
-endif 
+endif
 0x35<2> 8
 if 1
     remove_cellanim 8
-endif 
+endif
 0x35<2> 9
 if 1
     remove_cellanim 9
-endif 
+endif
 0x35<2> 0xA
 if 1
     remove_cellanim 0xA
-endif 
+endif
 0x35<2> 0xB
 if 1
     remove_cellanim 0xB
-endif 
+endif
 0x35<2> 0xC
 if 1
     remove_cellanim 0xC
-endif 
+endif
 0x35<2> 0xD
 if 1
     remove_cellanim 0xD
-endif 
+endif
 0x35<2> 0xE
 if 1
     remove_cellanim 0xE
-endif 
+endif
 rest 3
 0x3E<2> 4
 if 1
     remove_layout 4
-endif 
+endif
 0x3E<2> 5
 if 1
     remove_layout 5
-endif 
+endif
 0x3E<2> 6
 if 1
     remove_layout 6
-endif 
+endif
 0x3E<2> 7
 if 1
     remove_layout 7
-endif 
+endif
 0x3E<2> 8
 if 1
     remove_layout 8
-endif 
+endif
 0x3E<2> 9
 if 1
     remove_layout 9
-endif 
+endif
 0x3E<2> 0xA
 if 1
     remove_layout 0xA
-endif 
+endif
 0x3E<2> 0xB
 if 1
     remove_layout 0xB
-endif 
+endif
 0x3E<2> 0xC
 if 1
     remove_layout 0xC
-endif 
+endif
 0x3E<2> 0xD
 if 1
     remove_layout 0xD
-endif 
+endif
 0x3E<2> 0xE
 if 1
     remove_layout 0xE
-endif 
+endif
 0x3E<2> 0xF
 if 1
     remove_layout 0xF
-endif 
+endif
 0x3E<2> 0x10
 if 1
     remove_layout 0x10
-endif 
+endif
 rest 3
 0x39<2> 2
 if 1
     remove_effect 2
-endif 
+endif
 0x39<2> 3
 if 1
     remove_effect 3
-endif 
+endif
 0x39<2> 4
 if 1
     remove_effect 4
-endif 
+endif
 0x39<2> 5
 if 1
     remove_effect 5
-endif 
+endif
 0x39<2> 6
 if 1
     remove_effect 6
-endif 
+endif
 0x39<2> 7
 if 1
     remove_effect 7
-endif 
+endif
 0x39<2> 8
 if 1
     remove_effect 8
-endif 
+endif
 0x39<2> 9
 if 1
     remove_effect 9
-endif 
+endif
 0x39<2> 0xA
 if 1
     remove_effect 0xA
-endif 
+endif
 0x39<2> 0xB
 if 1
     remove_effect 0xB
-endif 
+endif
 0x39<2> 0xC
 if 1
     remove_effect 0xC
-endif 
+endif
 0x39<2> 0xD
 if 1
     remove_effect 0xD
-endif 
+endif
 0x39<2> 0xE
 if 1
     remove_effect 0xE
-endif 
+endif
 has_model 0
 if 1
 	remove_model 0
@@ -5845,7 +6880,7 @@ has_model 5
 if 1
 	remove_model 5
 endif
-return 
+return
 
 
 // Tuturu! Ohayo Okarin!
