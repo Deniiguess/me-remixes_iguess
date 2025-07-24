@@ -916,7 +916,7 @@ async_call packingpests
 async_call replacetosumobrosalt
 rest 0x10
 rest 0x30 * 3
-rest 0x20 - 9
+rest 0x28 - 9
 
 call changeEngine
 engine 0x3C
@@ -924,7 +924,7 @@ sub 4
 0x29<2>
 async_call sumobros5
 async_call replacetokarateman2
-rest 0x10
+rest 0x8
 rest 0x30 * 11
 rest 0x20 + 9
 
@@ -1129,8 +1129,9 @@ async_call replacetolockstep2
 async_call munchymonk
 rest 0x10
 rest 0x30
+star 0xC0
 play_sfx 0x1000B95
-rest 0x20
+rest 0x28 - 9
 
 call changeEngine
 engine 0xF
@@ -1139,17 +1140,17 @@ sub 4
 async_call replacetomarchingorders
 async_call replacetosupersamuraislice3
 async_call lockstep6
-rest 0x10
+rest 0x8 + 9
 rest 0x30 * 2
 play_sfx 0x1000B98
-rest 0x20
+rest 0x20 - 0xC - 6
 
 call changeEngine
 engine 5
 sub 4
 0x29<2>
 async_call marchingorders3
-rest 0x10
+rest 0x10 + 0xC + 6
 rest 0x20
 
 call changeEngine
@@ -1204,7 +1205,7 @@ async_call replacetosumobros
 async_call sickbeats
 rest 0x10
 rest 0x30 * 3
-rest 0x20
+rest 0x20 - 9
 
 call changeEngine
 engine 0x3C
@@ -1214,16 +1215,19 @@ async_call replacetobluebear2
 async_call sumobros6
 rest 0x10
 rest 0x30 * 3
-rest 0x20
+rest 0x20 + 9
 
 call changeEngine
 engine 0x34
 sub 4
 0x29<2>
 async_call replacetogleeclub
-async_call bluebear
+async_call bluebear3
 rest 0x10
-rest 0x30 * 5
+remove_sfx 6
+rest 0x30 * 2
+set_sfx 6, u"GROUP_WRESTLER"
+rest 0x30 * 3
 rest 0x20
 
 call changeEngine
@@ -1251,7 +1255,7 @@ engine 0x24
 sub 4
 0x29<2>
 async_call replacetopajamaparty2
-async_call forklifter
+async_call forklifter3
 rest 0x10
 rest 0x30 * 3
 rest 0x20
@@ -1274,7 +1278,7 @@ async_call replacetolockstep2
 async_call karateman12
 rest 0x10
 rest 0x30 * 8
-rest 0x20
+rest 0x20 - 9
 
 call changeEngine
 engine 0xF
@@ -1284,7 +1288,7 @@ async_call replacetoninjabodyguard
 async_call lockstep7
 rest 0x10
 rest 0x30 * 13
-rest 0x20
+rest 0x20 + 9
 
 call changeEngine
 engine 0xD
@@ -1340,9 +1344,10 @@ ninjabodyguard2:
 	fade<1> 1, 1, 1
 	rest 0x10
 	0x7B<1> 1, 0xB8, 0x48
-	input 1
 0x100 0x60
-rest 0x60 - 4
+rest 0x30
+input 1
+rest 0x30 - 3
 async_call checkhit
 stop
 
@@ -1395,7 +1400,7 @@ label 0x027
 stop
 
 killcheck:
-rest 8
+rest 6
 0x7B<1> 1, 0, 0x30
 kill_loc checkhit
 stop
@@ -1604,9 +1609,21 @@ stop
 
 karateman12:
 	0x8F 3
+	0x109 0
+	0x10D 0
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x105<2>
+async_call karatebeat
+0x100 5
+rest 0x60
+0x105<0x63>
+0x100 6
+rest 0x30
+async_call comboNoCheck
+rest 0x60
+async_call countin3go
 stop
 
 flockstep:
@@ -2034,6 +2051,18 @@ sumobros6:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+unrest 0x30 - 9
+async_call sumobros6anims
+async_sub 0x61
+rest 0xC0
+stop
+
+sumobros6anims:
+rest 0x30
+rest 9
+0x106<2>
+rest 0x30
+0x106<2>
 stop
 
 lockstep:
@@ -2228,15 +2257,14 @@ zoom_gradual 3, 1, 3, 0x30, 0x170, 0x170
 stop
 
 lockstep6:
-	0x8F 7
+	0x8F 3
 	0x8B 0, 0
-	rest 0x10 - 9
+	rest 0x8
 	fade<1> 1, 1, 1
 	input 1
 unrest 0x30-9
 async_call zooming3
 async_sub 0x56
-star 0x90
 stop
 
 lockstep7:
@@ -2245,6 +2273,34 @@ lockstep7:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+unrest 0x30-9
+async_call zooming4
+async_sub 0x56
+rest 0xC0
+async_sub 0x56
+rest 0xC0
+async_sub 0x56
+rest 0xC0
+async_sub 0x56
+rest 0xC0
+stop
+
+zooming4:
+rest 0x30 - 9
+zoom 3, 0x110, 0x110
+zoom_gradual 3, 1, 3, 0xC0, 0x100, 0x100
+rest 0xC0
+zoom 3, 0x110, 0x110
+zoom_gradual 3, 1, 3, 0xC0, 0x100, 0x100
+0x104 1
+rest 0xC0
+zoom 3, 0x110, 0x110
+zoom_gradual 3, 1, 3, 0xC0, 0x100, 0x100
+0x104 2
+rest 0xC0
+zoom 3, 0x110, 0x110
+zoom_gradual 3, 1, 3, 0x60, 0x108, 0x108
+0x104 3
 stop
 
 bouncyroad:
@@ -2437,17 +2493,20 @@ rest 0x30
 stop
 
 marchingorders3:
-	0x8F 7
-	rest 0x10 - 9
-	fade<1> 1, 1, 1
+	0x8F 3
+	rest 0x10
 	input 1
-0x100 9, 1
-rest 9
+0x8F 7
+0x100 0xC, 1
+rest 0xC
+fade<1> 1, 1, 1
 0x105<1>
 0x105<2>
 0x105<3>
 play_sfx 0x1000B9F
 play_sfx 0x1000B94
+rest 0xC
+0x8F 3
 stop
 
 airrally:
@@ -2594,6 +2653,19 @@ rest 0x18
 0x100 0
 stop
 
+forklifter3:
+	0x8F 3
+	rest 0x10
+	fade<1> 1, 1, 1
+	input 1
+0x100 0
+rest 0x18
+0x100 0
+rest 0x18
+0x100 0
+rest 0x18
+stop
+
 froghop:
 	0x8F 3
 	rest 0x10
@@ -2688,6 +2760,17 @@ supersamuraislice2:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call samuraibeat
+async_sub 0x6A
+async_sub 0x6B
+async_sub 0x6C
+async_sub 0x6D
+rest 0x30
+async_sub 0x77
+rest 0xC0
+rest 0x60
+rest 0x18
+play_sfx 0x10010CC
 stop
 
 fruitbasket:
@@ -2929,6 +3012,12 @@ pajamaparty3:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_sub 0x57
+rest 0x60
+rest 0x18
+async_sub 0x56
+rest 0x60
+async_sub 0x57
 stop
 
 bunnyhop:
@@ -3636,6 +3725,20 @@ rest 0x18
 async_call donut
 stop
 
+bluebear3:
+	0x8F 3
+	rest 0x10
+	fade<1> 1, 1, 1
+	input 1
+async_call donut
+rest 0x30
+async_call donut
+rest 0x30
+async_call cake
+rest 0x18
+async_call donut
+stop
+
 screwbotfactory:
 	0x8F 3
 	rest 0x10
@@ -4073,6 +4176,8 @@ rhythmtweezers:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x6C 1
+0x6C<1> 0x180
 0x101
 0x100 0
 rest 0x24
@@ -4098,7 +4203,9 @@ fanclub:
 	input 1
 async_call fanclubbeat
 async_call ooh
-async_call yeahYeahYeahRemix
+async_call yeahYeahYeahRemixAlt
+0x6C 1
+0x6C<1> 0x130
 rest 0xC0
 rest 0xC0
 async_call ooh
@@ -4111,6 +4218,74 @@ rest 0x30
 async_call ooh
 rest 0x90
 async_call ooh
+stop
+
+yeahYeahYeahRemixAlt: //play 1 beat early
+0x108 0
+0x108 1
+0x108 2
+rest 0x30
+0x108 0
+0x108 1
+0x108 2
+rest 0x30
+0x108 0
+0x108 1
+0x108 2
+rest 0x30
+0x108 0
+0x108 1
+0x108 2
+async_sub 0x57
+rest 0x30
+0x10A 0
+0x10A 1
+0x10A 2
+rest 0x30
+0x10A 0
+0x10A 1
+0x10A 2
+rest 0x30
+0x10A 0
+0x10A 1
+0x10A 2
+rest 0x30
+0x10A 0
+0x10A 1
+0x10A 2
+stop
+
+iSuppose:
+rest 0x18
+play_sfx 0x1000EE6
+rest 0x18
+0x10E
+0x107 1
+0x107 2
+rest 0x30
+0x107 1
+0x107 2
+async_sub 0x58
+rest 0x30
+0x10F
+0x107 1
+0x107 2
+rest 0x30
+0x10F
+0x107 1
+0x107 2
+rest 0x30
+0x10F
+0x107 1
+0x107 2
+rest 0x30
+0x10C 0
+0x10C 1
+0x10C 2
+rest 0x30
+0x107 0
+0x107 1
+0x107 2
 stop
 
 yeahyeahyeah:
@@ -4142,13 +4317,7 @@ rest 0x30
 rest 0x30
 rest 0x30
 rest 0x30
-0x107 0
-0x107 1
-0x107 2
 rest 0x30
-0x107 0
-0x107 1
-0x107 2
 rest 0x30
 0x107 0
 0x107 1
@@ -4197,23 +4366,44 @@ stop
 
 catchoftheday:
 	0x8F 3
+	0x101 1
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_sub 0x57
 stop
 
 launchparty:
 	0x8F 3
+	0x105<1>
+	0x105<2>
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x106 1
+0x102<0> 3
+0x103
+0x102<1> 2
+0x100 3
+rest 0x60
+0x102<1> 1
+0x100 2
+rest 0x60
+0x102<1> 5
+0x100 1
+async_call stompcue
 stop
 
 sickbeats:
 	0x8F 3
+	0xAF<6> 0
+	0x10A 2
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call sickbeat
+unrest 0x60
+async_sub 0x59
 stop
 
 gleeclub:
@@ -4221,6 +4411,19 @@ gleeclub:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x104 0, 0, 0x1000DAF, 0, 0
+0x104 1, 0, 0x1000DAF, 0, -4
+0x104 2, 0, 0x1000DAF, 0, -8
+0x104<1> 0,0,0
+0x104<1> 1,0,0
+0x104<1> 2,0,0
+0x105<1>
+0x100 2
+rest 0x30
+play_sfx 0x1000675
+0x104<1> 0,2,0
+0x104<1> 1,2,0
+0x105<2>
 stop
 
 ringside:
@@ -4228,6 +4431,8 @@ ringside:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_sub 0x65
+async_sub 0x5C
 stop
 
 //-----------------------------------------------------------------------------------------------------------------------------------
@@ -5121,6 +5326,8 @@ rest 0xC
 set_effect 5, u"rom:/effect/ctrDotSamurai.zlib", -1
 rest 0xC
 
+remove_sfx 3
+rest 0xC
 set_sfx 3, u"GROUP_IAI_NEW"
 rest 0xC
 
@@ -5286,7 +5493,7 @@ rest 0xC
 remove_sfx 1
 rest 0xC
 sub 3
-set_sfx 1, u"GROUP_WOOD_CAT"
+set_sfx 1, u"GROUP_WOOD_CAT_FREEDOM_DIVE"
 rest 0xC
 
 game_cellanim 0x3F, 2
@@ -6216,12 +6423,6 @@ rest 0xC
 set_cellanim 3, u"rom:/cellanim/rvlInterview_remix06.zlib", -1
 rest 0xC
 
-remove_sfx 2
-rest 0xC
-sub 3
-set_sfx 2, u"GROUP_WRESTLER"
-rest 0xC
-
 game_cellanim 0x27, 3
 stop
 
@@ -6397,7 +6598,7 @@ call gameplay
 
 assets:
 set_cat 0
-0x92 3, 0x14
+0x92 3, 0x14 + 0xA + 9
 0x93 3, 0x10, "remix_cp_RM_NRM_Hi", "remix_cp_RM_NRM_Ng"
 0x94 0, "result_common_Hi", "result_common_Ok", "result_common_Ng"
 
@@ -6410,12 +6611,12 @@ set_cat 0
 0x92 6, 0x14
 0x93 6, 0x10, "remix_cp_RM_RPT_Hi", "remix_cp_RM_RPT_Ng"
 
-0x92 7, 0x14
+0x92 7, 1
 0x93 7, 0x10, "remix_cp_STAR_Hi", "remix_cp_STAR_Ng"
 
 0x95 0x10, "remix_caption"
 0x95 0x10, "remix_LED_caption"
-0x98 1, 4
+0x98 1, 1
 
 rest 0x30 * 2
 0x88
