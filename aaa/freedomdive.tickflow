@@ -856,7 +856,6 @@ call changeEngine
 engine 0x20
 sub 4
 0x29<2>
-0xB0<0xA> 2
 async_call replacetobouncyroad2
 async_call cheerreaders
 rest 0x10
@@ -877,7 +876,6 @@ call changeEngine
 engine 0x20
 sub 4
 0x29<2>
-0xB0<0xA> 2
 async_call cheerreaders2
 rest 0x10
 rest 0x30 * 3
