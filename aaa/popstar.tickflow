@@ -30,6 +30,7 @@ sub 4
 call tempoAndMusicGrp
 async_call replacetokaratemaneffect
 async_call samuraislice
+rest 3
 rest 0x30 * 4	
 rest 0x30 * 1
 rest 0x20	
@@ -348,6 +349,7 @@ samuraislice:
 	0x8F 3
 	fade<1> 7, 1, 0x30
 	rest 0x30 * 2	
+	rest 3
 	input 1
 	async_sub 0x53
 	async_sub 0x54
@@ -840,6 +842,8 @@ play_sfx 0x1000408
 stop
 
 practice:
+0x21 127
+0x53 tempoIdPractice
 call changeEngine
 engine 8
 sub 4
@@ -865,13 +869,11 @@ rest 0x30
 0x65<2>
 0x65<1> 0xB, "practice_popstar_2"
 rest 0x30
-call tempoAndMusicGrpPractice
 0x9C<2>
 0x9F 2
 0xA2<0>
 0x9F<5> 2
-rest 0x60
-rest 3
+rest 0xC0 - 3
 0x65<2>
 0x100 1, 0xC0
 0x100 3, 0x30 * 5
@@ -886,6 +888,7 @@ input 1
 rest 0x30
 0x101<1> 0
 rest 0x30
+0x55 1
 0x101<1> 0
 rest 0x30
 0x101<1> 0
@@ -896,7 +899,7 @@ rest 0x30
 0x9F<0xA> 0
 
 rest 0x60
-rest 0xC0 - 18 - 18
+rest 0xC0 - 18 - 21
 rest 0x18
 rest 0x18
 
@@ -1484,20 +1487,6 @@ play_sfx 0x1000291
 rest 0x30
 stop
 
-tempoAndMusicGrpPractice:
-	rest 0x30
-	0x53 tempoIdPractice
-	0x23 tempoIdPractice
-	speed 0x100
-	rest 0x30
-	0xBA
-	sub 2
-	0x88
-	if 1
-		0x88<5>
-	endif
-	0x55 1
-return
 //-----------------------------------------------------------------------------------------------------------------------------------
 //-----------------------------------------------------------------------------------------------------------------------------------
 
