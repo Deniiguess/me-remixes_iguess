@@ -421,6 +421,7 @@ stop
 
 lockstep:
 	0x8F 3
+	0x8B 0, 0
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
@@ -441,6 +442,7 @@ stop
 
 lockstep2:
 	0x8F 3
+	0x8B 0, 0
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
@@ -492,6 +494,7 @@ stop
 
 lockstep3:
 	0x8F 3
+	0x8B 0, 0
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
@@ -511,13 +514,15 @@ stop
 rhythmrally:
 	0x8F 3
 	rest 0x10
-	fade<1> 1, 1, 1
 	input 1
 0x108<1> 2
 0x108<3> 3, 0xC0 * 3
+0x101 5, 0, 0
 async_call rallybeat
 async_sub 0x59
-rest 0xC0
+rest 6
+fade<1> 1, 1, 1
+rest 0xC0 - 6
 async_sub 0x56
 async_sub 0x5A
 rest 0xC0
@@ -531,10 +536,13 @@ rhythmrally2:
 	input 1
 0x108<1> 5
 0x108<3> 0, 0xC0 * 3
+0x101 5, 0, 0
 async_call rallybeat
 async_sub 0x56
 async_sub 0x5B
-rest 0xC0
+rest 6
+fade<1> 1, 1, 1
+rest 0xC0 - 6
 async_sub 0x58
 rest 0x60
 async_sub 0x58
@@ -777,6 +785,7 @@ engine 0xF
 0x9C<2>
 rest 0x18
 0x104 5
+0x8B 0, 0
 0x7C<1> 7, 1, 0x30
 fade<1> 1, 1, 0x30
 
@@ -1009,7 +1018,7 @@ label 0xC912
 
 has_model 1
 if 0
-	set_model 1, u"rom:/model/ntrPingpong_long.zlib", 1
+	set_model 1, u"rom:/model/ntrPingpong_treetop.zlib", 1
 endif
 label 0x778
 has_model 1
