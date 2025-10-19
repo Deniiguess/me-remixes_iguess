@@ -1132,16 +1132,16 @@ karateman:
 	0x65<5> 2
 	0x65<7> 0
 	rest 0x30 * 1
-	0x65<1> 0xB, "endless_remix_start"
-	async_sub 0x53
-	async_sub 0x54
-	async_sub 0x55
-	async_call failchecknightwalk
 	async_call failcheckalt
 	// async_call failcheck
 // 0xB0<1>
 // 0xB0<6> 0xB, "endless_missless", 0
 // 0xB0<8> 0
+rest 0x30
+0x65<1> 0xB, "endless_remix_start"
+async_sub 0x53
+async_sub 0x54
+async_sub 0x55
 rest 0xC0
 rest 0xC0
 rest 0x30
@@ -1151,7 +1151,7 @@ async_call karatebeat
 input 1
 rest 0x30
 0xAB<3> 1
-if 1
+if 1 // if playing in a perfect campaign
 	0x58 0, 0x30
 	rest 0x30
 	input 0
@@ -1399,6 +1399,30 @@ if 1
 	kill_loc gameplay
 	goto 0x7B
 endif
+stop
+
+
+label 0x7B
+set_cat 0
+kill_loc gameplay
+input 0
+0x2D 0
+speed 0x100
+0x58 0, 0x18
+0xAF<1>
+rest 0xC0
+rest 0x30
+play_sfx 0x1000AB7
+0x65<1> 2, "gate_gameoverT"
+rest 0xC0
+rest 0x18
+rest 0xC0
+0x65<2>
+0x7C 7, 0, 0x60
+rest 0x60
+0x8C 1
+call unload
+sub 0xB
 stop
 
 bossanova:
@@ -4829,11 +4853,22 @@ failcheckalt:
 		kill_loc tapbeat
 		kill_loc gameplay
         0xAF<1>
-		rest 0x30
-		speed 0x100
 		rest 0x90
+		speed 0x100
+		rest 0x30
 		play_sfx 0x1000AB7
 		0x65<1> 2, "gate_gameoverT"
+		remove_sfx 3
+		rest 0xC0
+		rest 0x60
+		0x65<2>
+		0x7C 7, 0, 0x60
+		rest 0x60 + 0x18
+		engine 6
+		rest 0x18
+		async_call nightwalkdeath
+		call unload
+		sub 0xB
     endif
 goto 0xA2CE
 
@@ -4896,89 +4931,23 @@ failcheck:
     endif
 goto 0x1234
 
-failchecknightwalk:
-	0x9C
-    0x9C<2>
-	0x9F 1
-	0x9F<5> 2
-    0xA1
-	0x9C<1>
-    label 0x1293
-	set_cat 0
-	0xA2
-	0x9F<5> 2
-    rest 2
-	set_cat 0
-    0xA2<2>
-    if 1
-		input 0
-		call changeEngine
-		engine 6
-		sub 4
-		0x29<2>
-		async_call nightwalkdeath
-    endif
-goto 0x1293
-
 nightwalkdeath:
 	0x8F 3
 	rest 0x10
-	fade<1> 1, 1, 1
 	input 0
-	0x2D 0
 0x101 1
 0x102<0>
 0x100 0, 0
-rest 0x30
-speed 0x100
-0x105
-if 1
-	goto 0x8B
-endif
-stop
-
-goto 0x142
-label 0x8B
 0x65<2>
 input 0
 0x57 0x78
-rest 0x60	// 2.0 beats
-rest 0x18	// 0.5 beats
-label 0x142
-rest 0xC0	// 4.0 beats
-rest 0x90	// 3.0 beats
-0x65<2>
-rest 0x30
-0x2D 0
-sub 0xB
-stop
-
-label 0x7B
-set_cat 0
-kill_loc gameplay
-input 0
-0x2D 0
-speed 0x100
-0x58 0, 0x18
-0xAF<1>
-rest 0xC0
-rest 0x30
-play_sfx 0x1000AB7
-0x65<1> 2, "gate_gameoverT"
-rest 0xC0
-rest 0x18
-rest 0xC0
-0x65<2>
-0x7C 7, 0, 0x60
 rest 0x60
-0x8C 1
-call unload
-sub 0xB
+rest 0xC0
+rest 0xC0
 stop
 
 failcheckswap:
 kill_loc failcheckalt
-kill_loc failchecknightwalk
 async_call failcheck
 stop
 

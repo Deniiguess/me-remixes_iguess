@@ -1006,7 +1006,7 @@ rest 1
 goto 0x11D7
 label 0x1DE6
 
-set_cellanim 6, u"rom:/cellanim/agbTono_long.zlib", -1
+set_cellanim 6, u"rom:/cellanim/agbTono_treetop.zlib", -1
 label 0x4912
 cellanim_busy 6
 if 0
