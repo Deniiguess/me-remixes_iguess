@@ -7,6 +7,7 @@
 //-----------------------------------------------------------------------------------------------------------------------------------
 
 #include beat/beatanims.tickflow
+#include docs-tickflow/fanClub.tickflow
 
 #index 0x19
 
@@ -101,6 +102,7 @@ async_call ratrace
 async_call replacetodoubledate // unload catchy tune (2)
 rest 0x10
 rest 0x30 * 7
+async_call haihaihaihahai
 rest 0x20
 
 call changeEngine
@@ -122,6 +124,7 @@ rest 0x10
 rest 0x30 * 4
 rest 0x30 * 4
 rest 0x30 * 3
+async_call haihaihaihahai
 rest 0x20
 
 call changeEngine
@@ -142,6 +145,7 @@ rest 0x10
 rest 0x30 * 4
 rest 0x30 * 4
 rest 0x30 * 3
+async_call yeahyeahyeahsfx
 rest 0x20
 
 call changeEngine
@@ -202,6 +206,7 @@ async_call bluebirds2
 rest 0x10
 rest 0x30 * 2
 rest 0x18
+async_call iSupposeSFX
 rest 0x20
 
 call changeEngine
@@ -235,7 +240,8 @@ sub 4
 async_call catchytune3
 rest 0x10
 rest 0x30 * 4
-rest 0x30 * 3
+rest 0x30 * 2
+rest 0x18
 rest 0x20
 
 call changeEngine
@@ -245,8 +251,7 @@ sub 4
 async_call bluebirds3
 async_call replacetoratrace2 // unload shoot em up (4)
 rest 0x10
-rest 0x30 * 3
-rest 0x18
+rest 0x30 * 4
 rest 0x20
 
 call changeEngine
@@ -283,11 +288,20 @@ stop
 doubledate:
 	0x8F 3
 	fade<1> 7, 1, 0x30
-	rest 0x30 * 2	
+	rest 0x30
+	async_sub 0x56
+	rest 0x30
 	input 1
 	async_sub 0x53
 	async_sub 0x54
 	async_sub 0x55
+async_call doublebeat
+rest 0x18
+async_sub 0x5B
+rest 0x30
+play_sfx 0x10007D4
+rest 0x30
+play_sfx 0x10007D5
 stop
 
 doubledate2:
@@ -295,6 +309,34 @@ doubledate2:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call doublebeat
+0x100<0> 0, 0, 0x30
+rest 0x18
+async_sub 0x5B
+stop
+
+haihaihaihahai:
+set_cat 0
+play_sfx 0x1000E0C
+rest 0x30	// 1.0 beats
+play_sfx 0x1000E0C
+rest 0x30	// 1.0 beats
+play_sfx 0x1000E0C
+rest 0x30	// 1.0 beats
+play_sfx 0x1000E0D
+rest 0x30
+rest 0x18	// 0.5 beats
+play_sfx 0x1000E0E
+rest 0x18	// 0.5 beats
+rest 0x18	// 0.5 beats
+play_sfx 0x1000E0E
+rest 0x18	// 0.5 beats
+rest 0x18	// 0.5 beats
+play_sfx 0x1000E0E
+rest 0x18	// 0.5 beats
+rest 0x18	// 0.5 beats
+play_sfx 0x1000E0E
+rest 0x18	// 0.5 beats
 stop
 
 doubledate3:
@@ -302,6 +344,12 @@ doubledate3:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call doublebeat
+0x100<0> 0, 0, 0x30
+rest 0x18
+async_sub 0x5B
+rest 0x30
+play_sfx 0x10007D6
 stop
 
 doubledate4:
@@ -309,27 +357,60 @@ doubledate4:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call doublebeat
+0x100<0> 0, 0, 0x30
+rest 0x18
+async_sub 0x5B
 stop
 
 airrally:
 	0x8F 3
-	rest 0x10
+	rest 0x6
+	0x101<0> 1, 1
+	0x101<1> 4, 1
+	0x102
+	rest 0x10 - 6
 	fade<1> 1, 1, 1
 	input 1
+async_sub 0x5F
+rest 0xC0
+async_sub 0x62
+rest 0x30
+async_call nhanha
+stop
+
+nhanha:
+set_cat 0
+play_sfx 0x1000E0F
+rest 0x30
+play_sfx 0x1000E0F
+rest 0x30
 stop
 
 airrally2:
 	0x8F 3
-	rest 0x10
+	rest 6
+	0x101<0> 1, 1
+	0x101<1> 1, 1
+	0x102
+	rest 0x10 - 6
 	fade<1> 1, 1, 1
 	input 1
+async_sub 0x57
+rest 0x60
+async_sub 0x57
 stop
 
 airrally3:
 	0x8F 3
-	rest 0x10
+	rest 6
+	0x101<0> 1, 1
+	0x101<1> 5, 1
+	0x102
+	rest 0x10 - 6
 	fade<1> 1, 1, 1
 	input 1
+async_sub 0x62
 stop
 
 lockstep:
@@ -337,20 +418,44 @@ lockstep:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+	0x101
+async_sub 0x63
+async_sub 0x57
 stop
 
 lockstep2:
 	0x8F 3
+	0x101
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+unrest 0x30
+async_sub 0x58
+rest 0xC0
+async_sub 0x58
+rest 0xC0
+async_sub 0x65
+async_sub 0x59
+rest 0x60
+async_sub 0x62
 stop
 
 lockstep3:
 	0x8F 3
+	0x101
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+unrest 0x30
+async_sub 0x58
+rest 0xC0
+async_sub 0x58
+rest 0x60
+async_sub 0x65
+rest 0x60
+async_sub 0x63
+async_sub 0x57
+rest 0xC0
 stop
 
 fanclub:
@@ -358,6 +463,14 @@ fanclub:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call idolBeatAnimStageSolo
+async_sub 0x5D
+stop
+
+yeahyeahyeahsfx:
+set_cat 0
+rest 0x18
+play_sfx 0x1000EE5
 stop
 
 fanclub2:
@@ -365,6 +478,10 @@ fanclub2:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call yeahYeahYeahRemix
+async_call idolBeatAnimMonkey
+rest 0x90
+kill_loc idolBeatAnimMonkey
 stop
 
 fanclub3:
@@ -372,6 +489,14 @@ fanclub3:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call idolBeatAnimStageSolo
+async_sub 0x5D
+rest 0x30
+async_call iSupposeNoBeat
+rest 0x18
+kill_loc idolBeatAnimStageSolo
+rest 0x18
+0x10E
 stop
 
 fanclub4:
@@ -379,6 +504,68 @@ fanclub4:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x102<1>
+async_call iSupposeAnim
+async_call iSupposeInputs
+play_sfx 0x1000ED8
+rest 0x18	// 0.5 beats
+0x103<1>
+play_sfx 0x1000ED5
+rest 0x30	// 1.0 beats
+0x104<1>
+rest 0x18	// 0.5 beats
+0x103<1>
+play_sfx 0x1000ED5
+rest 0xC	// 0.25 beats
+0x104<1>
+rest 0xC	// 0.25 beats
+0x105<1>
+play_sfx 0x1000ED5
+rest 0x30	// 1.0 beats
+0x106<1>
+rest 0x30	// 1.0 beats
+stop
+stop
+
+iSupposeInputs:
+0x100
+rest 0x18	// 0.5 beats
+rest 0x30	// 1.0 beats
+0x100
+rest 0x18	// 0.5 beats
+0x100<1>
+rest 0x18	// 0.5 beats
+0x100<2>
+rest 0x30	// 1.0 beats
+stop
+
+iSupposeSFX:
+set_cat 0
+rest 0x18
+play_sfx 0x1000EE6
+stop
+
+iSupposeAnim:
+rest 0x18
+0x10F
+0x107 1
+0x107 2
+rest 0x30
+0x10F
+0x107 1
+0x107 2
+rest 0x30
+0x10F
+0x107 1
+0x107 2
+rest 0x30
+0x10C 0
+0x10C 1
+0x10C 2
+rest 0x30
+0x107 0
+0x107 1
+0x107 2
 stop
 
 catchytune:
@@ -386,6 +573,9 @@ catchytune:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call catchybeat
+0x101 0, 0, 0x30, 1, 1
+0x101 0, 1, 0x30, 1, 1
 stop
 
 catchytune2:
@@ -393,6 +583,9 @@ catchytune2:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call catchybeat
+0x101 0, 0, 0x30, 1, 0
+0x101 0, 1, 0x30, 0x18, 0
 stop
 
 catchytune3:
@@ -400,6 +593,9 @@ catchytune3:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_call catchybeat
+0x101 1, 0, 0x60, 0x30, 0
+0x101 1, 1, 0x60, 0x18, 0
 stop
 
 ratrace:
@@ -407,6 +603,19 @@ ratrace:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x105 1
+unrest 0x30
+async_sub 0x56
+rest 0x30
+async_sub 0x58
+rest 0x90
+0x104 4
+async_sub 0x57
+rest 0x30
+0x104 5
+async_sub 0x59
+rest 0x30
+0x104 6
 stop
 
 ratrace2:
@@ -414,6 +623,17 @@ ratrace2:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+0x105 1
+unrest 0x30
+async_sub 0x56
+rest 0x30
+async_sub 0x58
+rest 0x30
+rest 0x18
+async_sub 0x57
+rest 0x30
+async_sub 0x59
+rest 0x30
 stop
 
 bluebirds:
@@ -421,6 +641,7 @@ bluebirds:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_sub 0x57
 stop
 
 bluebirds2:
@@ -428,6 +649,7 @@ bluebirds2:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_sub 0x57
 stop
 
 bluebirds3:
@@ -435,6 +657,7 @@ bluebirds3:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_sub 0x5B
 stop
 
 shootemup:
@@ -442,6 +665,27 @@ shootemup:
 	rest 0x10
 	fade<1> 1, 1, 1
 	input 1
+async_sub 0x69
+rest 0x18
+async_sub 0x6A
+rest 0x30
+async_sub 0x78
+rest 0x18
+async_sub 0x79
+rest 0x30
+async_sub 0x6B
+rest 0x18
+async_sub 0x6C
+rest 0x30
+async_sub 0x76
+rest 0x18
+async_sub 0x77
+rest 0x30
+async_sub 0x6D
+rest 0x18
+async_sub 0x71
+rest 0x18
+async_sub 0x6E
 stop
 
 //-----------------------------------------------------------------------------------------------------------------------------------
@@ -553,7 +797,6 @@ game_effect 0x19, 4
 0x2B 0x1D, 3
 0x2B 0xF, 3
 0x2B 0x15, 3
-0x2B 9, 3
 0x2B 0x10, 3
 0x2B 0x3B, 3
 0x2B 0x19, 3

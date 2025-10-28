@@ -33,7 +33,8 @@ goto idolBeatAnimStageSolo
 
 idolBeatAnimMonkey:
 0x101<1>
-stop
+rest 0x30
+goto idolBeatAnimMonkey
 
 yeahYeahYeah: //play 1 beat early
 rest 0x18
@@ -239,16 +240,14 @@ rest 0x30
 0x10A 2
 stop
 
-iSuppose:
+iSupposeNoBeat:
 rest 0x18
 play_sfx 0x1000EE6
 rest 0x18
 0x10E
-0x101<1>
 0x107 1
 0x107 2
 rest 0x30
-0x101<1>
 0x107 1
 0x107 2
 async_sub 0x58
