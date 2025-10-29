@@ -966,7 +966,7 @@ stop
 
 loadInitialGames:
 
-set_cellanim 2, u"rom:/cellanim/rvlBadminton_long.zlib", -1
+set_cellanim 2, u"rom:/cellanim/rvlBadminton_treetop.zlib", -1
 label 0x4D2
 cellanim_busy 2
 if 0
@@ -1295,7 +1295,7 @@ else
 	if 1
 		0xAC 0
 	else 
-		0xAD 0
+		0xAD 1
 	endif 
 endif 
 stop 
