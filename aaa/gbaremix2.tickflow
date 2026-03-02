@@ -13,7 +13,7 @@
 prologueId=0x60
 epilogueId=0x27
 
-tempoId=0x10001F2
+tempoId=0x100009D
 
 gameplay:
 
@@ -21,7 +21,7 @@ call changeEngine
 engine 0x37
 sub 4
 0x29<2> 
-call tempoAndMusicGrp
+call tempoAndMusic
 async_call samuraiintro
 rest 0x30 * 5	
 rest 0x30 * 5	
@@ -972,14 +972,17 @@ rest 1
 goto 0xFFF
 label 0x4444
 
-0x83<1> 
-0xBB 
+0x83<1>
+0xBB
 if 0
-	0xBC 
-endif 
+	0xBC
+endif
 sub 7
-0xBD 
+0xBD
 0x8C<2> 5
+
+0x61 0, u"Remix2GBA"
+rest 0xC
 
 set_sfx 1, u"GROUP_IAI_NEW"
 rest 0xC	
@@ -988,9 +991,7 @@ rest 0xC
 set_sfx 3, u"GROUP_AGB_AIM"
 rest 0xC	
 set_sfx 4, u"GROUP_NTR_BACKBEAT"
-rest 0xC	
-set_sfx 5, u"MUSIC_GBA_REMIX_2"
-rest 0xC	
+rest 0xC
 sub 3
 0x83 0
 

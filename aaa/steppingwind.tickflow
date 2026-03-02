@@ -16,7 +16,7 @@
 prologueId=0x5F
 epilogueId=0x31
 
-tempoId=0x100010B
+tempoId=0x100000A
 
 gameplay:
 
@@ -24,7 +24,7 @@ call changeEngine
 engine 0x25
 sub 4
 0x29<2>
-call tempoAndMusicGrp
+call tempoAndMusic
 async_call holeinone
 rest 0x30 * 33
 rest 3
@@ -1863,6 +1863,18 @@ rest 1
 goto 0x291
 label 0x4910
 
+0x83<1>
+0xBB
+if 0
+	0xBC
+endif
+sub 7
+0xBD
+0x8C<2> 5
+
+0x61 0, u"SteppingWind"
+rest 0xC
+
 set_sfx 1, u"GROUP_GOLF"
 rest 0xC
 set_sfx 2, u"GROUP_MANJU"
@@ -1870,8 +1882,6 @@ rest 0xC
 set_sfx 3, u"GROUP_AGB_TAP"
 rest 0xC
 set_sfx 4, u"GROUP_PAJAMAS"
-rest 0xC
-set_sfx 5, u"MUSIC_STEPPING_WIND"
 rest 0xC
 sub 3
 0x83 0
@@ -2231,6 +2241,8 @@ tempoAndMusic:
 	if 1
 		0x88<5>
 	endif
+	async_call cowbell
+	rest 0x60
 	0x51 1
 	0x63 tempoId
 return
@@ -2253,6 +2265,7 @@ tempoAndMusicGrp:
 return
 
 cowbell:
+rest 6
 play_sfx 0x1000291
 rest 0x30
 play_sfx 0x1000291

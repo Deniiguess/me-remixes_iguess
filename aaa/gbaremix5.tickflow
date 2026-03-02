@@ -13,7 +13,7 @@
 prologueId=0x60
 epilogueId=0x60
 
-tempoId=0x10001BE
+tempoId=0x10000CB
 
 gameplay:
 
@@ -21,7 +21,7 @@ call changeEngine
 engine 4
 sub 4
 0x29<2> 
-call tempoAndMusicGrp
+call tempoAndMusic
 async_call bouncyroadintro
 rest 0x30 * 4	
 rest 0x30 * 4	
@@ -802,14 +802,17 @@ rest 1
 goto 0x1C9
 label 0x3091
 
-0x83<1> 
-0xBB 
+0x83<1>
+0xBB
 if 0
-	0xBC 
-endif 
+	0xBC
+endif
 sub 7
-0xBD 
+0xBD
 0x8C<2> 5
+
+0x61 0, u"Remix5GBA"
+rest 0xC
 
 set_sfx 1, u"GROUP_AGB_HOPPING"
 rest 0xC	
@@ -818,8 +821,6 @@ rest 0xC
 set_sfx 3, u"GROUP_BEAR"
 rest 0xC	
 set_sfx 4, u"GROUP_AGB_TONO"
-rest 0xC	
-set_sfx 5, u"MUSIC_GBA_REMIX_5"
 rest 0xC	
 sub 3
 0x83 0

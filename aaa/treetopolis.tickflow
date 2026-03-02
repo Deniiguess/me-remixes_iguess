@@ -13,7 +13,7 @@
 prologueId=0x64
 epilogueId=0x9
 
-tempoId=0x1000112
+tempoId=0x1000010
 tempoIdPractice=0x1000144
 
 gameplay:
@@ -22,12 +22,12 @@ call changeEngine
 engine 0x1D
 sub 4
 0x29<2>
-call tempoAndMusicGrp
+call tempoAndMusic
 async_call airrallyintrocount
 rest 0x18
-0x55 1
+0x51 1
+0x63 tempoId
 async_call airrally
-rest 3
 0x2B 0xF, 3
 rest 0x30 * 4
 rest 0x30 * 4
@@ -242,6 +242,7 @@ rest 0x60
 stop
 
 airrallyintrocount:
+	rest 3
 	play_sfx 0x10007C8
 	rest 0x30
 	play_sfx 0x10007C9
@@ -1038,6 +1039,9 @@ sub 7
 0xBD
 0x8C<2> 5
 
+0x61 0, u"TreacherousTreetopolis"
+rest 0xC
+
 set_sfx 1, u"GROUP_BADMINTON"
 rest 0xC
 set_sfx 2, u"GROUP_MANY_BIRD"
@@ -1045,8 +1049,6 @@ rest 0xC
 set_sfx 3, u"GROUP_NTR_BACKBEAT"
 rest 0xC
 set_sfx 4, u"GROUP_PINPON"
-rest 0xC
-set_sfx 5, u"MUSIC_TREETOPOLIS"
 rest 0xC
 set_sfx 6, u"MUSIC_PRACTICE_DS"
 rest 0xC
@@ -1075,19 +1077,17 @@ return
 //-----------------------------------------------------------------------------------------------------------------------------------
 
 tempoAndMusic:
-	rest 0x30	
+	rest 0x30
 	0x4F tempoId
 	0x23 tempoId
 	speed 0x100
-	rest 0x30	
-	0xBA 
+	rest 0x30
+	0xBA
 	sub 1
-	0x88 
+	0x88
 	if 1
-		0x88<5> 
-	endif 
-	0x51 1
-	0x63 tempoId
+		0x88<5>
+	endif
 return 
 
 tempoAndMusicGrp:
@@ -1105,6 +1105,7 @@ tempoAndMusicGrp:
 return
 
 cowbell:
+rest 3
 play_sfx 0x1000291
 rest 0x30
 play_sfx 0x1000291

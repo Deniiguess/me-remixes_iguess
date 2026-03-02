@@ -18,7 +18,7 @@
 prologueId=0x67
 epilogueId=0x54
 
-tempoId=0x1000110
+tempoId=0x100000F
 tempoIdPractice=0x1000144
 
 gameplay:
@@ -27,10 +27,9 @@ call changeEngine
 engine 0x37
 sub 4
 0x29<2> 
-call tempoAndMusicGrp
+call tempoAndMusic
 async_call replacetokaratemaneffect
 async_call samuraislice
-rest 3
 rest 0x30 * 4	
 rest 0x30 * 1
 rest 0x20	
@@ -349,7 +348,6 @@ samuraislice:
 	0x8F 3
 	fade<1> 7, 1, 0x30
 	rest 0x30 * 2	
-	rest 3
 	input 1
 	async_sub 0x53
 	async_sub 0x54
@@ -1148,14 +1146,17 @@ rest 1
 goto 0x778
 label 0x779
 
-0x83<1> 
-0xBB 
+0x83<1>
+0xBB
 if 0
-	0xBC 
-endif 
+	0xBC
+endif
 sub 7
-0xBD 
+0xBD
 0x8C<2> 5
+
+0x61 0, u"PopStarTheme"
+rest 0xC
 
 set_sfx 1, u"GROUP_IAI_NEW"
 rest 0xC	
@@ -1165,8 +1166,6 @@ set_sfx 3, u"GROUP_AGB_TONO"
 rest 0xC	
 set_sfx 4, u"GROUP_AGB_RABBIT"
 rest 0xC
-set_sfx 5, u"MUSIC_POP_STAR"
-rest 0xC	
 set_sfx 6, u"MUSIC_PRACTICE_GBA"
 rest 0xC
 sub 3
@@ -1477,6 +1476,7 @@ tempoAndMusicGrp:
 return
 
 cowbell:
+rest 3
 play_sfx 0x1000291
 rest 0x30
 play_sfx 0x1000291

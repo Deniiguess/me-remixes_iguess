@@ -15,7 +15,7 @@
 prologueId=0x5E
 epilogueId=0xF
 
-tempoId=0x1000192
+tempoId=0x1000052
 
 gameplay:
 
@@ -23,10 +23,9 @@ call changeEngine
 engine 0x1B
 sub 4
 0x29<2> 
-call tempoAndMusicGrp
+call tempoAndMusic
 async_call munchymonk
 rest 0x60
-rest 9
 rest 0x30 * 4	
 rest 0x30 * 4	
 rest 0x30 * 3	
@@ -207,7 +206,7 @@ munchymonk:
 	0x8F 3
 	0x104<1>
 	fade<1> 7, 1, 0x30
-	rest 9
+	rest 6
 	rest 0x30
 	async_sub 0x53
 	async_sub 0x54
@@ -586,14 +585,17 @@ rest 1
 goto 0xFFF
 label 0x4444
 
-0x83<1> 
-0xBB 
+0x83<1>
+0xBB
 if 0
-	0xBC 
-endif 
+	0xBC
+endif
 sub 7
-0xBD 
+0xBD
 0x8C<2> 5
+
+0x61 0, u"DKSummit"
+rest 0xC
 
 set_sfx 1, u"GROUP_NTR_SHUGYO"
 rest 0xC	
@@ -603,8 +605,6 @@ set_sfx 3, u"GROUP_AGB_TAP"
 rest 0xC	
 set_sfx 4, u"GROUP_NTR_NINJA"
 rest 0xC
-set_sfx 5, u"MUSIC_DK_SUMMIT"
-rest 0xC	
 sub 3
 0x83 0
 
@@ -671,6 +671,8 @@ tempoAndMusic:
 	if 1
 		0x88<5> 
 	endif 
+	async_call cowbell
+	rest 0x60 - 6
 	0x51 1
 	0x63 tempoId
 return 
@@ -693,6 +695,7 @@ tempoAndMusicGrp:
 return
 
 cowbell:
+rest 6
 play_sfx 0x1000291
 rest 0x30
 play_sfx 0x1000291

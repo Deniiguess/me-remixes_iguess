@@ -14,7 +14,7 @@
 prologueId=0x66
 epilogueId=0x4E
 
-tempoId=0x1000195
+tempoId=0x1000055
 
 gameplay:
 
@@ -22,7 +22,7 @@ call changeEngine
 engine 5
 sub 4
 0x29<2> 
-call tempoAndMusicGrp
+call tempoAndMusic
 async_call marcher
 rest 0x30 * 4	
 rest 0x30 * 4	
@@ -942,14 +942,17 @@ rest 1
 goto 0xFFF
 label 0x4444
 
-0x83<1> 
-0xBB 
+0x83<1>
+0xBB
 if 0
-	0xBC 
-endif 
+	0xBC
+endif
 sub 7
-0xBD 
+0xBD
 0x8C<2> 5
+
+0x61 0, u"Remix7GBA"
+rest 0xC
 
 set_sfx 1, u"GROUP_AGB_MARCH"
 rest 0xC	
@@ -959,8 +962,6 @@ set_sfx 3, u"GROUP_AGB_SPACE"
 rest 0xC	
 set_sfx 4, u"GROUP_STEP"
 rest 0xC
-set_sfx 5, u"MUSIC_GBA_REMIX_7"
-rest 0xC	
 sub 3
 0x83 0
 

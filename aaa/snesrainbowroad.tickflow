@@ -15,7 +15,7 @@
 prologueId=0x61
 epilogueId=0x61
 
-tempoId=0x1000149
+tempoId=0x10000CC
 
 gameplay:
 
@@ -28,8 +28,7 @@ async_call workingdough
 rest 0x30 * 4	
 rest 0x30 * 4	
 rest 0x30 * 4
-rest 0x30 * 3	
-rest 3
+rest 0x30 * 3
 rest 0x20	
 
 call changeEngine
@@ -253,7 +252,6 @@ workingdough:
 	0x8F 3
 	fade<1> 7, 1, 0x30
 	rest 0x30 * 1
-	rest 3
 	input 1
 0x100 0, 0, 0x30, 0x180, 0
 rest 0x30
@@ -715,14 +713,17 @@ rest 1
 goto 0x839
 label 0x3819
 
-0x83<1> 
-0xBB 
+0x83<1>
+0xBB
 if 0
-	0xBC 
-endif 
+	0xBC
+endif
 sub 7
-0xBD 
+0xBD
 0x8C<2> 5
+
+0x61 0, u"SNESRainbowRoad"
+rest 0xC
 
 set_sfx 1, u"GROUP_MANJU"
 rest 0xC	
@@ -732,8 +733,6 @@ set_sfx 3, u"GROUP_AGB_BATTER"
 rest 0xC	
 set_sfx 4, u"GROUP_AGB_SPACE"
 rest 0xC
-set_sfx 5, u"MUSIC_RAINBOW_ROAD"
-rest 0xC	
 sub 3
 0x83 0
 
@@ -915,18 +914,19 @@ stop
 //-----------------------------------------------------------------------------------------------------------------------------------
 
 tempoAndMusic:
-	rest 0x30   
-	0x53 0x1000149
-	0x23 0x1000149
+	rest 0x30
+	0x4F tempoId
+	0x23 tempoId
 	speed 0x100
-	rest 0x30   
+	rest 0x30
 	0xBA
-	sub 2
+	sub 1
 	0x88
 	if 1
 		0x88<5>
 	endif
-	0x55 1
+	0x51 1
+	0x63 tempoId
 return 
 
 tempoAndMusicGrp:

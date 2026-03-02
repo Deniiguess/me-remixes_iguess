@@ -17,7 +17,7 @@
 prologueId=0x61
 epilogueId=0x12
 
-tempoId=0x1000199
+tempoId=0x1000059
 
 gameplay:
 
@@ -25,7 +25,7 @@ call changeEngine
 engine 3
 sub 4
 0x29<2> 
-call tempoAndMusicGrp
+call tempoAndMusic
 async_call rhythmtweezers
 rest 0x30 * 4	
 rest 0x30 * 4	
@@ -718,6 +718,18 @@ rest 1
 goto 0x103
 label 0x1391
 
+0x83<1>
+0xBB
+if 0
+	0xBC
+endif
+sub 7
+0xBD
+0x8C<2> 5
+
+0x61 0, u"KoopaCape"
+rest 0xC
+
 set_sfx 1, u"GROUP_AGB_HAIR"
 rest 0xC	
 set_sfx 2, u"GROUP_NTR_IDOL"
@@ -725,9 +737,7 @@ rest 0xC
 set_sfx 3, u"GROUP_KARATE"
 rest 0xC	
 set_sfx 4, u"GROUP_BLANCO"
-rest 0xC	
-set_sfx 5, u"MUSIC_KOOPA_CAPE"
-rest 0xC	
+rest 0xC
 sub 3
 0x83 0
 

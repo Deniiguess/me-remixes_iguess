@@ -13,7 +13,7 @@
 prologueId=0x62
 epilogueId=0x10
 
-tempoId=0x1000194
+tempoId=0x1000054
 
 gameplay:
 
@@ -21,7 +21,7 @@ call changeEngine
 engine 0
 sub 4
 0x29<2> 
-call tempoAndMusicGrp
+call tempoAndMusic
 async_call spaceball
 rest 0x30 * 4	
 rest 0x30 * 4	
@@ -897,21 +897,22 @@ rest 1
 goto 0xFFF
 label 0x4444
 
-0x83<1> 
-0xBB 
+0x83<1>
+0xBB
 if 0
-	0xBC 
-endif 
+	0xBC
+endif
 sub 7
-0xBD 
+0xBD
 0x8C<2> 5
+
+0x61 0, u"MiitopiaGreenhorneBattle"
+rest 0xC
 
 set_sfx 1, u"GROUP_AGB_BATTER"
 rest 0xC	
 set_sfx 2, u"GROUP_ROBOT_KOJO"
 rest 0xC	
-set_sfx 3, u"MUSIC_GREENHORNE_BATTLE"
-rest 0xC
 sub 3
 0x83 0
 
@@ -1384,6 +1385,7 @@ tempoAndMusicGrp:
 return
 
 cowbell:
+rest 3
 play_sfx 0x1000291
 rest 0x30
 play_sfx 0x1000291

@@ -13,7 +13,7 @@
 prologueId=0x60
 epilogueId=0x2C
 
-tempoId=0x1000106
+tempoId=0x1000005
 
 gameplay:
 
@@ -21,7 +21,7 @@ call changeEngine
 engine 8
 sub 4
 0x29<2>
-call tempoAndMusicGrp
+call tempoAndMusic
 async_call bunnyhop
 rest 0x30 * 2
 rest 0x30 * 4
@@ -991,6 +991,9 @@ sub 7
 0xBD
 0x8C<2> 5
 
+0x61 0, u"Remix3GBA"
+rest 0xC
+
 set_sfx 1, u"GROUP_AGB_RABBIT"
 rest 0xC
 set_sfx 2, u"GROUP_AGB_SPACE"
@@ -998,8 +1001,6 @@ rest 0xC
 set_sfx 3, u"GROUP_MANJU"
 rest 0xC
 set_sfx 4, u"GROUP_FRUITSBASKET"
-rest 0xC
-set_sfx 5, u"MUSIC_GBA_REMIX_3"
 rest 0xC
 sub 3
 0x83 0

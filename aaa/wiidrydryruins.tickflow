@@ -14,7 +14,7 @@
 prologueId=0x65
 epilogueId=0x19
 
-tempoId=0x10001A4
+tempoId=0x1000061
 
 gameplay:
 
@@ -22,7 +22,7 @@ call changeEngine
 engine 0x21
 sub 4
 0x29<2> 
-call tempoAndMusicGrp
+call tempoAndMusic
 async_call doubledate
 rest 0x60
 rest 0x30 * 3
@@ -763,14 +763,17 @@ rest 1
 goto 0x868
 label 0x1829
 
-0x83<1> 
-0xBB 
+0x83<1>
+0xBB
 if 0
-	0xBC 
-endif 
+	0xBC
+endif
 sub 7
-0xBD 
+0xBD
 0x8C<2> 5
+
+0x61 0, u"DryDryRuins"
+rest 0xC
 
 set_sfx 1, u"GROUP_W_DATE"
 rest 0xC	
@@ -779,8 +782,6 @@ rest 0xC
 set_sfx 3, u"GROUP_NTR_BACKBEAT"
 rest 0xC
 set_sfx 4, u"GROUP_NTR_IDOL"
-rest 0xC
-set_sfx 5, u"MUSIC_WII_DRY_DRY_RUINS"
 rest 0xC
 sub 3
 0x83 0
@@ -923,6 +924,8 @@ tempoAndMusic:
 	if 1
 		0x88<5> 
 	endif 
+	async_call cowbell
+	rest 0x60
 	0x51 1
 	0x63 tempoId
 return 
@@ -945,6 +948,7 @@ tempoAndMusicGrp:
 return
 
 cowbell:
+rest 3
 play_sfx 0x1000291
 rest 0x30
 play_sfx 0x1000291

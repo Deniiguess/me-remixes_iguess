@@ -13,7 +13,7 @@
 prologueId=0x62
 epilogueId=0x62
 
-tempoId=0x100023B
+tempoId=0x10000D0
 
 gameplay:
 
@@ -21,7 +21,7 @@ call changeEngine
 engine 5
 sub 4
 0x29<2> 
-call tempoAndMusicGrp
+call tempoAndMusic
 async_call marcher
 rest 0x30 * 4	
 rest 0x30 * 4	
@@ -1669,14 +1669,17 @@ rest 1
 goto 0x102
 label 0x4329
 
-0x83<1> 
-0xBB 
+0x83<1>
+0xBB
 if 0
-	0xBC 
-endif 
+	0xBC
+endif
 sub 7
-0xBD 
+0xBD
 0x8C<2> 5
+
+0x61 0, u"Remix1TempoUp"
+rest 0xC
 
 set_sfx 1, u"GROUP_AGB_MARCH"
 rest 0xC	
@@ -1685,8 +1688,6 @@ rest 0xC
 set_sfx 3, u"GROUP_KURU_SHOW"
 rest 0xC	
 set_sfx 4, u"GROUP_AGB_HAIR"
-rest 0xC	
-set_sfx 5, u"MUSIC_TEMPO_UP"
 rest 0xC	
 sub 3
 0x83 0

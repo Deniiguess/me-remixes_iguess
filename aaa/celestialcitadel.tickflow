@@ -19,7 +19,7 @@
 prologueId=0x64
 epilogueId=0xE
 
-tempoId=0x100022B
+tempoId=0x10000C3
 
 gameplay:
 
@@ -27,10 +27,10 @@ call changeEngine
 engine 8
 sub 4
 0x29<2> 
-call tempoAndMusicGrp
+call tempoAndMusic
 async_call bunnyhop
 rest 0x30 * 34
-rest 9
+rest 6
 rest 0x20	
 
 call changeEngine
@@ -371,7 +371,7 @@ bunnyhop:
 	0xB0<0>
 	0xB0<4> 0xB, "citadel_name"
 	0xB0<5> 0xB, "cursedcastles_artist"
-	rest 9
+	rest 6
 	fade<1> 7, 1, 1
 	input 1
 	async_sub 0x53
@@ -1085,14 +1085,17 @@ rest 1
 goto 0x778
 label 0x779
 
-0x83<1> 
-0xBB 
+0x83<1>
+0xBB
 if 0
-	0xBC 
-endif 
+	0xBC
+endif
 sub 7
-0xBD 
+0xBD
 0x8C<2> 5
+
+0x61 0, u"CelestialCitadel"
+rest 0xC
 
 set_sfx 1, u"GROUP_AGB_RABBIT"
 rest 0xC	
@@ -1102,8 +1105,6 @@ set_sfx 3, u"GROUP_NTR_NINJA"
 rest 0xC	
 set_sfx 4, u"GROUP_KUSI"
 rest 0xC
-set_sfx 5, u"MUSIC_CELESTIAL_CITADEL"
-rest 0xC	
 sub 3
 0x83 0
 

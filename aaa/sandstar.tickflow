@@ -22,7 +22,7 @@
 prologueId=0x5E
 epilogueId=0x30
 
-tempoId=0x100010A
+tempoId=0x1000009
 
 gameplay:
 
@@ -30,8 +30,7 @@ call changeEngine
 engine 8
 sub 4
 0x29<2>
-call tempoAndMusicGrp
-rest 3
+call tempoAndMusic
 async_call bunnyhop
 rest 0x30 * 4
 rest 0x30 * 4
@@ -2204,6 +2203,9 @@ sub 7
 0xBD
 0x8C<2> 5
 
+0x61 0, u"SandStar"
+rest 0xC
+
 set_sfx 1, u"GROUP_AGB_RABBIT"
 rest 0xC
 set_sfx 2, u"GROUP_KARATE"
@@ -2211,8 +2213,6 @@ rest 0xC
 set_sfx 3, u"GROUP_BOOKS"
 rest 0xC
 set_sfx 4, u"GROUP_BADMINTON"
-rest 0xC
-set_sfx 5, u"MUSIC_SAND_STAR"
 rest 0xC
 sub 3
 0x83 0

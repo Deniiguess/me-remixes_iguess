@@ -13,7 +13,7 @@
 prologueId=0x60
 epilogueId=0x49
 
-tempoId=0x1000227
+tempoId=0x10000BF
 
 gameplay:
 
@@ -21,7 +21,7 @@ call changeEngine
 engine 6
 sub 4
 0x29<2>
-call tempoAndMusicGrp
+call tempoAndMusic
 async_call nightwalk
 rest 0x30 * 4
 rest 0x30 * 4
@@ -690,6 +690,9 @@ sub 7
 0xBD
 0x8C<2> 5
 
+0x61 0, u"Remix4GBA"
+rest 0xC
+
 set_sfx 1, u"GROUP_AGB_NIGHT_WALK"
 rest 0xC
 set_sfx 2, u"GROUP_KUSI"
@@ -697,8 +700,6 @@ rest 0xC
 set_sfx 3, u"GROUP_OTTOSEI"
 rest 0xC
 set_sfx 4, u"GROUP_AGB_SHUJI"
-rest 0xC
-set_sfx 5, u"MUSIC_GBA_REMIX_4"
 rest 0xC
 set_sfx 6, u"GROUP_WSD_AGB_QUIZ"
 rest 0xC

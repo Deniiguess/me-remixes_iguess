@@ -16,7 +16,7 @@
 prologueId=0x5F
 epilogueId=0x2B
 
-tempoId=0x1000104
+tempoId=0x1000003
 
 gameplay:
 
@@ -24,9 +24,8 @@ call changeEngine
 engine 0x19
 sub 4
 0x29<2> 
-call tempoAndMusicGrp
+call tempoAndMusic
 // speed 0xC00 // remove this later, update: its removed
-rest 3
 async_call shootemup
 rest 0x30 * 4	
 rest 0x30 * 4	
@@ -863,14 +862,17 @@ rest 1
 goto 0xAD9
 label 0x9ACC
 
-0x83<1> 
-0xBB 
+0x83<1>
+0xBB
 if 0
-	0xBC 
-endif 
+	0xBC
+endif
 sub 7
-0xBD 
+0xBD
 0x8C<2> 5
+
+0x61 0, u"ColdHebe"
+rest 0xC
 
 set_sfx 1, u"GROUP_NTR_SHOOTING"
 rest 0xC	
@@ -880,8 +882,6 @@ set_sfx 3, u"GROUP_BEAR"
 rest 0xC	
 set_sfx 4, u"GROUP_STEP"
 rest 0xC
-set_sfx 5, u"MUSIC_ICE_CAVE"
-rest 0xC	
 set_sfx 6, u"GROUP_PANPAN"
 rest 0xC	
 set_sfx 7, u"GROUP_KARATE"

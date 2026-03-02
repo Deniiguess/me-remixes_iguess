@@ -14,7 +14,7 @@
 prologueId=0x5F
 epilogueId=0x3B
 
-tempoId=0x100011F
+tempoId=0x100001E
 
 gameplay:
 
@@ -22,7 +22,7 @@ call changeEngine
 engine 0x2D
 sub 4
 0x29<2> 
-call tempoAndMusicGrp
+call tempoAndMusic
 rest 3
 async_call screwbotfactory
 rest 0x30 * 4	
@@ -555,14 +555,17 @@ rest 1
 goto 0xDDD
 label 0x1924
 
-0x83<1> 
-0xBB 
+0x83<1>
+0xBB
 if 0
-	0xBC 
-endif 
+	0xBC
+endif
 sub 7
-0xBD 
+0xBD
 0x8C<2> 5
+
+0x61 0, u"MarioRemix"
+rest 0xC
 
 set_sfx 1, u"GROUP_ROBOT_KOJO"
 rest 0xC	
@@ -572,8 +575,6 @@ set_sfx 3, u"GROUP_BADMINTON"
 rest 0xC	
 set_sfx 4, u"GROUP_FISHING"
 rest 0xC
-set_sfx 5, u"MUSIC_MARIO_REMIX"
-rest 0xC	
 sub 3
 0x83 0
 

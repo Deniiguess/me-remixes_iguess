@@ -24,7 +24,7 @@
 prologueId=0x5F
 epilogueId=0x41
 
-tempoId=0x1000125
+tempoId=0x1000024
 
 gameplay:
 
@@ -32,9 +32,9 @@ call changeEngine
 engine 0xD
 sub 4
 0x29<2>
-call tempoAndMusicGrp
+call tempoAndMusic
 0x58 0x150, 1
-rest 6
+rest 3
 async_call ninjabodyguard
 rest 0x30 * 3
 rest 0x20
@@ -4544,6 +4544,9 @@ sub 7
 0xBD
 0x8C<2> 5
 
+0x61 0, u"FreedomDive"
+rest 0xC
+
 set_sfx 1, u"GROUP_AGB_TONO"
 rest 0xC
 set_sfx 2, u"GROUP_KARATE"
@@ -4551,8 +4554,6 @@ rest 0xC
 set_sfx 3, u"GROUP_PINPON"
 rest 0xC
 set_sfx 4, u"GROUP_AGB_MARCH"
-rest 0xC
-set_sfx 5, u"MUSIC_FREEDOM_DIVE"
 rest 0xC
 set_sfx 6, u"GROUP_NTR_SHUGYO"
 rest 0xC

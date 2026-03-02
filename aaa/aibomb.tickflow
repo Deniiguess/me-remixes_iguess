@@ -15,7 +15,7 @@
 prologueId=0x5F
 epilogueId=0x13
 
-tempoId=0x100019A
+tempoId=0x100005A
 
 gameplay:
 
@@ -23,14 +23,13 @@ call changeEngine
 engine 0x1C
 sub 4
 0x29<2> 
-call tempoAndMusicGrp
+call tempoAndMusic
 async_call builttoscale
 rest 0x30 * 4	
 rest 0x30 * 4	
 rest 0x30 * 4	
 rest 0x30 * 3	
 rest 0x60
-rest 3
 rest 0x20	
 
 call changeEngine
@@ -349,7 +348,6 @@ builttoscale:
 	async_sub 0x53
 	async_sub 0x54
 	async_sub 0x55
-	rest 3
 async_call bts8bounces
 async_sub 0x81
 rest 0xC0
@@ -1021,14 +1019,17 @@ rest 1
 goto 0x912
 label 0x5812
 
-0x83<1> 
-0xBB 
+0x83<1>
+0xBB
 if 0
-	0xBC 
-endif 
+	0xBC
+endif
 sub 7
-0xBD 
+0xBD
 0x8C<2> 5
+
+0x61 0, u"AIBomb"
+rest 0xC
 
 set_sfx 1, u"GROUP_OTTOSEI_8BIT"
 rest 0xC	
@@ -1036,8 +1037,6 @@ set_sfx 2, u"GROUP_AGB_TAP_8BIT"
 rest 0xC	
 set_sfx 3, u"GROUP_KUSI_8BIT"
 rest 0xC
-set_sfx 5, u"MUSIC_AI_BOMB"
-rest 0xC	
 set_sfx 6, u"GROUP_AGB_SPACE_JP_8BIT"
 rest 0xC
 sub 3
@@ -1314,7 +1313,9 @@ tempoAndMusic:
 	0x88 
 	if 1
 		0x88<5> 
-	endif 
+	endif
+	async_call cowbell
+	rest 0x60
 	0x51 1
 	0x63 tempoId
 return 
@@ -1337,6 +1338,7 @@ tempoAndMusicGrp:
 return
 
 cowbell:
+rest 3
 play_sfx 0x1000291
 rest 0x30
 play_sfx 0x1000291

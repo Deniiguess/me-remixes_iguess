@@ -14,7 +14,7 @@
 prologueId=0x61
 epilogueId=0x22
 
-tempoId=0x10001D3
+tempoId=0x100007E
 
 gameplay:
 
@@ -22,10 +22,9 @@ call changeEngine
 engine 0xF
 sub 4
 0x29<2> 
-call tempoAndMusicGrp
+call tempoAndMusic
 async_call lockstep
 rest 0x30 * 26
-rest 3
 rest 0x20	
 
 call changeEngine
@@ -237,7 +236,6 @@ lockstep:
 	0x8F 3
 	fade<1> 7, 0, 0x30
 	rest 0x30 * 2
-	rest 3
 	0x101
 	rest 0x30
 	input 1
@@ -718,14 +716,17 @@ rest 1
 goto 0xFFF
 label 0x4444
 
-0x83<1> 
-0xBB 
+0x83<1>
+0xBB
 if 0
-	0xBC 
-endif 
+	0xBC
+endif
 sub 7
-0xBD 
+0xBD
 0x8C<2> 5
+
+0x61 0, u"CloudtopCruise"
+rest 0xC
 
 set_sfx 1, u"GROUP_NTR_BACKBEAT"
 rest 0xC	
@@ -735,8 +736,6 @@ set_sfx 3, u"GROUP_KARATE"
 rest 0xC	
 set_sfx 4, u"GROUP_NTR_NINJA"
 rest 0xC
-set_sfx 5, u"MUSIC_CLOUDTOP_CRUISE"
-rest 0xC	
 sub 3
 0x83 0
 

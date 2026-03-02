@@ -13,7 +13,7 @@
 prologueId=0x67
 epilogueId=0x67
 
-tempoId=0x10001AF
+tempoId=0x10000D5
 
 gameplay:
 
@@ -21,7 +21,7 @@ call changeEngine
 engine 0
 sub 4
 0x29<2> 
-call tempoAndMusicGrp
+call tempoAndMusic
 async_call spaceball
 rest 0x18
 rest 0x30 * 4	
@@ -510,14 +510,17 @@ rest 1
 goto 0x778
 label 0x779
 
-0x83<1> 
-0xBB 
+0x83<1>
+0xBB
 if 0
-	0xBC 
-endif 
+	0xBC
+endif
 sub 7
-0xBD 
+0xBD
 0x8C<2> 5
+
+0x61 0, u"MaskedDedede"
+rest 0xC
 
 set_sfx 1, u"GROUP_AGB_BATTER"
 rest 0xC	
@@ -527,8 +530,6 @@ set_sfx 3, u"GROUP_OTTOSEI"
 rest 0xC	
 set_sfx 4, u"GROUP_AGB_HOPPING"
 rest 0xC
-set_sfx 5, u"MUSIC_MASKED_DEDEDE"
-rest 0xC	
 sub 3
 0x83 0
 

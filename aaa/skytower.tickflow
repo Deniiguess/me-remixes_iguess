@@ -17,8 +17,7 @@
 prologueId=0x67
 epilogueId=0x50
 
-tempoId=0x10001A8
-tempoId=0x10001A8
+tempoId=0x1000065
 
 gameplay:
 
@@ -26,7 +25,7 @@ call changeEngine
 engine 8
 sub 4
 0x29<2> 
-call tempoAndMusicGrp
+call tempoAndMusic
 if 69
 		rest 6
 	else
@@ -817,14 +816,29 @@ rest 1
 goto 0x778
 label 0x779
 
-0x83<1> 
-0xBB 
+0x83<1>
+0xBB
 if 0
-	0xBC 
-endif 
+	0xBC
+endif
 sub 7
-0xBD 
+0xBD
 0x8C<2> 5
+
+random 4
+switch
+	case 0
+	case 1
+	case 2
+		0x61 0, u"SkyTower"
+		rest 0xC
+		break
+	case 3
+		0x61 0, u"SkyTowerBeta"
+		rest 0xC
+		break
+	endswitch
+
 
 set_sfx 1, u"GROUP_AGB_RABBIT"
 rest 0xC	
@@ -833,25 +847,6 @@ rest 0xC
 set_sfx 3, u"GROUP_BATTING"
 rest 0xC	
 set_sfx 4, u"GROUP_NTR_SHUGYO"
-rest 0xC
-random 4
-switch
-	case 0
-		set_condvar 69
-		set_sfx 5, u"MUSIC_SKY_TOWER"
-		break
-	case 1
-		set_condvar 69
-		set_sfx 5, u"MUSIC_SKY_TOWER"
-		break
-	case 2
-		set_condvar 69
-		set_sfx 5, u"MUSIC_SKY_TOWER"
-		break
-	case 3
-		set_sfx 5, u"MUSIC_SKY_TOWER_BETA"
-		break
-	endswitch
 rest 0xC
 sub 3
 0x83 0

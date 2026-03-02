@@ -14,7 +14,7 @@
 prologueId=0x62
 epilogueId=0x20
 
-tempoId=0x1000224
+tempoId=0x10000BC
 
 gameplay:
 
@@ -22,12 +22,11 @@ call changeEngine
 engine 0xC
 sub 4
 0x29<2> 
-call tempoAndMusicGrp
+call tempoAndMusic
 async_call taptrial
 rest 0x30 * 4	
 rest 0x30 * 2
 rest 0x18
-rest 6
 rest 0x20	
 
 call changeEngine
@@ -291,7 +290,6 @@ taptrial:
 	async_sub 0x53
 	async_sub 0x54
 	async_sub 0x55
-rest 6
 sub 0x56
 sub 0x57
 sub 0x56
@@ -656,6 +654,18 @@ rest 1
 goto 0x492
 label 0x3333
 
+0x83<1>
+0xBB
+if 0
+	0xBC
+endif
+sub 7
+0xBD
+0x8C<2> 5
+
+0x61 0, u"CidsTestCourse"
+rest 0xC
+
 set_sfx 1, u"GROUP_AGB_TAP"
 rest 0xC	
 set_sfx 2, u"GROUP_AGB_PATI"
@@ -664,8 +674,6 @@ set_sfx 3, u"GROUP_KURU_SHOW"
 rest 0xC	
 set_sfx 4, u"GROUP_KARATE"
 rest 0xC
-set_sfx 5, u"MUSIC_CIDS_TEST_COURSE"
-rest 0xC	
 sub 3
 0x83 0
 
@@ -779,6 +787,8 @@ tempoAndMusic:
 	if 1
 		0x88<5> 
 	endif 
+	async_call cowbell
+	rest 0x60
 	0x51 1
 	0x63 tempoId
 return 
@@ -801,6 +811,7 @@ tempoAndMusicGrp:
 return
 
 cowbell:
+rest 3
 play_sfx 0x1000291
 rest 0x30
 play_sfx 0x1000291

@@ -13,7 +13,7 @@
 prologueId=0x64
 epilogueId=0x64
 
-tempoId=0x100023D
+tempoId=0x10000D2
 
 gameplay:
 
@@ -21,10 +21,9 @@ call changeEngine
 engine 0
 sub 4
 0x29<2> 
-call tempoAndMusicGrp
+call tempoAndMusic
 async_call spaceball
 rest 0x30 * 2
-rest 3
 rest 0x20	
 
 call changeEngine
@@ -120,7 +119,6 @@ spaceball:
 	async_sub 0x53
 	async_sub 0x54
 	async_sub 0x55
-rest 3
 0x100 0x30, 0
 stop
 
@@ -364,14 +362,17 @@ rest 1
 goto 0xFFF
 label 0x4444
 
-0x83<1> 
-0xBB 
+0x83<1>
+0xBB
 if 0
-	0xBC 
-endif 
+	0xBC
+endif
 sub 7
-0xBD 
+0xBD
 0x8C<2> 5
+
+0x61 0, u"TunnelSceneN163"
+rest 0xC
 
 set_sfx 1, u"GROUP_AGB_BATTER"
 rest 0xC	
@@ -380,8 +381,6 @@ rest 0xC
 set_sfx 3, u"GROUP_MANJU"
 rest 0xC	
 set_sfx 4, u"GROUP_AGB_VIRUS"
-rest 0xC	
-set_sfx 5, u"MUSIC_TUNNEL_SCENE"
 rest 0xC	
 sub 3
 0x83 0
@@ -440,6 +439,8 @@ tempoAndMusic:
 	if 1
 		0x88<5> 
 	endif 
+	async_call cowbell
+	rest 0x30
 	0x51 1
 	0x63 tempoId
 return 
@@ -462,6 +463,7 @@ tempoAndMusicGrp:
 return
 
 cowbell:
+rest 6
 play_sfx 0x1000291
 rest 0x30
 play_sfx 0x1000291

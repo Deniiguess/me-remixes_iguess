@@ -13,7 +13,7 @@
 prologueId=0x66
 epilogueId=0x66
 
-tempoId=0x100023F
+tempoId=0x10000D4
 
 gameplay:
 
@@ -21,7 +21,7 @@ call changeEngine
 engine 5
 sub 4
 0x29<2>
-call tempoAndMusicGrp
+call tempoAndMusic
 async_call marcher
 rest 0x30 * 4	
 rest 0x30 * 4	
@@ -29,7 +29,6 @@ rest 0x30 * 4
 rest 0x30 * 4
 rest 0x30 * 4
 rest 0x30
-rest 3
 rest 0x20	
 
 call changeEngine
@@ -307,7 +306,6 @@ marcher:
 	0x8F 3
 	fade<1> 7, 1, 0x30
 	rest 0x30
-	rest 3
 	play_sfx 0x1000B95
 	rest 0x30
 	input 1
@@ -1181,14 +1179,17 @@ rest 1
 goto 0x695
 label 0x120
 
-0x83<1> 
-0xBB 
+0x83<1>
+0xBB
 if 0
-	0xBC 
-endif 
+	0xBC
+endif
 sub 7
-0xBD 
-0x8C<2> 5	
+0xBD
+0x8C<2> 5
+
+0x61 0, u"Remix8GBA"
+rest 0xC
 
 set_sfx 1, u"GROUP_AGB_MARCH_RABBIT_EN"
 rest 0xC	
@@ -1197,9 +1198,7 @@ rest 0xC
 set_sfx 3, u"GROUP_AGB_TAP"
 rest 0xC	
 set_sfx 4, u"GROUP_IAI_NEW"
-rest 0xC	
-set_sfx 5, u"MUSIC_GBA_REMIX_8"
-rest 0xC	
+rest 0xC
 set_sfx 6, u"GROUP_AGB_MARCH_RABBIT_JP"
 rest 0xC	
 sub 3
