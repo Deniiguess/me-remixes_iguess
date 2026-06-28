@@ -188,6 +188,12 @@ rest 0x30
 async_call comboBarel
 stop
 
+comboSeniorNoCheck:
+0x100 3
+rest 0x30
+async_call comboBarel
+stop
+
 rockCheck:
 0x102 
 rest 0xC0
